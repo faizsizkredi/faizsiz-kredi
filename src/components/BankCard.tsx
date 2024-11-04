@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { ReactNode } from "react";
 
 interface BankCardProps {
   name: string;
-  logo: string;
+  icon: ReactNode;
   specialOffer: string;
   interestRate: string;
   term: string;
   amount: string;
   details: string[];
+  promotionScore?: number;
 }
 
 const BankCard = ({
   name,
-  logo,
+  icon,
   specialOffer,
   interestRate,
   term,
@@ -27,7 +29,9 @@ const BankCard = ({
       <div className="p-6 bg-white">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <img src={logo} alt={name} className="w-24 h-12 object-contain" />
+            <div className="w-24 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
+              {icon}
+            </div>
             <div>
               <h3 className="text-xl font-semibold">{name}</h3>
               <p className="text-sm text-gray-600">{specialOffer}</p>
@@ -37,7 +41,7 @@ const BankCard = ({
             onClick={() => window.open("#", "_blank")}
             className="bg-secondary hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors"
           >
-            Müşteri ol →
+            Başvur →
           </button>
         </div>
 
