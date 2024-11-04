@@ -2,6 +2,8 @@ import { useState } from "react";
 import FilterTabs from "../components/FilterTabs";
 import BankCard from "../components/BankCard";
 import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgePercent, CreditCard, PiggyBank, Banknote, DollarSign } from "lucide-react";
+import { useInterestRates } from "../utils/api";
+import { useToast } from "@/components/ui/use-toast";
 
 const BANK_DATA = [
   {
@@ -138,17 +140,39 @@ const BANK_DATA = [
 
 const Index = () => {
   const [sortOption, setSortOption] = useState<"recommended" | "promotion" | "bank">("recommended");
+  const { data: interestRates, isError } = useInterestRates();
+  const { toast } = useToast();
 
   const getSortedBanks = () => {
+    let updatedBankData = [...BANK_DATA].map(bank => {
+      const apiRate = interestRates?.find(rate => 
+        rate.bank.toLowerCase().includes(bank.name.toLowerCase())
+      );
+      
+      return {
+        ...bank,
+        interestRate: apiRate ? apiRate.rate : bank.interestRate,
+        lastUpdate: apiRate?.lastupdate
+      };
+    });
+
     switch (sortOption) {
       case "promotion":
-        return [...BANK_DATA].sort((a, b) => b.promotionScore - a.promotionScore);
+        return updatedBankData.sort((a, b) => b.promotionScore - a.promotionScore);
       case "bank":
-        return [...BANK_DATA].sort((a, b) => a.name.localeCompare(b.name));
+        return updatedBankData.sort((a, b) => a.name.localeCompare(b.name));
       default:
-        return BANK_DATA;
+        return updatedBankData;
     }
   };
+
+  if (isError) {
+    toast({
+      title: "Hata",
+      description: "Faiz oranları güncellenirken bir hata oluştu.",
+      variant: "destructive",
+    });
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

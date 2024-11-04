@@ -11,6 +11,7 @@ interface BankCardProps {
   amount: string;
   details: string[];
   promotionScore?: number;
+  lastUpdate?: string;
 }
 
 const BankCard = ({
@@ -21,6 +22,7 @@ const BankCard = ({
   term,
   amount,
   details,
+  lastUpdate,
 }: BankCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -35,6 +37,9 @@ const BankCard = ({
             <div>
               <h3 className="text-xl font-semibold">{name}</h3>
               <p className="text-sm text-gray-600">{specialOffer}</p>
+              {lastUpdate && (
+                <p className="text-xs text-gray-400">Son güncelleme: {lastUpdate}</p>
+              )}
             </div>
           </div>
           <button
