@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import FilterTabs from "../components/FilterTabs";
 import BankCard from "../components/BankCard";
 import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgePercent, CreditCard, PiggyBank, Banknote, DollarSign } from "lucide-react";
@@ -143,7 +143,7 @@ const Index = () => {
   const { data: interestRates, isError } = useInterestRates();
   const { toast } = useToast();
 
-  const getSortedBanks = () => {
+  const getSortedBanks = useCallback(() => {
     let updatedBankData = [...BANK_DATA].map(bank => {
       const apiRate = interestRates?.find(rate => 
         rate.bank.toLowerCase().includes(bank.name.toLowerCase())
@@ -164,7 +164,7 @@ const Index = () => {
       default:
         return updatedBankData;
     }
-  };
+  }, [sortOption, interestRates]);
 
   if (isError) {
     toast({

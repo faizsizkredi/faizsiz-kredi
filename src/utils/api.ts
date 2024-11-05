@@ -6,27 +6,34 @@ interface InterestRate {
   lastupdate: string;
 }
 
-export const fetchInterestRates = async () => {
-  const response = await fetch('https://api.collectapi.com/economy/allCurrency', {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `apikey ${import.meta.env.VITE_COLLECT_API_KEY}`
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch currency rates');
-  }
-
-  const data = await response.json();
-  // Transform the data to match our expected format
-  const rates = data.result.map((item: any) => ({
-    bank: item.name || 'Unknown Bank',
-    rate: item.rate || '0%',
+// Mock data since we don't have API access
+const mockInterestRates: InterestRate[] = [
+  {
+    bank: "Ziraat Bankası",
+    rate: "1.89%",
     lastupdate: new Date().toLocaleDateString('tr-TR')
-  }));
-  
-  return rates as InterestRate[];
+  },
+  {
+    bank: "Vakıfbank",
+    rate: "1.92%",
+    lastupdate: new Date().toLocaleDateString('tr-TR')
+  },
+  {
+    bank: "Halkbank",
+    rate: "1.95%",
+    lastupdate: new Date().toLocaleDateString('tr-TR')
+  },
+  {
+    bank: "İş Bankası",
+    rate: "1.98%",
+    lastupdate: new Date().toLocaleDateString('tr-TR')
+  }
+];
+
+export const fetchInterestRates = async (): Promise<InterestRate[]> => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 500));
+  return mockInterestRates;
 };
 
 export const useInterestRates = () => {
