@@ -1,9 +1,22 @@
-import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgePercent, CreditCard, PiggyBank, Banknote, DollarSign } from "lucide-react";
+import { BankIconType } from "@/components/BankIcon";
 
-export const BANK_DATA = [
+interface BankData {
+  name: string;
+  iconType: BankIconType;
+  iconClass: string;
+  specialOffer: string;
+  interestRate: string;
+  term: string;
+  amount: string;
+  details: string[];
+  promotionScore: number;
+}
+
+export const BANK_DATA: BankData[] = [
   {
     name: "Ziraat Bankası",
-    icon: <Building className="w-8 h-8 text-green-600" />,
+    iconType: "ziraat",
+    iconClass: "w-8 h-8 text-green-600",
     specialOffer: "Yeni Müşterilere Özel!",
     interestRate: "%0",
     term: "6 Ay",
@@ -16,7 +29,8 @@ export const BANK_DATA = [
   },
   {
     name: "Vakıfbank",
-    icon: <Building2 className="w-8 h-8 text-green-700" />,
+    iconType: "vakif",
+    iconClass: "w-8 h-8 text-green-700",
     specialOffer: "Kamu Çalışanlarına Özel",
     interestRate: "%0",
     term: "12 Ay",
@@ -29,7 +43,8 @@ export const BANK_DATA = [
   },
   {
     name: "Halkbank",
-    icon: <Landmark className="w-8 h-8 text-blue-600" />,
+    iconType: "halk",
+    iconClass: "w-8 h-8 text-blue-600",
     specialOffer: "Esnafa Özel",
     interestRate: "%0",
     term: "9 Ay",
@@ -42,7 +57,8 @@ export const BANK_DATA = [
   },
   {
     name: "İş Bankası",
-    icon: <CircleDollarSign className="w-8 h-8 text-blue-700" />,
+    iconType: "is",
+    iconClass: "w-8 h-8 text-blue-700",
     specialOffer: "Maximum Kart Sahiplerine Özel",
     interestRate: "%0",
     term: "6 Ay",
@@ -55,7 +71,8 @@ export const BANK_DATA = [
   },
   {
     name: "Garanti BBVA",
-    icon: <Wallet className="w-8 h-8 text-teal-600" />,
+    iconType: "garanti",
+    iconClass: "w-8 h-8 text-teal-600",
     specialOffer: "Bonus Kart Sahiplerine Özel",
     interestRate: "%0",
     term: "8 Ay",
@@ -68,7 +85,8 @@ export const BANK_DATA = [
   },
   {
     name: "Yapı Kredi",
-    icon: <BadgePercent className="w-8 h-8 text-blue-800" />,
+    iconType: "yapikredi",
+    iconClass: "w-8 h-8 text-blue-800",
     specialOffer: "World Kart Sahiplerine Özel",
     interestRate: "%0",
     term: "10 Ay",
@@ -81,7 +99,8 @@ export const BANK_DATA = [
   },
   {
     name: "QNB Finansbank",
-    icon: <CreditCard className="w-8 h-8 text-purple-600" />,
+    iconType: "qnb",
+    iconClass: "w-8 h-8 text-purple-600",
     specialOffer: "CardFinans Sahiplerine Özel",
     interestRate: "%0",
     term: "7 Ay",
@@ -94,7 +113,8 @@ export const BANK_DATA = [
   },
   {
     name: "Denizbank",
-    icon: <PiggyBank className="w-8 h-8 text-cyan-600" />,
+    iconType: "deniz",
+    iconClass: "w-8 h-8 text-cyan-600",
     specialOffer: "Emeklilere Özel",
     interestRate: "%0",
     term: "12 Ay",
@@ -107,7 +127,8 @@ export const BANK_DATA = [
   },
   {
     name: "TEB",
-    icon: <Banknote className="w-8 h-8 text-orange-600" />,
+    iconType: "teb",
+    iconClass: "w-8 h-8 text-orange-600",
     specialOffer: "KOBI'lere Özel",
     interestRate: "%0",
     term: "6 Ay",
@@ -120,7 +141,8 @@ export const BANK_DATA = [
   },
   {
     name: "Akbank",
-    icon: <DollarSign className="w-8 h-8 text-red-600" />,
+    iconType: "akbank",
+    iconClass: "w-8 h-8 text-red-600",
     specialOffer: "Axess Sahiplerine Özel",
     interestRate: "%0",
     term: "9 Ay",
