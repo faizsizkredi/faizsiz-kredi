@@ -2,8 +2,9 @@ import { useState, useCallback } from "react";
 import FilterTabs from "../components/FilterTabs";
 import BankCard from "../components/BankCard";
 import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgePercent, CreditCard, PiggyBank, Banknote, DollarSign } from "lucide-react";
-import { useInterestRates } from "../utils/api";
+import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const BANK_DATA = [
   {
@@ -140,19 +141,30 @@ const BANK_DATA = [
 
 const Index = () => {
   const [sortOption, setSortOption] = useState<"recommended" | "promotion" | "bank">("recommended");
-  const { data: interestRates, isError } = useInterestRates();
   const { toast } = useToast();
+
+  const { data: interestRates, isError } = useQuery({
+    queryKey: ['interestRates'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('bank_interest_rates')
+        .select('*');
+      
+      if (error) throw error;
+      return data;
+    }
+  });
 
   const getSortedBanks = useCallback(() => {
     let updatedBankData = [...BANK_DATA].map(bank => {
       const apiRate = interestRates?.find(rate => 
-        rate.bank.toLowerCase().includes(bank.name.toLowerCase())
+        rate.bank_name.toLowerCase().includes(bank.name.toLowerCase())
       );
       
       return {
         ...bank,
-        interestRate: apiRate ? apiRate.rate : bank.interestRate,
-        lastUpdate: apiRate?.lastupdate
+        interestRate: apiRate ? apiRate.interest_rate : bank.interestRate,
+        lastUpdate: apiRate?.last_updated ? new Date(apiRate.last_updated).toLocaleString('tr-TR') : undefined
       };
     });
 
