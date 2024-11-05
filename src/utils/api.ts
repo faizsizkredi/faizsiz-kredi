@@ -7,7 +7,7 @@ interface InterestRate {
 }
 
 export const fetchInterestRates = async () => {
-  const response = await fetch('https://api.collectapi.com/economy/interestRates', {
+  const response = await fetch('https://api.collectapi.com/economy/allCurrency', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `apikey ${import.meta.env.VITE_COLLECT_API_KEY}`
@@ -15,11 +15,18 @@ export const fetchInterestRates = async () => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch interest rates');
+    throw new Error('Failed to fetch currency rates');
   }
 
   const data = await response.json();
-  return data.result as InterestRate[];
+  // Transform the data to match our expected format
+  const rates = data.result.map((item: any) => ({
+    bank: item.name || 'Unknown Bank',
+    rate: item.rate || '0%',
+    lastupdate: new Date().toLocaleDateString('tr-TR')
+  }));
+  
+  return rates as InterestRate[];
 };
 
 export const useInterestRates = () => {
