@@ -17,9 +17,9 @@ Deno.serve(async (req) => {
   }
 
   try {
-    console.log('Fetching interest rates from API...')
+    console.log('CollectAPI\'den faiz oranları alınıyor...')
     
-    const response = await fetch('https://api.collectapi.com/economy/creditInterest', {
+    const response = await fetch('https://api.collectapi.com/credit/interestRates', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `apikey ${COLLECT_API_KEY}`
@@ -27,43 +27,44 @@ Deno.serve(async (req) => {
     })
 
     if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`)
+      throw new Error(`API yanıt kodu: ${response.status}`)
     }
 
     const data = await response.json()
     
     if (!data.result || !Array.isArray(data.result)) {
-      throw new Error('Invalid API response format')
+      throw new Error('Geçersiz API yanıt formatı')
     }
 
-    console.log(`Received ${data.result.length} bank rates`)
+    console.log(`${data.result.length} banka oranı alındı`)
 
-    // Update rates in database
+    // Veritabanını güncelle
     for (const rate of data.result) {
       const { error } = await supabase
         .from('bank_interest_rates')
         .upsert({
-          bank_name: rate.bank,
+          bank_name: rate.bankName,
           interest_rate: rate.rate,
+          loan_type: rate.type,
           last_updated: new Date().toISOString()
         }, {
           onConflict: 'bank_name'
         })
 
       if (error) {
-        console.error(`Error updating ${rate.bank}:`, error)
+        console.error(`${rate.bankName} güncellenirken hata:`, error)
       }
     }
 
     return new Response(JSON.stringify({ 
       success: true, 
-      message: `Updated ${data.result.length} bank rates` 
+      message: `${data.result.length} banka oranı güncellendi` 
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
 
   } catch (error) {
-    console.error('Error:', error)
+    console.error('Hata:', error)
     return new Response(JSON.stringify({ 
       success: false, 
       error: error.message 
