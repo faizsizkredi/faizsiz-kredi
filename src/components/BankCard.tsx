@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface BankCardProps {
   name: string;
@@ -26,6 +27,18 @@ const BankCard = ({
 }: BankCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const getBankSlug = (bankName: string) => {
+    return bankName
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/ı/g, 'i')
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c');
+  };
+
   return (
     <div className="border rounded-lg overflow-hidden mb-4 transition-all hover:shadow-lg">
       <div className="p-6 bg-white">
@@ -35,7 +48,9 @@ const BankCard = ({
               {icon}
             </div>
             <div>
-              <h3 className="text-xl font-semibold">{name}</h3>
+              <Link to={`/bank/${getBankSlug(name)}`} className="text-xl font-semibold hover:text-primary transition-colors">
+                {name}
+              </Link>
               <p className="text-sm text-gray-600">{specialOffer}</p>
               {lastUpdate && (
                 <p className="text-xs text-gray-400">Son güncelleme: {lastUpdate}</p>
