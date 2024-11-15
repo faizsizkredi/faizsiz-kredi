@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgePercent, CreditCard, PiggyBank, Banknote, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 
 const BANK_ICONS = {
   "Ziraat Bankası": <Building className="w-8 h-8 text-green-600" />,
@@ -61,21 +59,6 @@ const BankDetail = () => {
   const { toast } = useToast();
   
   const bankData = BANK_DATA[bankSlug as keyof typeof BANK_DATA];
-
-  const { data: interestRates, isLoading } = useQuery({
-    queryKey: ['interestRates', bankData?.name],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('bank_interest_rates')
-        .select('*')
-        .eq('bank_name', bankData?.name)
-        .single();
-      
-      if (error) throw error;
-      return data;
-    },
-    enabled: !!bankData?.name
-  });
   
   if (!bankData) {
     return (
@@ -102,23 +85,6 @@ const BankDetail = () => {
 
         <div className="prose max-w-none mb-8">
           <p className="text-gray-600">{bankData.description}</p>
-          {interestRates && (
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-              <h3 className="text-lg font-semibold text-blue-800">Güncel Faiz Oranları</h3>
-              <p className="text-blue-700">Faiz Oranı: {interestRates.interest_rate}</p>
-              {interestRates.loan_type && (
-                <p className="text-blue-700">Kredi Türü: {interestRates.loan_type}</p>
-              )}
-              <p className="text-sm text-blue-600">
-                Son Güncelleme: {new Date(interestRates.last_updated).toLocaleString('tr-TR')}
-              </p>
-            </div>
-          )}
-          {isLoading && (
-            <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-              <p className="text-gray-600">Faiz oranları yükleniyor...</p>
-            </div>
-          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">

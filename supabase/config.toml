@@ -1,4 +1,0 @@
-project_id = "aetpyrdcltqtukjdqqsw"
-
-[functions.update-interest-rates]
-verify_jwt = false

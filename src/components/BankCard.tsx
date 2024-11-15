@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { BankIcon } from "./BankIcon";
-import { BankIconType } from "./BankIcon";
 
 interface BankCardProps {
   name: string;
-  iconType: BankIconType;
-  iconClass: string;
+  icon: ReactNode;
   specialOffer: string;
   interestRate: string;
   term: string;
@@ -19,8 +17,7 @@ interface BankCardProps {
 
 const BankCard = ({
   name,
-  iconType,
-  iconClass,
+  icon,
   specialOffer,
   interestRate,
   term,
@@ -48,7 +45,7 @@ const BankCard = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-24 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
-              <BankIcon bank={iconType} className={iconClass} />
+              {icon}
             </div>
             <div>
               <Link to={`/bank/${getBankSlug(name)}`} className="text-xl font-semibold hover:text-primary transition-colors">
