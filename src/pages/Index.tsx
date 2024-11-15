@@ -12,6 +12,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+type SortOption = 
+  | "recommended" 
+  | "promotion" 
+  | "bank" 
+  | "risky" 
+  | "easiest" 
+  | "affordable" 
+  | "zeroInterest" 
+  | "newCustomer" 
+  | "retired";
+
 const BANK_DATA = [
   {
     name: "QNB",
@@ -139,7 +150,7 @@ const BANK_DATA = [
 ];
 
 const Index = () => {
-  const [sortOption, setSortOption] = useState<"recommended" | "promotion" | "bank">("recommended");
+  const [sortOption, setSortOption] = useState<SortOption>("recommended");
   const { data: interestRates, isError } = useInterestRates();
   const { toast } = useToast();
 
@@ -148,7 +159,7 @@ const Index = () => {
       const apiRate = interestRates?.find(rate => 
         rate.bank.toLowerCase().includes(bank.name.toLowerCase())
       );
-      
+
       return {
         ...bank,
         interestRate: apiRate ? apiRate.rate : bank.interestRate,
@@ -161,6 +172,13 @@ const Index = () => {
         return updatedBankData.sort((a, b) => b.promotionScore - a.promotionScore);
       case "bank":
         return updatedBankData.sort((a, b) => a.name.localeCompare(b.name));
+      case "risky":
+      case "easiest":
+      case "affordable":
+      case "zeroInterest":
+      case "newCustomer":
+      case "retired":
+        return updatedBankData; // Default case for now
       default:
         return updatedBankData;
     }
