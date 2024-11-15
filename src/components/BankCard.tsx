@@ -39,13 +39,15 @@ const BankCard = ({
       .replace(/ç/g, 'c');
   };
 
+  const IconComponent = icon as React.ElementType;
+
   return (
     <div className="border rounded-lg overflow-hidden mb-4 transition-all hover:shadow-lg">
       <div className="p-6 bg-white">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-24 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
-              {icon}
+              {typeof icon === 'function' ? <IconComponent className="w-8 h-8" /> : icon}
             </div>
             <div>
               <Link to={`/bank/${getBankSlug(name)}`} className="text-xl font-semibold hover:text-primary transition-colors">
