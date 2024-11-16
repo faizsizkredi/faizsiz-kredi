@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import BankHeader from "@/components/bank/BankHeader";
 import BankCalculator from "@/components/bank/BankCalculator";
 import BankProductGrid from "@/components/bank/BankProductGrid";
@@ -66,14 +67,14 @@ const BankDetail = () => {
   ];
 
   const relatedSearches = [
-    `${bankName?.toLowerCase()} faizsiz kredi 7500`,
-    `${bankName?.toLowerCase()} 5.000 tl faizsiz kredi`,
-    `${bankName?.toLowerCase()} 7500 tl faizsiz kredi`,
-    `${bankName?.toLowerCase()} faizsiz 20 bin`,
-    `${bankName?.toLowerCase()} 20 bin faizsiz kredi`,
-    `${bankName?.toLowerCase()} 20000 tl faizsiz kredi`,
-    `${bankName?.toLowerCase()} 5000 tl faizsiz kredi`,
-    `${bankName?.toLowerCase()} 7.500 tl faizsiz kredi`
+    { text: `${bankName?.toLowerCase()} faizsiz kredi 7500`, url: `${bankSlug}/7500-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 5.000 tl faizsiz kredi`, url: `${bankSlug}/5000-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 7500 tl faizsiz kredi`, url: `${bankSlug}/7500-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} faizsiz 20 bin`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 20 bin faizsiz kredi`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 20000 tl faizsiz kredi`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 5000 tl faizsiz kredi`, url: `${bankSlug}/5000-tl-faizsiz-kredi` },
+    { text: `${bankName?.toLowerCase()} 7.500 tl faizsiz kredi`, url: `${bankSlug}/7500-tl-faizsiz-kredi` }
   ];
 
   return (
@@ -105,13 +106,13 @@ const BankDetail = () => {
                 <h2 className="text-xl font-bold mb-4">İlgili Aramalar</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {relatedSearches.map((search, index) => (
-                    <a
+                    <Link
                       key={index}
-                      href={`#${search}`}
+                      to={`/bank/${search.url}`}
                       className="text-blue-600 hover:underline text-sm"
                     >
-                      {search}
-                    </a>
+                      {search.text}
+                    </Link>
                   ))}
                 </div>
               </CardContent>
