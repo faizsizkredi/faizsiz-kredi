@@ -13,6 +13,10 @@ import RetiredIndex from "./pages/retired/Index";
 import RiskyIndex from "./pages/risky/Index";
 import EasyIndex from "./pages/easiest/Index";
 import PromotionIndex from "./pages/promotion/Index";
+import AffordableIndex from "./pages/affordable/Index";
+import ZeroInterestIndex from "./pages/zeroInterest/Index";
+import BanksIndex from "./pages/banks/Index";
+import NewCustomerIndex from "./pages/newCustomer/Index";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,6 +44,10 @@ const App = () => {
                 <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
                 <Route path="/en-kolay-kredi" element={<EasyIndex />} />
                 <Route path="/promosyonlu-krediler" element={<PromotionIndex />} />
+                <Route path="/en-uygun-kredi" element={<AffordableIndex />} />
+                <Route path="/sifir-faizli-kredi" element={<ZeroInterestIndex />} />
+                <Route path="/tum-bankalar" element={<BanksIndex />} />
+                <Route path="/yeni-musteriye-kredi" element={<NewCustomerIndex />} />
               </Routes>
             </main>
             <Footer />
