@@ -17,6 +17,7 @@ import AffordableIndex from "./pages/affordable/Index";
 import ZeroInterestIndex from "./pages/zeroInterest/Index";
 import BanksIndex from "./pages/banks/Index";
 import NewCustomerIndex from "./pages/newCustomer/Index";
+import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,6 +41,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
+                <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
                 <Route path="/emekliye-faizsiz-kredi" element={<RetiredIndex />} />
                 <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
                 <Route path="/en-kolay-kredi" element={<EasyIndex />} />
