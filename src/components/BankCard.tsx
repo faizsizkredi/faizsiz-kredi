@@ -45,7 +45,7 @@ const BankCard = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-24 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
-              {icon}
+              {typeof icon === 'function' ? icon({}) : icon}
             </div>
             <div>
               <Link to={`/bank/${getBankSlug(name)}`} className="text-xl font-semibold hover:text-primary transition-colors">
