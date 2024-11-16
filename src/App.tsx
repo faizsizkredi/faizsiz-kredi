@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import BankDetail from "./pages/BankDetail";
 import RetiredIndex from "./pages/retired/Index";
+import RiskyIndex from "./pages/risky/Index";
+import EasyIndex from "./pages/easiest/Index";
+import PromotionIndex from "./pages/promotion/Index";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +37,9 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
                 <Route path="/emekliye-faizsiz-kredi" element={<RetiredIndex />} />
+                <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
+                <Route path="/en-kolay-kredi" element={<EasyIndex />} />
+                <Route path="/promosyonlu-krediler" element={<PromotionIndex />} />
               </Routes>
             </main>
             <Footer />
