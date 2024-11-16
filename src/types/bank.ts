@@ -10,4 +10,23 @@ export interface Bank {
   details: string[];
   promotionScore?: number;
   lastUpdate?: string;
+  products?: BankProduct[];
+  description?: string;
+}
+
+export interface BankProduct {
+  title: string;
+  interestRate: string;
+  minTerm: string;
+  maxTerm: string;
+  description?: string;
+  features?: string[];
+}
+
+export interface BankRate {
+  name: string;
+  productName: string;
+  interestRate: string;
+  minTerm: string;
+  maxTerm: string;
 }
