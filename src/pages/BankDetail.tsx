@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
 import BankHeader from "@/components/bank/BankHeader";
 import BankCalculator from "@/components/bank/BankCalculator";
 import BankProductGrid from "@/components/bank/BankProductGrid";
 import BankRatesTable from "@/components/bank/BankRatesTable";
-import { Card, CardContent } from "@/components/ui/card";
+import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const BankDetail = () => {
@@ -66,17 +65,6 @@ const BankDetail = () => {
     }
   ];
 
-  const relatedSearches = [
-    { text: `${bankName?.toLowerCase()} faizsiz kredi 7500`, url: `${bankSlug}/7500-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 5.000 tl faizsiz kredi`, url: `${bankSlug}/5000-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 7500 tl faizsiz kredi`, url: `${bankSlug}/7500-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} faizsiz 20 bin`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 20 bin faizsiz kredi`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 20000 tl faizsiz kredi`, url: `${bankSlug}/20000-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 5000 tl faizsiz kredi`, url: `${bankSlug}/5000-tl-faizsiz-kredi` },
-    { text: `${bankName?.toLowerCase()} 7.500 tl faizsiz kredi`, url: `${bankSlug}/7500-tl-faizsiz-kredi` }
-  ];
-
   return (
     <>
       <Helmet>
@@ -100,24 +88,7 @@ const BankDetail = () => {
           <h2 className="text-2xl font-bold mb-6">{bankName} Kredi Faiz Oranları</h2>
           <BankRatesTable rates={rates} />
 
-          <div className="mt-8">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4">İlgili Aramalar</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {relatedSearches.map((search, index) => (
-                    <Link
-                      key={index}
-                      to={`/bank/${search.url}`}
-                      className="text-blue-600 hover:underline text-sm"
-                    >
-                      {search.text}
-                    </Link>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          <BankLoanAmounts bankName={bankName || ""} bankSlug={bankSlug || ""} />
 
           <div className="mt-8">
             <Accordion type="single" collapsible>

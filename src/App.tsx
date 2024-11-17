@@ -17,10 +17,6 @@ import AffordableIndex from "./pages/affordable/Index";
 import ZeroInterestIndex from "./pages/zeroInterest/Index";
 import BanksIndex from "./pages/banks/Index";
 import NewCustomerIndex from "./pages/newCustomer/Index";
-import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
-import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
-import TenThousandLoan from "./pages/bank/qnb/TenThousandLoan";
-import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
 import IhtiyacKredisi from "./pages/IhtiyacKredisi";
 import KonutKredisi from "./pages/KonutKredisi";
 import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
@@ -49,10 +45,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
-                <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
-                <Route path="/bank/qnb/7500-tl-faizsiz-kredi" element={<SevenThousandFiveHundredLoan />} />
-                <Route path="/bank/qnb/10000-tl-faizsiz-kredi" element={<TenThousandLoan />} />
-                <Route path="/bank/qnb/20000-tl-faizsiz-kredi" element={<TwentyThousandLoan />} />
+                <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
                 <Route path="/emekliye-faizsiz-kredi" element={<RetiredIndex />} />
                 <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
                 <Route path="/en-kolay-kredi" element={<EasyIndex />} />
