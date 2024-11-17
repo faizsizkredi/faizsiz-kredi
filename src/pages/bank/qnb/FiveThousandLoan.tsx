@@ -21,7 +21,7 @@ const OTHER_BANKS: Bank[] = [
   {
     name: "CEPTETEB",
     icon: <Building className="w-8 h-8 text-green-600" />,
-    specialOffer: "Yeni Müşterilere Özel %0 Faizli Kredi",
+    specialOffer: "5.000 TL Faizsiz Kredi",
     interestRate: "%0",
     term: "6 Ay",
     amount: "5.000 TL",
