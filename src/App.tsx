@@ -21,6 +21,11 @@ import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
 import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
 import TenThousandLoan from "./pages/bank/qnb/TenThousandLoan";
 import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
+import IhtiyacKredisi from "./pages/IhtiyacKredisi";
+import KonutKredisi from "./pages/KonutKredisi";
+import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
+import TasitKredisi from "./pages/TasitKredisi";
+import KobiKredisi from "./pages/KobiKredisi";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,6 +61,11 @@ const App = () => {
                 <Route path="/sifir-faizli-kredi" element={<ZeroInterestIndex />} />
                 <Route path="/tum-bankalar" element={<BanksIndex />} />
                 <Route path="/yeni-musteriye-kredi" element={<NewCustomerIndex />} />
+                <Route path="/ihtiyac-kredisi" element={<IhtiyacKredisi />} />
+                <Route path="/konut-kredisi" element={<KonutKredisi />} />
+                <Route path="/kredi-faiz-hesaplama" element={<KrediFaizHesaplama />} />
+                <Route path="/tasit-kredisi" element={<TasitKredisi />} />
+                <Route path="/kobi-kredisi" element={<KobiKredisi />} />
               </Routes>
             </main>
             <Footer />
