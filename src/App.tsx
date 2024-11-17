@@ -23,6 +23,9 @@ import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
 import TasitKredisi from "./pages/TasitKredisi";
 import KobiKredisi from "./pages/KobiKredisi";
 import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
+import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
+import TenThousandLoan from "./pages/bank/qnb/TenThousandLoan";
+import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,20 +50,10 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
                 <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
+                <Route path="/bank/qnb/7500-tl-faizsiz-kredi" element={<SevenThousandFiveHundredLoan />} />
+                <Route path="/bank/qnb/10000-tl-faizsiz-kredi" element={<TenThousandLoan />} />
+                <Route path="/bank/qnb/20000-tl-faizsiz-kredi" element={<TwentyThousandLoan />} />
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/emekliye-faizsiz-kredi" element={<RetiredIndex />} />
-                <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
-                <Route path="/en-kolay-kredi" element={<EasyIndex />} />
-                <Route path="/promosyonlu-krediler" element={<PromotionIndex />} />
-                <Route path="/en-uygun-kredi" element={<AffordableIndex />} />
-                <Route path="/sifir-faizli-kredi" element={<ZeroInterestIndex />} />
-                <Route path="/tum-bankalar" element={<BanksIndex />} />
-                <Route path="/yeni-musteriye-kredi" element={<NewCustomerIndex />} />
-                <Route path="/ihtiyac-kredisi" element={<IhtiyacKredisi />} />
-                <Route path="/konut-kredisi" element={<KonutKredisi />} />
-                <Route path="/kredi-faiz-hesaplama" element={<KrediFaizHesaplama />} />
-                <Route path="/tasit-kredisi" element={<TasitKredisi />} />
-                <Route path="/kobi-kredisi" element={<KobiKredisi />} />
               </Routes>
             </main>
             <Footer />
