@@ -22,10 +22,16 @@ import KonutKredisi from "./pages/KonutKredisi";
 import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
 import TasitKredisi from "./pages/TasitKredisi";
 import KobiKredisi from "./pages/KobiKredisi";
+
+// QNB Pages
 import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
 import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
 import TenThousandLoan from "./pages/bank/qnb/TenThousandLoan";
 import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
+
+// VakıfBank Pages
+import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
+import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenThousandFiveHundredLoan";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,11 +55,34 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
+                
+                {/* QNB Routes */}
                 <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
                 <Route path="/bank/qnb/7500-tl-faizsiz-kredi" element={<SevenThousandFiveHundredLoan />} />
                 <Route path="/bank/qnb/10000-tl-faizsiz-kredi" element={<TenThousandLoan />} />
                 <Route path="/bank/qnb/20000-tl-faizsiz-kredi" element={<TwentyThousandLoan />} />
+                
+                {/* VakıfBank Routes */}
+                <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
+                <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
+                
+                {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
+                
+                {/* Other Routes */}
+                <Route path="/emekliye-faizsiz-kredi" element={<RetiredIndex />} />
+                <Route path="/riskli-musteriye-kredi" element={<RiskyIndex />} />
+                <Route path="/en-kolay-kredi" element={<EasyIndex />} />
+                <Route path="/promosyonlu-krediler" element={<PromotionIndex />} />
+                <Route path="/en-uygun-kredi" element={<AffordableIndex />} />
+                <Route path="/sifir-faizli-kredi" element={<ZeroInterestIndex />} />
+                <Route path="/tum-bankalar" element={<BanksIndex />} />
+                <Route path="/yeni-musteriye-kredi" element={<NewCustomerIndex />} />
+                <Route path="/ihtiyac-kredisi" element={<IhtiyacKredisi />} />
+                <Route path="/konut-kredisi" element={<KonutKredisi />} />
+                <Route path="/kredi-faiz-hesaplama" element={<KrediFaizHesaplama />} />
+                <Route path="/tasit-kredisi" element={<TasitKredisi />} />
+                <Route path="/kobi-kredisi" element={<KobiKredisi />} />
               </Routes>
             </main>
             <Footer />
