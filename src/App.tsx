@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import BankDetail from "./pages/BankDetail";
+
+// Import all pages
 import RetiredIndex from "./pages/retired/Index";
 import RiskyIndex from "./pages/risky/Index";
 import EasyIndex from "./pages/easiest/Index";
@@ -36,6 +38,8 @@ import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenT
 // Akbank Pages
 import AkbankIndex from "./pages/bank/akbank/Index";
 import AkbankFiveThousandLoan from "./pages/bank/akbank/FiveThousandLoan";
+import AkbankSevenThousandFiveHundredLoan from "./pages/bank/akbank/SevenThousandFiveHundredLoan";
+import AkbankTenThousandLoan from "./pages/bank/akbank/TenThousandLoan";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -73,6 +77,8 @@ const App = () => {
                 {/* Akbank Routes */}
                 <Route path="/bank/akbank" element={<AkbankIndex />} />
                 <Route path="/bank/akbank/5000-tl-faizsiz-kredi" element={<AkbankFiveThousandLoan />} />
+                <Route path="/bank/akbank/7500-tl-faizsiz-kredi" element={<AkbankSevenThousandFiveHundredLoan />} />
+                <Route path="/bank/akbank/10000-tl-faizsiz-kredi" element={<AkbankTenThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
