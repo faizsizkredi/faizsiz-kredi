@@ -18,6 +18,8 @@ const LOAN_AMOUNTS = [
 ];
 
 const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
+  console.log("Rendering BankLoanAmounts for:", bankName, bankSlug);
+  
   return (
     <Card className="mt-8">
       <CardContent className="p-6">
