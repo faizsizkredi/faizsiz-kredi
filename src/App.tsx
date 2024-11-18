@@ -10,19 +10,6 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import BankDetail from "./pages/BankDetail";
-import RetiredIndex from "./pages/retired/Index";
-import RiskyIndex from "./pages/risky/Index";
-import EasyIndex from "./pages/easiest/Index";
-import PromotionIndex from "./pages/promotion/Index";
-import AffordableIndex from "./pages/affordable/Index";
-import ZeroInterestIndex from "./pages/zeroInterest/Index";
-import BanksIndex from "./pages/banks/Index";
-import NewCustomerIndex from "./pages/newCustomer/Index";
-import IhtiyacKredisi from "./pages/IhtiyacKredisi";
-import KonutKredisi from "./pages/KonutKredisi";
-import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
-import TasitKredisi from "./pages/TasitKredisi";
-import KobiKredisi from "./pages/KobiKredisi";
 
 // QNB Pages
 import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
@@ -40,6 +27,24 @@ import YapiKrediSevenThousandFiveHundredLoan from "./pages/bank/yapikredi/SevenT
 import YapiKrediTenThousandLoan from "./pages/bank/yapikredi/TenThousandLoan";
 import YapikrediFifteenThousandLoan from "./pages/bank/yapikredi/FifteenThousandLoan";
 import YapikrediTwentyThousandLoan from "./pages/bank/yapikredi/TwentyThousandLoan";
+import YapikrediTwentyFiveThousandLoan from "./pages/bank/yapikredi/TwentyFiveThousandLoan";
+import YapikrediFiftyThousandLoan from "./pages/bank/yapikredi/FiftyThousandLoan";
+import YapikrediHundredThousandLoan from "./pages/bank/yapikredi/HundredThousandLoan";
+
+// Other Pages
+import RetiredIndex from "./pages/retired/Index";
+import RiskyIndex from "./pages/risky/Index";
+import EasyIndex from "./pages/easiest/Index";
+import PromotionIndex from "./pages/promotion/Index";
+import AffordableIndex from "./pages/affordable/Index";
+import ZeroInterestIndex from "./pages/zeroInterest/Index";
+import BanksIndex from "./pages/banks/Index";
+import NewCustomerIndex from "./pages/newCustomer/Index";
+import IhtiyacKredisi from "./pages/IhtiyacKredisi";
+import KonutKredisi from "./pages/KonutKredisi";
+import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
+import TasitKredisi from "./pages/TasitKredisi";
+import KobiKredisi from "./pages/KobiKredisi";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -80,6 +85,9 @@ const App = () => {
                 <Route path="/bank/yapi-kredi/10000-tl-faizsiz-kredi" element={<YapiKrediTenThousandLoan />} />
                 <Route path="/bank/yapi-kredi/15000-tl-faizsiz-kredi" element={<YapikrediFifteenThousandLoan />} />
                 <Route path="/bank/yapi-kredi/20000-tl-faizsiz-kredi" element={<YapikrediTwentyThousandLoan />} />
+                <Route path="/bank/yapi-kredi/25000-tl-faizsiz-kredi" element={<YapikrediTwentyFiveThousandLoan />} />
+                <Route path="/bank/yapi-kredi/50000-tl-faizsiz-kredi" element={<YapikrediFiftyThousandLoan />} />
+                <Route path="/bank/yapi-kredi/100000-tl-faizsiz-kredi" element={<YapikrediHundredThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
