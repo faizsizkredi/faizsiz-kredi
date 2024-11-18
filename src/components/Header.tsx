@@ -34,11 +34,6 @@ const Header = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/kredi-faiz-hesaplama" className="px-4 py-2 hover:text-primary">
-                  Kredi Faiz Hesaplama
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
                 <Link to="/tasit-kredisi" className="px-4 py-2 hover:text-primary">
                   Taşıt Kredisi
                 </Link>
@@ -46,6 +41,11 @@ const Header = () => {
               <NavigationMenuItem>
                 <Link to="/kobi-kredisi" className="px-4 py-2 hover:text-primary">
                   Kobi Kredisi
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/kredi-faiz-hesaplama" className="px-4 py-2 hover:text-primary">
+                  Kredi Faiz Hesaplama
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
