@@ -33,6 +33,10 @@ import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
 import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
 import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenThousandFiveHundredLoan";
 
+// Akbank Pages
+import AkbankIndex from "./pages/bank/akbank/Index";
+import AkbankFiveThousandLoan from "./pages/bank/akbank/FiveThousandLoan";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -65,6 +69,10 @@ const App = () => {
                 {/* VakıfBank Routes */}
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
                 <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
+
+                {/* Akbank Routes */}
+                <Route path="/bank/akbank" element={<AkbankIndex />} />
+                <Route path="/bank/akbank/5000-tl-faizsiz-kredi" element={<AkbankFiveThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
