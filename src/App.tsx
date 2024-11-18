@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -73,12 +74,12 @@ const App = () => {
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
                 <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
                 
-                {/* Yapı Kredi Routes */}
-                <Route path="/bank/yapikredi/5000-tl-faizsiz-kredi" element={<YapiKrediFiveThousandLoan />} />
-                <Route path="/bank/yapikredi/7500-tl-faizsiz-kredi" element={<YapiKrediSevenThousandFiveHundredLoan />} />
-                <Route path="/bank/yapikredi/10000-tl-faizsiz-kredi" element={<YapiKrediTenThousandLoan />} />
-                <Route path="/bank/yapikredi/15000-tl-faizsiz-kredi" element={<YapikrediFifteenThousandLoan />} />
-                <Route path="/bank/yapikredi/20000-tl-faizsiz-kredi" element={<YapikrediTwentyThousandLoan />} />
+                {/* Yapı Kredi Routes - Updated URLs */}
+                <Route path="/bank/yapi-kredi/5000-tl-faizsiz-kredi" element={<YapiKrediFiveThousandLoan />} />
+                <Route path="/bank/yapi-kredi/7500-tl-faizsiz-kredi" element={<YapiKrediSevenThousandFiveHundredLoan />} />
+                <Route path="/bank/yapi-kredi/10000-tl-faizsiz-kredi" element={<YapiKrediTenThousandLoan />} />
+                <Route path="/bank/yapi-kredi/15000-tl-faizsiz-kredi" element={<YapikrediFifteenThousandLoan />} />
+                <Route path="/bank/yapi-kredi/20000-tl-faizsiz-kredi" element={<YapikrediTwentyThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />

@@ -20,6 +20,9 @@ const LOAN_AMOUNTS = [
 const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
   console.log("Rendering BankLoanAmounts for:", bankName, bankSlug);
   
+  // Format the bank slug to handle special cases
+  const formattedBankSlug = bankSlug === "yapikredi" ? "yapi-kredi" : bankSlug;
+  
   return (
     <Card className="mt-8">
       <CardContent className="p-6">
@@ -28,7 +31,7 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
           {LOAN_AMOUNTS.map((loan) => (
             <Link
               key={loan.amount}
-              to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
+              to={`/bank/${formattedBankSlug}/${loan.amount}-tl-faizsiz-kredi`}
               className="text-blue-600 hover:underline"
             >
               {bankName} {loan.label} faizsiz kredi
