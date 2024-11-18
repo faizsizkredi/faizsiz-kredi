@@ -1,8 +1,5 @@
 import { Helmet } from "react-helmet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import LoanCalculator from "@/components/loan/LoanCalculator";
 import RecommendedLoans from "@/components/loan/RecommendedLoans";
 import PopularLoans from "@/components/loan/PopularLoans";
@@ -45,15 +42,6 @@ const IhtiyacKredisi = () => {
         </div>
 
         <RecommendedLoans />
-        
-        <div className="my-8">
-          <img 
-            src="/lovable-uploads/08cd47fe-70a3-4585-aafc-07d486301172.png" 
-            alt="Kredi Kampanyası" 
-            className="w-full rounded-lg"
-          />
-        </div>
-
         <LoanRatesTable />
         <PopularLoans />
       </div>
