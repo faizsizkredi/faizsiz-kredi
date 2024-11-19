@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Helmet } from "react-helmet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import LoanCalculator from "./LoanCalculator";
 import RecommendedLoans from "./RecommendedLoans";
 import PopularLoans from "./PopularLoans";
@@ -44,12 +44,6 @@ const LoanPageLayout = ({
 
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <Tabs defaultValue={activeTab}>
-            <TabsList className="mb-4">
-              <TabsTrigger value="ihtiyac">İhtiyaç</TabsTrigger>
-              <TabsTrigger value="konut">Konut</TabsTrigger>
-              <TabsTrigger value="tasit">Taşıt</TabsTrigger>
-              <TabsTrigger value="kobi">Kobi</TabsTrigger>
-            </TabsList>
             <TabsContent value={activeTab}>
               <LoanCalculator />
             </TabsContent>
