@@ -1,51 +1,31 @@
-import { Helmet } from "react-helmet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import LoanCalculator from "@/components/loan/LoanCalculator";
-import RecommendedLoans from "@/components/loan/RecommendedLoans";
-import PopularLoans from "@/components/loan/PopularLoans";
-import LoanRatesTable from "@/components/loan/LoanRatesTable";
 import { Banknote } from "lucide-react";
+import LoanPageLayout from "@/components/loan/LoanPageLayout";
 
 const IhtiyacKredisi = () => {
+  const faqs = [
+    {
+      question: "İhtiyaç kredisi başvurusu nasıl yapılır?",
+      answer: "İhtiyaç kredisi başvurusu için bankanın internet şubesi, mobil uygulaması veya şubelerini kullanabilirsiniz. Online başvuru için TC kimlik numaranız ve cep telefonu numaranız yeterlidir."
+    },
+    {
+      question: "İhtiyaç kredisi için gerekli belgeler nelerdir?",
+      answer: "Kimlik fotokopisi, gelir belgesi, ikametgah belgesi ve son 3 aylık banka hesap özeti genellikle istenen temel belgelerdir."
+    },
+    {
+      question: "Kredi notum düşükse ihtiyaç kredisi alabilir miyim?",
+      answer: "Kredi notunuz düşükse bazı bankalar size özel kampanyalar sunabilir. Ayrıca kefil veya ek gelir belgesi ile başvuru şansınızı artırabilirsiniz."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>İhtiyaç Kredisi 2024 | En Uygun İhtiyaç Kredisi Başvurusu</title>
-        <meta 
-          name="description" 
-          content="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar." 
-        />
-        <meta 
-          name="keywords" 
-          content="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi" 
-        />
-      </Helmet>
-
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-3 mb-8">
-          <Banknote className="w-8 h-8 text-primary" />
-          <h1 className="text-3xl font-bold">İhtiyaç Kredisi</h1>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <Tabs defaultValue="ihtiyac">
-            <TabsList className="mb-4">
-              <TabsTrigger value="ihtiyac">İhtiyaç</TabsTrigger>
-              <TabsTrigger value="konut">Konut</TabsTrigger>
-              <TabsTrigger value="tasit">Taşıt</TabsTrigger>
-              <TabsTrigger value="kobi">Kobi</TabsTrigger>
-            </TabsList>
-            <TabsContent value="ihtiyac">
-              <LoanCalculator />
-            </TabsContent>
-          </Tabs>
-        </div>
-
-        <RecommendedLoans />
-        <LoanRatesTable />
-        <PopularLoans />
-      </div>
-    </div>
+    <LoanPageLayout
+      title="İhtiyaç Kredisi"
+      description="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar."
+      keywords="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi"
+      icon={Banknote}
+      activeTab="ihtiyac"
+      faqs={faqs}
+    />
   );
 };
 

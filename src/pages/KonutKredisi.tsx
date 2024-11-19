@@ -1,51 +1,31 @@
-import { Helmet } from "react-helmet";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import LoanCalculator from "@/components/loan/LoanCalculator";
-import RecommendedLoans from "@/components/loan/RecommendedLoans";
-import PopularLoans from "@/components/loan/PopularLoans";
-import LoanRatesTable from "@/components/loan/LoanRatesTable";
 import { Home } from "lucide-react";
+import LoanPageLayout from "@/components/loan/LoanPageLayout";
 
 const KonutKredisi = () => {
+  const faqs = [
+    {
+      question: "Konut kredisi için ne kadar peşinat gerekiyor?",
+      answer: "Genellikle evin değerinin en az %20'si kadar peşinat gereklidir. Bazı özel kampanyalarda bu oran %10'a kadar düşebilmektedir."
+    },
+    {
+      question: "Konut kredisi vadesi ne kadar olabilir?",
+      answer: "Konut kredilerinde vade genellikle 120 aya kadar çıkabilmektedir. Bazı özel durumlarda 180 aya kadar vade imkanı sunan bankalar bulunmaktadır."
+    },
+    {
+      question: "Konut kredisi masrafları nelerdir?",
+      answer: "Ekspertiz ücreti, ipotek tesis ücreti, dosya masrafı ve hayat sigortası gibi masraflar bulunmaktadır. Bu masraflar bankadan bankaya değişiklik gösterebilir."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>Konut Kredisi 2024 | En Uygun Konut Kredisi Başvurusu</title>
-        <meta 
-          name="description" 
-          content="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar." 
-        />
-        <meta 
-          name="keywords" 
-          content="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu" 
-        />
-      </Helmet>
-
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-3 mb-8">
-          <Home className="w-8 h-8 text-primary" />
-          <h1 className="text-3xl font-bold">Konut Kredisi</h1>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <Tabs defaultValue="konut">
-            <TabsList className="mb-4">
-              <TabsTrigger value="ihtiyac">İhtiyaç</TabsTrigger>
-              <TabsTrigger value="konut">Konut</TabsTrigger>
-              <TabsTrigger value="tasit">Taşıt</TabsTrigger>
-              <TabsTrigger value="kobi">Kobi</TabsTrigger>
-            </TabsList>
-            <TabsContent value="konut">
-              <LoanCalculator />
-            </TabsContent>
-          </Tabs>
-        </div>
-
-        <RecommendedLoans />
-        <LoanRatesTable />
-        <PopularLoans />
-      </div>
-    </div>
+    <LoanPageLayout
+      title="Konut Kredisi"
+      description="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar."
+      keywords="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu"
+      icon={Home}
+      activeTab="konut"
+      faqs={faqs}
+    />
   );
 };
 
