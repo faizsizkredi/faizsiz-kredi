@@ -1,126 +1,79 @@
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
-import { Calculator } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
 
 const LoanCalculator = () => {
-  const [amount, setAmount] = useState("");
-  const [term, setTerm] = useState("");
-  const [rate, setRate] = useState("");
-  const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
-  const [totalPayment, setTotalPayment] = useState<number | null>(null);
-  const { toast } = useToast();
+  const [amount, setAmount] = useState<string>("");
+  const [term, setTerm] = useState<string>("");
+  const [rate, setRate] = useState<string>("");
+  const location = useLocation();
 
-  const calculateLoan = () => {
-    const principal = parseFloat(amount);
-    const monthlyRate = parseFloat(rate) / 100 / 12;
-    const numberOfPayments = parseInt(term);
-
-    if (!principal || !monthlyRate || !numberOfPayments) {
-      toast({
-        title: "Hata",
-        description: "Lütfen tüm alanları doldurun.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const monthly = (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
-                   (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-    
-    setMonthlyPayment(monthly);
-    setTotalPayment(monthly * numberOfPayments);
-
-    toast({
-      title: "Hesaplama Tamamlandı",
-      description: "Kredi hesaplaması başarıyla yapıldı."
-    });
-  };
+  const tabs = [
+    { name: "İhtiyaç", path: "/ihtiyac-kredisi" },
+    { name: "Konut", path: "/konut-kredisi" },
+    { name: "Taşıt", path: "/tasit-kredisi" },
+    { name: "Kobi", path: "/kobi-kredisi" },
+  ];
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Kredi Tutarı (TL)</label>
-          <Input 
-            type="number" 
-            placeholder="Örn: 100000"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-        </div>
-        
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Vade (Ay)</label>
-          <Select value={term} onValueChange={setTerm}>
-            <SelectTrigger>
-              <SelectValue placeholder="Vade seçin" />
-            </SelectTrigger>
-            <SelectContent>
-              {[12, 24, 36, 48, 60, 120].map((months) => (
-                <SelectItem key={months} value={months.toString()}>
-                  {months} Ay
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Faiz Oranı (%)</label>
-          <Input 
-            type="number" 
-            step="0.01"
-            placeholder="Örn: 1.99"
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          />
-        </div>
-
-        <div className="flex items-end">
-          <Button 
-            onClick={calculateLoan}
-            className="w-full bg-primary hover:bg-primary/90"
+    <div className="bg-white p-6 rounded-lg shadow-sm">
+      <div className="flex space-x-1 rounded-lg bg-gray-50 p-1 mb-6">
+        {tabs.map((tab) => (
+          <Link
+            key={tab.path}
+            to={tab.path}
+            className={cn(
+              "flex-1 rounded-lg px-3 py-2 text-sm font-medium text-center transition-colors",
+              location.pathname === tab.path
+                ? "bg-white text-primary shadow"
+                : "text-gray-600 hover:bg-white/50 hover:text-primary"
+            )}
           >
-            <Calculator className="w-4 h-4 mr-2" />
-            Hesapla
-          </Button>
-        </div>
+            {tab.name}
+          </Link>
+        ))}
       </div>
 
-      {monthlyPayment && totalPayment && (
-        <Card className="mt-6">
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Aylık Taksit</h3>
-                <p className="text-2xl font-bold text-primary">
-                  {monthlyPayment.toLocaleString('tr-TR', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2 
-                  })} TL
-                </p>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Toplam Geri Ödeme</h3>
-                <p className="text-2xl font-bold text-primary">
-                  {totalPayment.toLocaleString('tr-TR', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2 
-                  })} TL
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Kredi Tutarı (TL)
+          </label>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="w-full p-2 border rounded-md"
+            placeholder="Tutar giriniz"
+          />
+        </div>
 
-      <p className="text-sm text-gray-500 text-center">
-        * Hesaplamalar yaklaşık değerler içerir. Kesin kredi tutarı ve taksit bilgileri için bankanızla görüşün.
-      </p>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Vade (Ay)
+          </label>
+          <input
+            type="number"
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            className="w-full p-2 border rounded-md"
+            placeholder="Vade giriniz"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Faiz Oranı (%)
+          </label>
+          <input
+            type="number"
+            value={rate}
+            onChange={(e) => setRate(e.target.value)}
+            className="w-full p-2 border rounded-md"
+            placeholder="Faiz oranı giriniz"
+          />
+        </div>
+      </div>
     </div>
   );
 };
