@@ -1,5 +1,6 @@
 import { Car } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
+import LoanTypeTabs from "@/components/loan/LoanTypeTabs";
 
 const TasitKredisi = () => {
   const faqs = [
@@ -25,6 +26,7 @@ const TasitKredisi = () => {
       icon={Car}
       activeTab="tasit"
       faqs={faqs}
+      additionalContent={<LoanTypeTabs />}
     />
   );
 };

@@ -1,5 +1,6 @@
 import { Building2 } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
+import LoanTypeTabs from "@/components/loan/LoanTypeTabs";
 
 const KobiKredisi = () => {
   const faqs = [
@@ -25,6 +26,7 @@ const KobiKredisi = () => {
       icon={Building2}
       activeTab="kobi"
       faqs={faqs}
+      additionalContent={<LoanTypeTabs />}
     />
   );
 };

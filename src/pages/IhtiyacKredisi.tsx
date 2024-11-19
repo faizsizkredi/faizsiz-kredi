@@ -1,5 +1,6 @@
 import { Banknote } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
+import LoanTypeTabs from "@/components/loan/LoanTypeTabs";
 
 const IhtiyacKredisi = () => {
   const faqs = [
@@ -25,6 +26,7 @@ const IhtiyacKredisi = () => {
       icon={Banknote}
       activeTab="ihtiyac"
       faqs={faqs}
+      additionalContent={<LoanTypeTabs />}
     />
   );
 };
