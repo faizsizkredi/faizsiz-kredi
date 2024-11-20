@@ -1,6 +1,8 @@
 import { Car } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import LoanTypeTabs from "@/components/loan/LoanTypeTabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 
 const TasitKredisi = () => {
   const faqs = [
@@ -18,6 +20,14 @@ const TasitKredisi = () => {
     }
   ];
 
+  const documents = [
+    "Kimlik fotokopisi",
+    "Gelir belgesi",
+    "İkametgah belgesi",
+    "Araç ruhsatı",
+    "Kasko poliçesi"
+  ];
+
   return (
     <LoanPageLayout
       title="Taşıt Kredisi"
@@ -26,7 +36,37 @@ const TasitKredisi = () => {
       icon={Car}
       activeTab="tasit"
       faqs={faqs}
-      additionalContent={<LoanTypeTabs />}
+      additionalContent={
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
+                <ul className="space-y-2">
+                  {documents.map((document, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <Badge variant="secondary">{index + 1}</Badge>
+                      {document}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
+                <Alert>
+                  <AlertDescription>
+                    Taşıt kredisi kullanırken aracın yaşı ve değeri önemlidir. Kredi tutarı, aracın ekspertiz değerinin
+                    belirli bir oranını geçemez. Ayrıca, kredi süresince kasko yaptırmanız zorunludur.
+                  </AlertDescription>
+                </Alert>
+              </CardContent>
+            </Card>
+          </div>
+        </>
+      }
     />
   );
 };

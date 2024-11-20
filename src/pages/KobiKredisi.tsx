@@ -1,6 +1,8 @@
 import { Building2 } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import LoanTypeTabs from "@/components/loan/LoanTypeTabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 
 const KobiKredisi = () => {
   const faqs = [
@@ -18,6 +20,14 @@ const KobiKredisi = () => {
     }
   ];
 
+  const businessDocuments = [
+    "Vergi levhası",
+    "Bilanço ve gelir tablosu",
+    "Ticaret sicil gazetesi",
+    "İmza sirküleri",
+    "Ortakların kimlik fotokopileri"
+  ];
+
   return (
     <LoanPageLayout
       title="KOBİ Kredisi"
@@ -26,7 +36,37 @@ const KobiKredisi = () => {
       icon={Building2}
       activeTab="kobi"
       faqs={faqs}
-      additionalContent={<LoanTypeTabs />}
+      additionalContent={
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
+                <ul className="space-y-2">
+                  {businessDocuments.map((document, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <Badge variant="secondary">{index + 1}</Badge>
+                      {document}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
+                <Alert>
+                  <AlertDescription>
+                    KOBİ kredisi başvurusunda işletmenizin finansal durumu ve geçmiş performansı önemlidir. 
+                    Başvuru öncesi tüm mali tablolarınızı ve belgelerinizi hazır bulundurmanız süreci hızlandıracaktır.
+                  </AlertDescription>
+                </Alert>
+              </CardContent>
+            </Card>
+          </div>
+        </>
+      }
     />
   );
 };
