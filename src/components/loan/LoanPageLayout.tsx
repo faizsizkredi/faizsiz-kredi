@@ -6,7 +6,6 @@ import RecommendedLoans from "./RecommendedLoans";
 import PopularLoans from "./PopularLoans";
 import LoanRatesTable from "./LoanRatesTable";
 import { LucideIcon } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface LoanPageLayoutProps {
@@ -64,32 +63,6 @@ const LoanPageLayout = ({
           <RecommendedLoans />
 
           <LoanRatesTable />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4">Başvuru Şartları</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  <li>18 yaşını doldurmuş olmak</li>
-                  <li>T.C. vatandaşı olmak</li>
-                  <li>Düzenli gelir sahibi olmak</li>
-                  <li>Son 6 aydır aynı işyerinde çalışıyor olmak</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4">Gerekli Belgeler</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  <li>Kimlik fotokopisi</li>
-                  <li>Gelir belgesi / Maaş bordrosu</li>
-                  <li>İkametgah belgesi</li>
-                  <li>Son 3 aylık banka hesap özeti</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
 
           <PopularLoans />
 
