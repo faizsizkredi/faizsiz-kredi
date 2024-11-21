@@ -1,9 +1,11 @@
 import { Building2 } from "lucide-react";
-import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Helmet } from "react-helmet";
+import RecommendedLoans from "@/components/loan/RecommendedLoans";
+import LoanRatesTable from "@/components/loan/LoanRatesTable";
+import PopularLoans from "@/components/loan/PopularLoans";
 
 const KobiKredisi = () => {
   const faqs = [
@@ -21,15 +23,6 @@ const KobiKredisi = () => {
     }
   ];
 
-  const businessDocuments = [
-    "Vergi levhası",
-    "Bilanço ve gelir tablosu",
-    "Ticaret sicil gazetesi",
-    "İmza sirküleri",
-    "Ortakların kimlik fotokopileri"
-  ];
-
-  // JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -38,11 +31,6 @@ const KobiKredisi = () => {
     "provider": {
       "@type": "FinancialService",
       "name": "Kredi Karşılaştırma Platformu"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "offerCount": "10+",
-      "availability": "https://schema.org/InStock"
     }
   };
 
@@ -57,45 +45,67 @@ const KobiKredisi = () => {
           {JSON.stringify(jsonLd)}
         </script>
       </Helmet>
-      <LoanPageLayout
-        title="KOBİ Kredisi"
-        description="2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun KOBİ kredisi veren bankalar."
-        keywords="KOBİ kredisi, işletme kredisi, esnaf kredisi, kredi hesaplama, kredi başvurusu"
-        icon={Building2}
-        activeTab="kobi"
-        faqs={faqs}
-        additionalContent={
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+      <div className="min-h-screen bg-gray-50">
+        <main className="container mx-auto px-4 py-8">
+          <div className="grid gap-8">
+            <header className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="w-8 h-8 text-primary" />
+                <h1 className="text-3xl font-bold">KOBİ Kredisi</h1>
+              </div>
+              <p className="text-gray-600 max-w-3xl">
+                2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları.
+              </p>
+            </header>
+
+            <RecommendedLoans />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
-                  <ul className="space-y-2">
-                    {businessDocuments.map((document, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <Badge variant="secondary">{index + 1}</Badge>
-                        {document}
-                      </li>
-                    ))}
+                  <h2 className="text-xl font-bold mb-4">Başvuru Şartları</h2>
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>En az 1 yıllık faaliyet geçmişi</li>
+                    <li>Vergi borcu bulunmaması</li>
+                    <li>Düzenli gelir beyanı</li>
+                    <li>KOBİ statüsünde olmak</li>
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
-                  <Alert>
-                    <AlertDescription>
-                      KOBİ kredisi başvurusunda işletmenizin finansal durumu ve geçmiş performansı önemlidir. 
-                      Başvuru öncesi tüm mali tablolarınızı ve belgelerinizi hazır bulundurmanız süreci hızlandıracaktır.
-                    </AlertDescription>
-                  </Alert>
+                  <h2 className="text-xl font-bold mb-4">Gerekli Belgeler</h2>
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Vergi levhası</li>
+                    <li>Bilanço ve gelir tablosu</li>
+                    <li>Ticaret sicil gazetesi</li>
+                    <li>İmza sirküleri</li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
-          </>
-        }
-      />
+
+            <LoanRatesTable />
+            <PopularLoans />
+
+            <section className="mt-8">
+              <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
+              <div className="grid gap-4">
+                {faqs.map((faq, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold mb-2">{faq.question}</h3>
+                      <p className="text-gray-600">{faq.answer}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
     </>
   );
 };
