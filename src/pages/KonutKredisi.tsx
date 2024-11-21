@@ -1,11 +1,9 @@
 import { Home } from "lucide-react";
+import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Helmet } from "react-helmet";
-import RecommendedLoans from "@/components/loan/RecommendedLoans";
-import LoanRatesTable from "@/components/loan/LoanRatesTable";
-import PopularLoans from "@/components/loan/PopularLoans";
 
 const KonutKredisi = () => {
   const faqs = [
@@ -23,6 +21,15 @@ const KonutKredisi = () => {
     }
   ];
 
+  const requirements = [
+    "Kimlik fotokopisi",
+    "Gelir belgesi",
+    "İkametgah belgesi",
+    "Tapu fotokopisi",
+    "Ekspertiz raporu"
+  ];
+
+  // JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -31,6 +38,11 @@ const KonutKredisi = () => {
     "provider": {
       "@type": "FinancialService",
       "name": "Kredi Karşılaştırma Platformu"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "offerCount": "10+",
+      "availability": "https://schema.org/InStock"
     }
   };
 
@@ -45,67 +57,45 @@ const KonutKredisi = () => {
           {JSON.stringify(jsonLd)}
         </script>
       </Helmet>
-
-      <div className="min-h-screen bg-gray-50">
-        <main className="container mx-auto px-4 py-8">
-          <div className="grid gap-8">
-            <header className="mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <Home className="w-8 h-8 text-primary" />
-                <h1 className="text-3xl font-bold">Konut Kredisi</h1>
-              </div>
-              <p className="text-gray-600 max-w-3xl">
-                2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları.
-              </p>
-            </header>
-
-            <RecommendedLoans />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <LoanPageLayout
+        title="Konut Kredisi"
+        description="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar."
+        keywords="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu"
+        icon={Home}
+        activeTab="konut"
+        faqs={faqs}
+        additionalContent={
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold mb-4">Başvuru Şartları</h2>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>18 yaşını doldurmuş olmak</li>
-                    <li>T.C. vatandaşı olmak</li>
-                    <li>Düzenli gelir sahibi olmak</li>
-                    <li>Kredi notu 1400 ve üzeri olmak</li>
+                  <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
+                  <ul className="space-y-2">
+                    {requirements.map((requirement, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Badge variant="secondary">{index + 1}</Badge>
+                        {requirement}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold mb-4">Gerekli Belgeler</h2>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>Kimlik fotokopisi</li>
-                    <li>Gelir belgesi</li>
-                    <li>Tapu fotokopisi</li>
-                    <li>Ekspertiz raporu</li>
-                  </ul>
+                  <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
+                  <Alert>
+                    <AlertDescription>
+                      Konut kredisi başvurusunda bulunmadan önce, alacağınız evin ekspertiz değerinin belirlenmesi ve 
+                      gerekli evrakların hazırlanması önemlidir. Ayrıca, farklı bankaların faiz oranlarını karşılaştırmanızı öneririz.
+                    </AlertDescription>
+                  </Alert>
                 </CardContent>
               </Card>
             </div>
-
-            <LoanRatesTable />
-            <PopularLoans />
-
-            <section className="mt-8">
-              <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
-              <div className="grid gap-4">
-                {faqs.map((faq, index) => (
-                  <Card key={index}>
-                    <CardContent className="p-6">
-                      <h3 className="font-semibold mb-2">{faq.question}</h3>
-                      <p className="text-gray-600">{faq.answer}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-          </div>
-        </main>
-      </div>
+          </>
+        }
+      />
     </>
   );
 };

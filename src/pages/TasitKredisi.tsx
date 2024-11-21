@@ -1,11 +1,9 @@
 import { Car } from "lucide-react";
+import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Helmet } from "react-helmet";
-import RecommendedLoans from "@/components/loan/RecommendedLoans";
-import LoanRatesTable from "@/components/loan/LoanRatesTable";
-import PopularLoans from "@/components/loan/PopularLoans";
 
 const TasitKredisi = () => {
   const faqs = [
@@ -23,6 +21,15 @@ const TasitKredisi = () => {
     }
   ];
 
+  const documents = [
+    "Kimlik fotokopisi",
+    "Gelir belgesi",
+    "İkametgah belgesi",
+    "Araç ruhsatı",
+    "Kasko poliçesi"
+  ];
+
+  // JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -31,6 +38,11 @@ const TasitKredisi = () => {
     "provider": {
       "@type": "FinancialService",
       "name": "Kredi Karşılaştırma Platformu"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "offerCount": "10+",
+      "availability": "https://schema.org/InStock"
     }
   };
 
@@ -45,67 +57,45 @@ const TasitKredisi = () => {
           {JSON.stringify(jsonLd)}
         </script>
       </Helmet>
-
-      <div className="min-h-screen bg-gray-50">
-        <main className="container mx-auto px-4 py-8">
-          <div className="grid gap-8">
-            <header className="mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <Car className="w-8 h-8 text-primary" />
-                <h1 className="text-3xl font-bold">Taşıt Kredisi</h1>
-              </div>
-              <p className="text-gray-600 max-w-3xl">
-                2024 yılı güncel taşıt kredisi kampanyaları, faiz oranları ve başvuru koşulları.
-              </p>
-            </header>
-
-            <RecommendedLoans />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <LoanPageLayout
+        title="Taşıt Kredisi"
+        description="2024 yılı güncel taşıt kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun taşıt kredisi veren bankalar."
+        keywords="taşıt kredisi, araba kredisi, araç kredisi, kredi hesaplama, kredi başvurusu"
+        icon={Car}
+        activeTab="tasit"
+        faqs={faqs}
+        additionalContent={
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold mb-4">Başvuru Şartları</h2>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>18 yaşını doldurmuş olmak</li>
-                    <li>T.C. vatandaşı olmak</li>
-                    <li>Düzenli gelir sahibi olmak</li>
-                    <li>Araç bedelinin %30'u kadar peşinat</li>
+                  <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
+                  <ul className="space-y-2">
+                    {documents.map((document, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Badge variant="secondary">{index + 1}</Badge>
+                        {document}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-bold mb-4">Gerekli Belgeler</h2>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
-                    <li>Kimlik fotokopisi</li>
-                    <li>Gelir belgesi</li>
-                    <li>Araç ruhsatı</li>
-                    <li>Kasko poliçesi</li>
-                  </ul>
+                  <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
+                  <Alert>
+                    <AlertDescription>
+                      Taşıt kredisi kullanırken aracın yaşı ve değeri önemlidir. Kredi tutarı, aracın ekspertiz değerinin
+                      belirli bir oranını geçemez. Ayrıca, kredi süresince kasko yaptırmanız zorunludur.
+                    </AlertDescription>
+                  </Alert>
                 </CardContent>
               </Card>
             </div>
-
-            <LoanRatesTable />
-            <PopularLoans />
-
-            <section className="mt-8">
-              <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
-              <div className="grid gap-4">
-                {faqs.map((faq, index) => (
-                  <Card key={index}>
-                    <CardContent className="p-6">
-                      <h3 className="font-semibold mb-2">{faq.question}</h3>
-                      <p className="text-gray-600">{faq.answer}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-          </div>
-        </main>
-      </div>
+          </>
+        }
+      />
     </>
   );
 };
