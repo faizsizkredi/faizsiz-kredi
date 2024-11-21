@@ -1,8 +1,5 @@
 import { Home } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import { Card, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
 import { Helmet } from "react-helmet";
 
 const KonutKredisi = () => {
@@ -19,14 +16,6 @@ const KonutKredisi = () => {
       question: "Konut kredisi masrafları nelerdir?",
       answer: "Ekspertiz ücreti, ipotek tesis ücreti, dosya masrafı ve hayat sigortası gibi masraflar bulunmaktadır. Bu masraflar bankadan bankaya değişiklik gösterebilir."
     }
-  ];
-
-  const requirements = [
-    "Kimlik fotokopisi",
-    "Gelir belgesi",
-    "İkametgah belgesi",
-    "Tapu fotokopisi",
-    "Ekspertiz raporu"
   ];
 
   // JSON-LD structured data for SEO
@@ -64,37 +53,6 @@ const KonutKredisi = () => {
         icon={Home}
         activeTab="konut"
         faqs={faqs}
-        additionalContent={
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Gerekli Belgeler</h3>
-                  <ul className="space-y-2">
-                    {requirements.map((requirement, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <Badge variant="secondary">{index + 1}</Badge>
-                        {requirement}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
-                  <Alert>
-                    <AlertDescription>
-                      Konut kredisi başvurusunda bulunmadan önce, alacağınız evin ekspertiz değerinin belirlenmesi ve 
-                      gerekli evrakların hazırlanması önemlidir. Ayrıca, farklı bankaların faiz oranlarını karşılaştırmanızı öneririz.
-                    </AlertDescription>
-                  </Alert>
-                </CardContent>
-              </Card>
-            </div>
-          </>
-        }
       />
     </>
   );
