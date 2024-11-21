@@ -3,6 +3,7 @@ import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
+import { Helmet } from "react-helmet";
 
 const IhtiyacKredisi = () => {
   const faqs = [
@@ -28,46 +29,74 @@ const IhtiyacKredisi = () => {
     "Anında sonuç"
   ];
 
-  return (
-    <LoanPageLayout
-      title="İhtiyaç Kredisi"
-      description="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar."
-      keywords="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi"
-      icon={Banknote}
-      activeTab="ihtiyac"
-      faqs={faqs}
-      additionalContent={
-        <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Avantajlar</h3>
-                <ul className="space-y-2">
-                  {advantages.map((advantage, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <Badge variant="secondary">{index + 1}</Badge>
-                      {advantage}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": "İhtiyaç Kredisi",
+    "description": "2024 yılı güncel ihtiyaç kredisi kampanyaları ve başvuru koşulları",
+    "provider": {
+      "@type": "FinancialService",
+      "name": "Kredi Karşılaştırma Platformu"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "offerCount": "10+",
+      "availability": "https://schema.org/InStock"
+    }
+  };
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
-                <Alert>
-                  <AlertDescription>
-                    İhtiyaç kredisi başvurunuzun olumlu sonuçlanması için düzenli gelir ve temiz bir kredi geçmişi önemlidir.
-                    Başvuru öncesi kredi notunuzu kontrol etmenizi öneririz.
-                  </AlertDescription>
-                </Alert>
-              </CardContent>
-            </Card>
-          </div>
-        </>
-      }
-    />
+  return (
+    <>
+      <Helmet>
+        <title>İhtiyaç Kredisi 2024 | En Uygun İhtiyaç Kredisi Başvurusu</title>
+        <meta name="description" content="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar." />
+        <meta name="keywords" content="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi" />
+        <link rel="canonical" href="https://yourwebsite.com/ihtiyac-kredisi" />
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Helmet>
+      <LoanPageLayout
+        title="İhtiyaç Kredisi"
+        description="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar."
+        keywords="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi"
+        icon={Banknote}
+        activeTab="ihtiyac"
+        faqs={faqs}
+        additionalContent={
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">Avantajlar</h3>
+                  <ul className="space-y-2">
+                    {advantages.map((advantage, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Badge variant="secondary">{index + 1}</Badge>
+                        {advantage}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">Önemli Bilgiler</h3>
+                  <Alert>
+                    <AlertDescription>
+                      İhtiyaç kredisi başvurunuzun olumlu sonuçlanması için düzenli gelir ve temiz bir kredi geçmişi önemlidir.
+                      Başvuru öncesi kredi notunuzu kontrol etmenizi öneririz.
+                    </AlertDescription>
+                  </Alert>
+                </CardContent>
+              </Card>
+            </div>
+          </>
+        }
+      />
+    </>
   );
 };
 
