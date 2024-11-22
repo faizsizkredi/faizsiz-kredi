@@ -1,24 +1,23 @@
-import { Building } from "lucide-react";
 import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 import BankRatesTable from "@/components/bank/BankRatesTable";
 
-const AkbankIndex = () => {
+const QNBIndex = () => {
   const rates = [
     {
-      name: "Akbank",
-      productName: "İhtiyaç Kredisi",
-      interestRate: "4.00",
+      name: "QNB",
+      productName: "İyi ki Tanışmışız Dedirten Kredi",
+      interestRate: "0.00",
       minTerm: "1",
-      maxTerm: "36"
+      maxTerm: "6"
     }
   ];
 
   return (
     <div className="container mx-auto px-4 py-8">
       <BankRatesTable rates={rates} />
-      <BankLoanAmounts bankName="Akbank" bankSlug="akbank" />
+      <BankLoanAmounts bankName="QNB" bankSlug="qnb" />
     </div>
   );
 };
 
-export default AkbankIndex;
+export default QNBIndex;
