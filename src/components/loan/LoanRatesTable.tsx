@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import { format } from "date-fns";
 import { tr } from "date-fns/locale";
 
@@ -10,70 +10,70 @@ const LoanRatesTable = () => {
   const rates = [
     {
       bank: "Akbank",
-      logo: "/bank-logos/akbank.png",
+      icon: <Building2 className="w-8 h-8 text-red-600" />,
       amount: "1.000 - 500.000 TL",
       term: "1 - 36 Ay",
-      rate: "%3.99"
+      rate: "%3,99"
     },
     {
       bank: "Alternatif Bank",
-      logo: "/bank-logos/abank.png",
+      icon: <Building className="w-8 h-8 text-purple-600" />,
       amount: "20.000 - 250.000 TL",
       term: "1 - 36 Ay",
       rate: "%0.00 - %4.39"
     },
     {
       bank: "Garanti BBVA",
-      logo: "/bank-logos/garanti.png",
+      icon: <Landmark className="w-8 h-8 text-green-700" />,
       amount: "5.000 - 300.000 TL",
       term: "1 - 48 Ay",
       rate: "%3.89"
     },
     {
       bank: "Yapı Kredi",
-      logo: "/bank-logos/yapikredi.png",
+      icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
       amount: "1.000 - 400.000 TL",
       term: "1 - 36 Ay",
       rate: "%4.09"
     },
     {
       bank: "İş Bankası",
-      logo: "/bank-logos/isbank.png",
+      icon: <Building2 className="w-8 h-8 text-purple-800" />,
       amount: "5.000 - 350.000 TL",
       term: "1 - 48 Ay",
       rate: "%3.95"
     },
     {
       bank: "Ziraat Bankası",
-      logo: "/bank-logos/ziraat.png",
+      icon: <Building className="w-8 h-8 text-green-600" />,
       amount: "1.000 - 450.000 TL",
       term: "1 - 36 Ay",
       rate: "%3.79"
     },
     {
       bank: "Halkbank",
-      logo: "/bank-logos/halkbank.png",
+      icon: <Landmark className="w-8 h-8 text-blue-600" />,
       amount: "5.000 - 250.000 TL",
       term: "1 - 36 Ay",
       rate: "%3.85"
     },
     {
       bank: "Vakıfbank",
-      logo: "/bank-logos/vakifbank.png",
+      icon: <Building2 className="w-8 h-8 text-blue-700" />,
       amount: "1.000 - 400.000 TL",
       term: "1 - 48 Ay",
       rate: "%3.89"
     },
     {
       bank: "QNB Finansbank",
-      logo: "/bank-logos/qnb.png",
+      icon: <Wallet className="w-8 h-8 text-purple-600" />,
       amount: "5.000 - 300.000 TL",
       term: "1 - 36 Ay",
       rate: "%4.15"
     },
     {
       bank: "TEB",
-      logo: "/bank-logos/teb.png",
+      icon: <CircleDollarSign className="w-8 h-8 text-blue-600" />,
       amount: "10.000 - 350.000 TL",
       term: "1 - 48 Ay",
       rate: "%4.25"
@@ -100,7 +100,7 @@ const LoanRatesTable = () => {
             <TableRow key={index}>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  <img src={rate.logo} alt={rate.bank} className="h-8" />
+                  {rate.icon}
                   <span>{rate.bank}</span>
                 </div>
               </TableCell>
