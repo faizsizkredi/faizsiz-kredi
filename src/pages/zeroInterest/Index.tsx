@@ -6,7 +6,7 @@ import { Bank } from "@/types/bank";
 const ZERO_INTEREST_BANKS: Bank[] = [
   {
     name: "Yapı Kredi",
-    icon: <Building className="w-8 h-8 text-blue-600" />,
+    icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
     specialOffer: "Sıfır Faiz Fırsatı!",
     interestRate: "%0",
     term: "6 Ay",
@@ -20,7 +20,7 @@ const ZERO_INTEREST_BANKS: Bank[] = [
   },
   {
     name: "Garanti BBVA",
-    icon: <Building2 className="w-8 h-8 text-green-600" />,
+    icon: <Landmark className="w-8 h-8 text-green-700" />,
     specialOffer: "Faizsiz Kredi!",
     interestRate: "%0",
     term: "3 Ay",
@@ -34,7 +34,7 @@ const ZERO_INTEREST_BANKS: Bank[] = [
   },
   {
     name: "QNB Finansbank",
-    icon: <Landmark className="w-8 h-8 text-purple-600" />,
+    icon: <Wallet className="w-8 h-8 text-purple-600" />,
     specialOffer: "Sıfır Faiz Kampanyası!",
     interestRate: "%0",
     term: "4 Ay",
@@ -48,7 +48,7 @@ const ZERO_INTEREST_BANKS: Bank[] = [
   },
   {
     name: "ING Bank",
-    icon: <CircleDollarSign className="w-8 h-8 text-orange-600" />,
+    icon: <Building className="w-8 h-8 text-orange-600" />,
     specialOffer: "Faizsiz İhtiyaç Kredisi!",
     interestRate: "%0",
     term: "3 Ay",
@@ -62,7 +62,7 @@ const ZERO_INTEREST_BANKS: Bank[] = [
   },
   {
     name: "HSBC",
-    icon: <Wallet className="w-8 h-8 text-red-600" />,
+    icon: <Building2 className="w-8 h-8 text-red-600" />,
     specialOffer: "Sıfır Faiz Avantajı!",
     interestRate: "%0",
     term: "6 Ay",

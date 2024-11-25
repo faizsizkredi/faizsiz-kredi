@@ -6,7 +6,7 @@ import { Bank } from "@/types/bank";
 const NEW_CUSTOMER_BANKS: Bank[] = [
   {
     name: "QNB Finansbank",
-    icon: <Building className="w-8 h-8 text-purple-600" />,
+    icon: <Wallet className="w-8 h-8 text-purple-600" />,
     specialOffer: "Yeni Müşteri Özel!",
     interestRate: "%0",
     term: "6 Ay",
@@ -34,7 +34,7 @@ const NEW_CUSTOMER_BANKS: Bank[] = [
   },
   {
     name: "ING Bank",
-    icon: <Landmark className="w-8 h-8 text-orange-600" />,
+    icon: <Building className="w-8 h-8 text-orange-600" />,
     specialOffer: "Hoş Geldin Kredisi!",
     interestRate: "%0",
     term: "4 Ay",
@@ -61,8 +61,8 @@ const NEW_CUSTOMER_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Enpara.com",
-    icon: <Wallet className="w-8 h-8 text-purple-600" />,
+    name: "Enpara",
+    icon: <Landmark className="w-8 h-8 text-purple-600" />,
     specialOffer: "Dijital Müşteri Özel!",
     interestRate: "%0",
     term: "6 Ay",

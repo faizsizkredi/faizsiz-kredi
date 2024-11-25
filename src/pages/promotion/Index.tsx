@@ -1,12 +1,12 @@
-import { Building, Wallet, BadgePercent, CreditCard, PiggyBank } from "lucide-react";
+import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 
 const PROMOTION_BANKS: Bank[] = [
   {
-    name: "Promosyon Bank",
-    icon: <CreditCard className="w-8 h-8 text-blue-600" />,
+    name: "Akbank",
+    icon: <Building2 className="w-8 h-8 text-red-600" />,
     specialOffer: "10.000 TL Nakit Hediye!",
     interestRate: "%2.45",
     term: "36 Ay",
@@ -19,8 +19,8 @@ const PROMOTION_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Hediye Bank",
-    icon: <Building className="w-8 h-8 text-green-600" />,
+    name: "Garanti BBVA",
+    icon: <Landmark className="w-8 h-8 text-green-700" />,
     specialOffer: "iPhone 15 Hediye!",
     interestRate: "%2.55",
     term: "24 Ay",
@@ -33,8 +33,8 @@ const PROMOTION_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Bonus Bank",
-    icon: <Wallet className="w-8 h-8 text-purple-600" />,
+    name: "Yapı Kredi",
+    icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
     specialOffer: "50.000 Bonus Puan!",
     interestRate: "%2.65",
     term: "48 Ay",
@@ -47,8 +47,8 @@ const PROMOTION_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Avantaj Bank",
-    icon: <BadgePercent className="w-8 h-8 text-red-600" />,
+    name: "İş Bankası",
+    icon: <Building2 className="w-8 h-8 text-purple-800" />,
     specialOffer: "Tatil Hediye!",
     interestRate: "%2.75",
     term: "36 Ay",
@@ -61,8 +61,8 @@ const PROMOTION_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Fırsat Bank",
-    icon: <PiggyBank className="w-8 h-8 text-orange-600" />,
+    name: "QNB Finansbank",
+    icon: <Wallet className="w-8 h-8 text-purple-600" />,
     specialOffer: "Altın Hediye!",
     interestRate: "%2.85",
     term: "24 Ay",

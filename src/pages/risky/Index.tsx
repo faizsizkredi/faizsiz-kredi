@@ -1,12 +1,12 @@
-import { Building, Wallet, BadgePercent, CreditCard, PiggyBank } from "lucide-react";
+import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 
 const RISKY_BANKS: Bank[] = [
   {
-    name: "Riskli Kredi Bank",
-    icon: <CreditCard className="w-8 h-8 text-blue-600" />,
+    name: "Akbank",
+    icon: <Building2 className="w-8 h-8 text-red-600" />,
     specialOffer: "Riskli Müşterilere Özel!",
     interestRate: "%2.89",
     term: "36 Ay",
@@ -19,8 +19,8 @@ const RISKY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Risk Dostu Bank",
-    icon: <Building className="w-8 h-8 text-green-600" />,
+    name: "Yapı Kredi",
+    icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
     specialOffer: "İkinci Şans Kredisi!",
     interestRate: "%2.95",
     term: "24 Ay",
@@ -33,7 +33,7 @@ const RISKY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Yeni Başlangıç Bank",
+    name: "QNB Finansbank",
     icon: <Wallet className="w-8 h-8 text-purple-600" />,
     specialOffer: "Temiz Sayfa Kredisi",
     interestRate: "%2.99",
@@ -47,8 +47,8 @@ const RISKY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "İkinci Şans Bank",
-    icon: <BadgePercent className="w-8 h-8 text-red-600" />,
+    name: "ING Bank",
+    icon: <Building className="w-8 h-8 text-orange-600" />,
     specialOffer: "Yeniden Başla Kredisi",
     interestRate: "%3.15",
     term: "36 Ay",
@@ -61,8 +61,8 @@ const RISKY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Fırsat Bank",
-    icon: <PiggyBank className="w-8 h-8 text-orange-600" />,
+    name: "Denizbank",
+    icon: <Landmark className="w-8 h-8 text-blue-600" />,
     specialOffer: "Yeni Fırsat Kredisi",
     interestRate: "%3.25",
     term: "24 Ay",

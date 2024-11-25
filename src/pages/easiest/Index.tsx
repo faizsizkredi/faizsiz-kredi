@@ -1,12 +1,12 @@
-import { Building, Wallet, BadgePercent, CreditCard, PiggyBank } from "lucide-react";
+import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 
 const EASY_BANKS: Bank[] = [
   {
-    name: "Kolay Kredi Bank",
-    icon: <CreditCard className="w-8 h-8 text-blue-600" />,
+    name: "Garanti BBVA",
+    icon: <Landmark className="w-8 h-8 text-green-700" />,
     specialOffer: "Anında Onay!",
     interestRate: "%2.45",
     term: "36 Ay",
@@ -19,8 +19,8 @@ const EASY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Hızlı Bank",
-    icon: <Building className="w-8 h-8 text-green-600" />,
+    name: "Yapı Kredi",
+    icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
     specialOffer: "SMS ile Başvuru!",
     interestRate: "%2.55",
     term: "24 Ay",
@@ -33,8 +33,8 @@ const EASY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Pratik Bank",
-    icon: <Wallet className="w-8 h-8 text-purple-600" />,
+    name: "İş Bankası",
+    icon: <Building2 className="w-8 h-8 text-purple-800" />,
     specialOffer: "E-Devlet ile Başvuru",
     interestRate: "%2.65",
     term: "48 Ay",
@@ -47,8 +47,8 @@ const EASY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Digital Bank",
-    icon: <BadgePercent className="w-8 h-8 text-red-600" />,
+    name: "CEPTETEB",
+    icon: <Building className="w-8 h-8 text-blue-600" />,
     specialOffer: "Mobil Onay!",
     interestRate: "%2.75",
     term: "36 Ay",
@@ -61,8 +61,8 @@ const EASY_BANKS: Bank[] = [
     lastUpdate: new Date().toLocaleDateString('tr-TR')
   },
   {
-    name: "Smart Bank",
-    icon: <PiggyBank className="w-8 h-8 text-orange-600" />,
+    name: "Enpara",
+    icon: <Wallet className="w-8 h-8 text-purple-600" />,
     specialOffer: "QR ile Başvuru",
     interestRate: "%2.85",
     term: "24 Ay",
