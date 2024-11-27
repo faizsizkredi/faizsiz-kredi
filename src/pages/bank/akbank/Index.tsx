@@ -6,6 +6,10 @@ import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 import BankRatesTable from "@/components/bank/BankRatesTable";
 
 const AkbankIndex = () => {
+  const currentYear = new Date().getFullYear();
+  const pageTitle = `Akbank Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları ve Kampanyalar`;
+  const pageDescription = `Akbank kredi başvurusu yapın! ${currentYear} yılına özel güncel Akbank kredi faiz oranları, hesaplama araçları, kredi kampanyaları ve avantajlı başvuru seçenekleri. Hemen başvurun, anında sonuç alın.`;
+
   const rates = [
     {
       name: "Akbank",
@@ -38,11 +42,16 @@ const AkbankIndex = () => {
   return (
     <>
       <Helmet>
-        <title>Akbank Kredi Başvurusu 2024 | Güncel Faiz Oranları</title>
-        <meta
-          name="description"
-          content="Akbank kredi başvurusu yapın! 2024 güncel Akbank kredi faiz oranları, hesaplama ve başvuru."
-        />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={`Akbank, kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
+        <link rel="canonical" href="https://yourwebsite.com/bank/akbank" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
