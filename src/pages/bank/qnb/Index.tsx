@@ -4,8 +4,8 @@ import BankRatesTable from "@/components/bank/BankRatesTable";
 
 const QNBIndex = () => {
   const currentYear = new Date().getFullYear();
-  const pageTitle = `QNB Finansbank Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları ve Kampanyalar`;
-  const pageDescription = `QNB Finansbank kredi başvurusu yapın! ${currentYear} yılına özel güncel QNB kredi faiz oranları, hesaplama araçları, kredi kampanyaları ve avantajlı başvuru seçenekleri. Hemen başvurun, anında sonuç alın.`;
+  const pageTitle = `QNB Finansbank Faizsiz Kredi Başvurusu ${currentYear} | %0 Faiz Oranı`;
+  const pageDescription = `QNB Finansbank faizsiz kredi başvurusu yapın! ${currentYear} yılına özel yeni müşterilere %0 faiz oranlı, 50.000 TL'ye varan faizsiz kredi fırsatı. Hemen başvurun, anında sonuç alın.`;
 
   const rates = [
     {
@@ -22,7 +22,7 @@ const QNBIndex = () => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={`QNB Finansbank, kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
+        <meta name="keywords" content={`QNB Finansbank, faizsiz kredi, sıfır faizli kredi, kredi başvurusu, yeni müşteri kredisi, ${currentYear}`} />
         <link rel="canonical" href="https://yourwebsite.com/bank/qnb" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
