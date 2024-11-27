@@ -19,6 +19,10 @@ const BankDetail = () => {
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ');
 
+  const currentYear = new Date().getFullYear();
+  const pageTitle = `${bankName} Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları ve Kampanyalar`;
+  const pageDescription = `${bankName} kredi başvurusu yapın! ${currentYear} yılına özel güncel ${bankName} kredi faiz oranları, hesaplama araçları, kredi kampanyaları ve avantajlı başvuru seçenekleri. Hemen başvurun, anında sonuç alın.`;
+
   const specialOffer = {
     code: "1054HK50",
     totalAmount: "50.000 TL",
@@ -59,11 +63,16 @@ const BankDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{`${bankName} Kredi Başvurusu 2024 | Güncel Faiz Oranları`}</title>
-        <meta
-          name="description"
-          content={`${bankName} kredi başvurusu yapın! 2024 güncel ${bankName} kredi faiz oranları, hesaplama ve başvuru.`}
-        />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={`${bankName}, kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
+        <link rel="canonical" href={`https://yourwebsite.com/bank/${bankSlug}`} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
