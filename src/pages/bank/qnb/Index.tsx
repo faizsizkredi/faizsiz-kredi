@@ -18,7 +18,7 @@ const QNBIndex = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <>
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
@@ -31,9 +31,15 @@ const QNBIndex = () => {
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
       </Helmet>
-      <BankRatesTable rates={rates} />
-      <BankLoanAmounts bankName="QNB" bankSlug="qnb" />
-    </div>
+
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-primary mb-6">{pageTitle}</h1>
+        <p className="text-gray-600 mb-8">{pageDescription}</p>
+        
+        <BankRatesTable rates={rates} />
+        <BankLoanAmounts bankName="QNB" bankSlug="qnb" />
+      </div>
+    </>
   );
 };
 
