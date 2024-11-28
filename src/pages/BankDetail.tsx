@@ -77,6 +77,18 @@ const BankDetail = () => {
 
       <div className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-8">
+          {/* SEO Title and Description */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              {bankName} Kredi Kampanyaları ve Başvuru {currentYear}
+            </h2>
+            <p className="text-lg text-gray-600">
+              {bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. 
+              Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun. 
+              {currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!
+            </p>
+          </div>
+
           {/* Special Offer Card */}
           <Card className="mb-8">
             <CardContent className="p-6">
