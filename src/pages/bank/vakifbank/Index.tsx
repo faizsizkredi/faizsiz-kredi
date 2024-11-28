@@ -7,10 +7,12 @@ const VakifbankIndex = () => {
   const bankName = "VakıfBank";
   const bankSlug = "vakifbank";
 
+  const pageTitle = `${bankName} Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>{bankName} Kredi Başvurusu {currentYear} | Güncel Faiz Oranları</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={`${bankName} kredi başvurusu yapın! ${currentYear} yılına özel güncel faiz oranları ve kredi kampanyaları.`} />
       </Helmet>
 
