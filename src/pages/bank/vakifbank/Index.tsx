@@ -1,38 +1,33 @@
 import { Helmet } from "react-helmet";
+import { Building } from "lucide-react";
 import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
-import BankRatesTable from "@/components/bank/BankRatesTable";
 
 const VakifbankIndex = () => {
   const currentYear = new Date().getFullYear();
-  const pageTitle = `VakıfBank Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları ve Kampanyalar`;
-  const pageDescription = `VakıfBank kredi başvurusu yapın! ${currentYear} yılına özel güncel VakıfBank kredi faiz oranları, hesaplama araçları, kredi kampanyaları ve avantajlı başvuru seçenekleri. Hemen başvurun, anında sonuç alın.`;
-
-  const rates = [
-    {
-      name: "Vakıfbank",
-      productName: "İhtiyaç Kredisi Kampanyası",
-      interestRate: "4.99",
-      minTerm: "3",
-      maxTerm: "12"
-    }
-  ];
+  const bankName = "VakıfBank";
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={`VakıfBank, kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
-        <link rel="canonical" href="https://yourwebsite.com/bank/vakifbank" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
+        <title>{bankName} Kredi Başvurusu {currentYear} | Güncel Faiz Oranları</title>
+        <meta name="description" content={`${bankName} kredi başvurusu yapın! ${currentYear} yılına özel güncel faiz oranları ve kredi kampanyaları.`} />
       </Helmet>
-      <BankRatesTable rates={rates} />
-      <BankLoanAmounts bankName="Vakıfbank" bankSlug="vakifbank" />
+
+      <div className="container mx-auto px-4 py-8">
+        {/* SEO Title and Description */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            {bankName} Kredi Kampanyaları ve Başvuru {currentYear}
+          </h2>
+          <p className="text-lg text-gray-600">
+            {bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. 
+            Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun. 
+            {currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!
+          </p>
+        </div>
+
+        <BankLoanAmounts bankName={bankName} />
+      </div>
     </div>
   );
 };
