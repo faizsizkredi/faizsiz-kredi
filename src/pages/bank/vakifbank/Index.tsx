@@ -5,6 +5,7 @@ import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 const VakifbankIndex = () => {
   const currentYear = new Date().getFullYear();
   const bankName = "VakıfBank";
+  const bankSlug = "vakifbank";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,7 +27,7 @@ const VakifbankIndex = () => {
           </p>
         </div>
 
-        <BankLoanAmounts bankName={bankName} />
+        <BankLoanAmounts bankName={bankName} bankSlug={bankSlug} />
       </div>
     </div>
   );

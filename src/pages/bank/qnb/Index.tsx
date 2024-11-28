@@ -5,6 +5,7 @@ import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 const QNBIndex = () => {
   const currentYear = new Date().getFullYear();
   const bankName = "QNB";
+  const bankSlug = "qnb";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,7 +27,7 @@ const QNBIndex = () => {
           </p>
         </div>
 
-        <BankLoanAmounts bankName={bankName} />
+        <BankLoanAmounts bankName={bankName} bankSlug={bankSlug} />
       </div>
     </div>
   );
