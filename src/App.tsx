@@ -35,10 +35,6 @@ import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
 import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
 import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenThousandFiveHundredLoan";
 
-// Garanti BBVA Pages
-import GarantiBbvaFiveThousandLoan from "./pages/bank/garantibbva/FiveThousandLoan";
-import GarantiBbvaSevenThousandFiveHundredLoan from "./pages/bank/garantibbva/SevenThousandFiveHundredLoan";
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -71,16 +67,6 @@ const App = () => {
                 {/* VakıfBank Routes */}
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
                 <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
-                
-                {/* Garanti BBVA Routes */}
-                <Route path="/bank/garantibbva/5000-tl-faizsiz-kredi" element={<GarantiBbvaFiveThousandLoan />} />
-                <Route path="/bank/garantibbva/7500-tl-faizsiz-kredi" element={<GarantiBbvaSevenThousandFiveHundredLoan />} />
-                <Route path="/bank/garantibbva/10000-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/bank/garantibbva/15000-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/bank/garantibbva/20000-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/bank/garantibbva/25000-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/bank/garantibbva/50000-tl-faizsiz-kredi" element={<BankDetail />} />
-                <Route path="/bank/garantibbva/100000-tl-faizsiz-kredi" element={<BankDetail />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
