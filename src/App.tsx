@@ -35,17 +35,6 @@ import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
 import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
 import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenThousandFiveHundredLoan";
 
-// Akbank Pages
-import AkbankIndex from "./pages/bank/akbank/Index";
-import AkbankFiveThousandLoan from "./pages/bank/akbank/FiveThousandLoan";
-import AkbankSevenThousandFiveHundredLoan from "./pages/bank/akbank/SevenThousandFiveHundredLoan";
-import AkbankTenThousandLoan from "./pages/bank/akbank/TenThousandLoan";
-import AkbankFifteenThousandLoan from "./pages/bank/akbank/FifteenThousandLoan";
-import AkbankTwentyThousandLoan from "./pages/bank/akbank/TwentyThousandLoan";
-import AkbankTwentyFiveThousandLoan from "./pages/bank/akbank/TwentyFiveThousandLoan";
-import AkbankFiftyThousandLoan from "./pages/bank/akbank/FiftyThousandLoan";
-import AkbankHundredThousandLoan from "./pages/bank/akbank/HundredThousandLoan";
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -78,17 +67,6 @@ const App = () => {
                 {/* VakıfBank Routes */}
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
                 <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
-
-                {/* Akbank Routes */}
-                <Route path="/bank/akbank" element={<AkbankIndex />} />
-                <Route path="/bank/akbank/5000-tl-faizsiz-kredi" element={<AkbankFiveThousandLoan />} />
-                <Route path="/bank/akbank/7500-tl-faizsiz-kredi" element={<AkbankSevenThousandFiveHundredLoan />} />
-                <Route path="/bank/akbank/10000-tl-faizsiz-kredi" element={<AkbankTenThousandLoan />} />
-                <Route path="/bank/akbank/15000-tl-faizsiz-kredi" element={<AkbankFifteenThousandLoan />} />
-                <Route path="/bank/akbank/20000-tl-faizsiz-kredi" element={<AkbankTwentyThousandLoan />} />
-                <Route path="/bank/akbank/25000-tl-faizsiz-kredi" element={<AkbankTwentyFiveThousandLoan />} />
-                <Route path="/bank/akbank/50000-tl-faizsiz-kredi" element={<AkbankFiftyThousandLoan />} />
-                <Route path="/bank/akbank/100000-tl-faizsiz-kredi" element={<AkbankHundredThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
