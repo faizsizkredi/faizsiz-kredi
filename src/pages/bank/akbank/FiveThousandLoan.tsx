@@ -31,6 +31,20 @@ const OTHER_BANKS: Bank[] = [
       "Anında başvuru sonucu"
     ],
     lastUpdate: new Date().toLocaleDateString('tr-TR')
+  },
+  {
+    name: "VakıfBank",
+    icon: <Building className="w-8 h-8 text-blue-600" />,
+    specialOffer: "Yeni Müşteri Kredisi",
+    interestRate: "%0",
+    term: "3 Ay",
+    amount: "5.000 TL",
+    details: [
+      "3 ay vade ile faizsiz kredi",
+      "Masrafsız bankacılık",
+      "Online başvuru imkanı"
+    ],
+    lastUpdate: new Date().toLocaleDateString('tr-TR')
   }
 ];
 
