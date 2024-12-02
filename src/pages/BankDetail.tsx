@@ -4,7 +4,6 @@ import { Building, Home, Car, Store, CreditCard, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const BankDetail = () => {
   const { bankSlug } = useParams();
@@ -24,32 +23,6 @@ const BankDetail = () => {
         <meta name="description" content={pageDescription} />
       </Helmet>
 
-      <header className="bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <a href="/" className="text-blue-600 font-semibold text-xl">Faizsiz Kredi</a>
-            <div className="flex items-center gap-4">
-              <Button variant="outline">Giriş Yap</Button>
-              <Button>Üye Ol</Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto px-4">
-          <Tabs defaultValue="ihtiyac" className="w-full">
-            <TabsList className="flex justify-start space-x-4 h-14">
-              <TabsTrigger value="ihtiyac">İhtiyaç Kredisi</TabsTrigger>
-              <TabsTrigger value="konut">Konut Kredisi</TabsTrigger>
-              <TabsTrigger value="tasit">Taşıt Kredisi</TabsTrigger>
-              <TabsTrigger value="kobi">Kobi Kredisi</TabsTrigger>
-              <TabsTrigger value="hesaplama">Kredi Faiz Hesaplama</TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-      </nav>
-
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4">{bankName} Kredi Kampanyaları ve Başvuru {currentYear}</h1>
         <p className="text-gray-600 mb-8">{pageDescription}</p>
@@ -68,28 +41,6 @@ const BankDetail = () => {
                 <Button className="bg-orange-500 hover:bg-orange-600">Müşteri Ol</Button>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* İhtiyaç Kredisi Detayları */}
-        <Card className="mb-8">
-          <CardContent className="p-6">
-            <h2 className="text-xl font-semibold mb-4">İhtiyaç Kredisi</h2>
-            <div className="grid grid-cols-3 gap-8 mb-4">
-              <div>
-                <div className="text-sm text-gray-500 mb-1">Faiz Oranı</div>
-                <div className="text-lg font-semibold">%3,99</div>
-              </div>
-              <div>
-                <div className="text-sm text-gray-500 mb-1">Aylık Taksit</div>
-                <div className="text-lg font-semibold">2.280,37 TL</div>
-              </div>
-              <div>
-                <div className="text-sm text-gray-500 mb-1">Toplam Ödeme</div>
-                <div className="text-lg font-semibold">27.479,44 TL</div>
-              </div>
-            </div>
-            <Button className="bg-orange-500 hover:bg-orange-600">Hemen Başvur</Button>
           </CardContent>
         </Card>
 
