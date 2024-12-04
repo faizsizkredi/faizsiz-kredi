@@ -3,24 +3,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const QnbIndex = () => {
+  const currentYear = new Date().getFullYear();
+  const bankName = "QNB";
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>QNB Kredi Kampanyaları ve Başvuru 2024</title>
+        <title>QNB Faizsiz Kredi Başvurusu - {currentYear}</title>
         <meta 
           name="description" 
-          content="QNB bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.2024 yılına özel kampanyalar ve fırsatlar için acele edin!" 
+          content={`QNB bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`}
         />
       </Helmet>
 
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">QNB Kredi Kampanyaları ve Başvuru 2024</h1>
-        <p className="text-gray-600 mb-8">
-          QNB bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. 
-          Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.
-          2024 yılına özel kampanyalar ve fırsatlar için acele edin!
-        </p>
-
+        <h1 className="text-3xl font-bold mb-4">QNB Kredi Kampanyaları ve Başvuru {currentYear}</h1>
         <Card className="mb-8">
           <CardContent className="p-6">
             <div className="flex justify-between items-start">

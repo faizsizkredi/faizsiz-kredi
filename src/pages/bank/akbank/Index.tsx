@@ -10,7 +10,7 @@ const AkbankIndex = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Akbank Kredi Kampanyaları ve Başvuru {currentYear}</title>
+        <title>Akbank Faizsiz Kredi Başvurusu - {currentYear}</title>
         <meta 
           name="description" 
           content={`Akbank bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`}

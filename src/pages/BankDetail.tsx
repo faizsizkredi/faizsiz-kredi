@@ -13,7 +13,7 @@ const BankDetail = () => {
   ).join(' ');
 
   const currentYear = new Date().getFullYear();
-  const pageTitle = `${bankName} Kredi Kampanyaları ve Başvuru ${currentYear}`;
+  const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
   const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
 
   return (
