@@ -8,11 +8,12 @@ import DepositFAQ from "@/components/mevduat/DepositFAQ";
 
 const Mevduat = () => {
   const currentYear = new Date().getFullYear();
+  const pageTitle = `Mevduat Hesabı Açma ${currentYear} | En Yüksek Faizli Mevduat`;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Mevduat Hesabı Açma {currentYear} | En Yüksek Faizli Mevduat</title>
+        <title>{pageTitle}</title>
         <meta 
           name="description" 
           content="En yüksek faizli mevduat hesapları, vadeli ve vadesiz mevduat seçenekleri, döviz mevduatı ve e-mevduat hesapları hakkında detaylı bilgi." 
@@ -37,7 +38,7 @@ const Mevduat = () => {
         <DepositFAQ />
 
         {/* CTA Section */}
-        <section className="bg-primary/5 rounded-lg p-8 text-center">
+        <section className="bg-primary/5 rounded-lg p-8 text-center mt-8">
           <h2 className="text-2xl font-bold mb-4">Hemen Mevduat Hesabı Açın</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Birikimlerinizi değerlendirmek için en uygun mevduat hesabını seçin, 
