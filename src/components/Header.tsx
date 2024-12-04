@@ -48,6 +48,11 @@ const Header = () => {
                   Kredi Faiz Hesaplama
                 </Link>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/blog" className="px-4 py-2 hover:text-primary">
+                  Blog
+                </Link>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
