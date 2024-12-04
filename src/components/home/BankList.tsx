@@ -19,7 +19,7 @@ const BANK_DATA: Bank[] = [
   },
   {
     name: "Akbank",
-    icon: <DollarSign className="w-8 h-8 text-red-600" />,
+    icon: <Banknote className="w-8 h-8 text-red-600" />,
     specialOffer: "Yeni Müşterilere Özel!",
     interestRate: "%0",
     term: "3-6 Ay",
