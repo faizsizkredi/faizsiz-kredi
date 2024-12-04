@@ -24,7 +24,7 @@ const BankDetail = () => {
       </Helmet>
 
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">{bankName} Kredi Kampanyaları ve Başvuru {currentYear}</h1>
+        <h1 className="text-3xl font-bold mb-4">{bankName} Faizsiz Kredi Başvurusu - {currentYear}</h1>
         <p className="text-gray-600 mb-8">{pageDescription}</p>
 
         {/* Yeni Müşteri Kampanyası */}
