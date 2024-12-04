@@ -39,6 +39,46 @@ const LOAN_AMOUNTS = [
     targetAudience: "Tüm müşteriler",
     applicationCount: "1000+",
     lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "20000",
+    label: "20.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "25000",
+    label: "25.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "50000",
+    label: "50.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "100000",
+    label: "100.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
   }
 ];
 

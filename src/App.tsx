@@ -38,6 +38,11 @@ import HundredThousandLoan from "./pages/bank/qnb/HundredThousandLoan";
 // VakıfBank Pages
 import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
 import VakifbankSevenThousandFiveHundredLoan from "./pages/bank/vakifbank/SevenThousandFiveHundredLoan";
+import VakifbankTenThousandLoan from "./pages/bank/vakifbank/TenThousandLoan";
+import VakifbankTwentyThousandLoan from "./pages/bank/vakifbank/TwentyThousandLoan";
+import VakifbankTwentyFiveThousandLoan from "./pages/bank/vakifbank/TwentyFiveThousandLoan";
+import VakifbankFiftyThousandLoan from "./pages/bank/vakifbank/FiftyThousandLoan";
+import VakifbankHundredThousandLoan from "./pages/bank/vakifbank/HundredThousandLoan";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -75,6 +80,11 @@ const App = () => {
                 {/* VakıfBank Routes */}
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
                 <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
+                <Route path="/bank/vakifbank/10000-tl-faizsiz-kredi" element={<VakifbankTenThousandLoan />} />
+                <Route path="/bank/vakifbank/20000-tl-faizsiz-kredi" element={<VakifbankTwentyThousandLoan />} />
+                <Route path="/bank/vakifbank/25000-tl-faizsiz-kredi" element={<VakifbankTwentyFiveThousandLoan />} />
+                <Route path="/bank/vakifbank/50000-tl-faizsiz-kredi" element={<VakifbankFiftyThousandLoan />} />
+                <Route path="/bank/vakifbank/100000-tl-faizsiz-kredi" element={<VakifbankHundredThousandLoan />} />
                 
                 {/* Generic Route */}
                 <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />

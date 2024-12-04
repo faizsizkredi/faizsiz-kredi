@@ -27,7 +27,9 @@ const BankProductCard = ({
     { amount: "7.500", label: "7.500 TL Faizsiz" },
     { amount: "10.000", label: "10.000 TL Faizsiz" },
     { amount: "20.000", label: "20.000 TL Faizsiz" },
-    { amount: "50.000", label: "50.000 TL Faizsiz" }
+    { amount: "25.000", label: "25.000 TL Faizsiz" },
+    { amount: "50.000", label: "50.000 TL Faizsiz" },
+    { amount: "100.000", label: "100.000 TL Faizsiz" }
   ];
 
   return (
