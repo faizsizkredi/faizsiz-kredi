@@ -8,7 +8,6 @@ import { ReactNode } from "react";
 interface BankCardHeaderProps {
   name: string;
   icon: ReactNode | React.ComponentType;
-  logo: string;
   specialOffer: string;
   lastUpdate?: string;
   userRating?: number;
@@ -18,7 +17,6 @@ interface BankCardHeaderProps {
 const BankCardHeader = ({
   name,
   icon,
-  logo,
   specialOffer,
   lastUpdate,
   userRating = 4.5,
@@ -42,7 +40,7 @@ const BankCardHeader = ({
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-6">
         <div className="w-24 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
-          <img src={logo} alt={`${name} Logo`} className="h-8 object-contain" />
+          {typeof icon === 'function' ? <IconComponent /> : icon}
         </div>
         <div>
           <div className="flex items-center gap-2">
