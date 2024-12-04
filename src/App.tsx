@@ -29,7 +29,11 @@ import KobiKredisi from "./pages/KobiKredisi";
 import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
 import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
 import TenThousandLoan from "./pages/bank/qnb/TenThousandLoan";
+import FifteenThousandLoan from "./pages/bank/qnb/FifteenThousandLoan";
 import TwentyThousandLoan from "./pages/bank/qnb/TwentyThousandLoan";
+import TwentyFiveThousandLoan from "./pages/bank/qnb/TwentyFiveThousandLoan";
+import FiftyThousandLoan from "./pages/bank/qnb/FiftyThousandLoan";
+import HundredThousandLoan from "./pages/bank/qnb/HundredThousandLoan";
 
 // VakıfBank Pages
 import VakifbankFiveThousandLoan from "./pages/bank/vakifbank/FiveThousandLoan";
@@ -62,7 +66,11 @@ const App = () => {
                 <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
                 <Route path="/bank/qnb/7500-tl-faizsiz-kredi" element={<SevenThousandFiveHundredLoan />} />
                 <Route path="/bank/qnb/10000-tl-faizsiz-kredi" element={<TenThousandLoan />} />
+                <Route path="/bank/qnb/15000-tl-faizsiz-kredi" element={<FifteenThousandLoan />} />
                 <Route path="/bank/qnb/20000-tl-faizsiz-kredi" element={<TwentyThousandLoan />} />
+                <Route path="/bank/qnb/25000-tl-faizsiz-kredi" element={<TwentyFiveThousandLoan />} />
+                <Route path="/bank/qnb/50000-tl-faizsiz-kredi" element={<FiftyThousandLoan />} />
+                <Route path="/bank/qnb/100000-tl-faizsiz-kredi" element={<HundredThousandLoan />} />
                 
                 {/* VakıfBank Routes */}
                 <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
