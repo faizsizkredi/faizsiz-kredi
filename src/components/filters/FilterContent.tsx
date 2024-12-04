@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import BankCard from "../BankCard";
 import FilterTabs from "../FilterTabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import BankRatesTable from "../bank/BankRatesTable";
 
 interface FilterContentProps {
   title: string;
@@ -58,36 +58,15 @@ const FilterContent = ({
 
         <div className="mt-16 mb-8">
           <h2 className="text-2xl font-bold mb-6">Bankaların Güncel İhtiyaç Kredisi Faiz Oranları</h2>
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Banka</TableHead>
-                  <TableHead>Kredi Adı</TableHead>
-                  <TableHead>Faiz Oranı</TableHead>
-                  <TableHead>Min. Vade</TableHead>
-                  <TableHead>Maks. Vade</TableHead>
-                  <TableHead></TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {CURRENT_RATES.map((rate, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{rate.bank}</TableCell>
-                    <TableCell>{rate.name}</TableCell>
-                    <TableCell>%{rate.rate}</TableCell>
-                    <TableCell>{rate.minTerm} Ay</TableCell>
-                    <TableCell>{rate.maxTerm} Ay</TableCell>
-                    <TableCell>
-                      <a href="#" className="text-blue-500 hover:text-blue-700">
-                        Hesapla
-                      </a>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
+          <BankRatesTable
+            rates={CURRENT_RATES.map(rate => ({
+              name: rate.bank,
+              productName: rate.name,
+              interestRate: rate.rate,
+              minTerm: rate.minTerm,
+              maxTerm: rate.maxTerm
+            }))}
+          />
         </div>
 
         {faqItems.length > 0 && (
