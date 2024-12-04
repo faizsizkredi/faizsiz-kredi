@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Building, Home, Car, Store, CreditCard, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 
 const BankDetail = () => {
@@ -15,6 +16,38 @@ const BankDetail = () => {
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
   const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
+
+  const faqItems = [
+    {
+      question: `${bankName} Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
+      answer: `${bankName} faizsiz kredi başvurusu için bankanın internet şubesi, mobil uygulaması veya şubelerinden başvuru yapabilirsiniz. Online başvuru için ${bankName} internet bankacılığına giriş yaparak "Krediler" menüsünden "İhtiyaç Kredisi" seçeneğini seçebilir ve başvurunuzu tamamlayabilirsiniz.`
+    },
+    {
+      question: `${bankName} Faizsiz Kredi Başvurusu Nereden Yapılır?`,
+      answer: `${bankName} faizsiz kredi başvurusu için aşağıdaki kanalları kullanabilirsiniz:
+      \n- İnternet Bankacılığı
+      \n- Mobil Uygulama
+      \n- Banka Şubeleri
+      \n- SMS ile Başvuru
+      \n- Çağrı Merkezi`
+    },
+    {
+      question: `${bankName} Faizsiz Kredi Veriyor Mu?`,
+      answer: `Evet, ${bankName} belirli dönemlerde ve özel kampanyalar kapsamında faizsiz kredi vermektedir. Özellikle yeni müşterilerine özel faizsiz kredi kampanyaları düzenlemektedir. Bu kampanyalar genellikle 6 aya kadar faizsiz ve masrafsız olarak sunulmaktadır.`
+    },
+    {
+      question: `${bankName} Faizsiz Kredi Ne Kadar Veriyor?`,
+      answer: `${bankName} faizsiz kredi tutarları kampanyalara göre değişiklik göstermektedir. Genel olarak:
+      \n- 5.000 TL'den başlayan
+      \n- 100.000 TL'ye kadar çıkan
+      \nfaizsiz kredi seçenekleri bulunmaktadır. Kredi tutarı, gelir durumunuza ve kredi notunuza göre değişiklik gösterebilir.`
+    }
+  ];
+
+  const loanAmounts = [
+    "5.000", "7.500", "10.000", "15.000", "20.000", 
+    "25.000", "50.000", "100.000"
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -92,7 +125,7 @@ const BankDetail = () => {
         </div>
 
         {/* Diğer Ürünler */}
-        <div>
+        <div className="mb-8">
           <h2 className="text-2xl font-bold mb-6">{bankName} Diğer Kredi, Kredi Kartı ve Mevduat Ürünleri</h2>
           <div className="grid grid-cols-4 gap-4">
             <Card className="text-center">
@@ -119,6 +152,39 @@ const BankDetail = () => {
                 <h3 className="font-semibold">Mevduat</h3>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* Sıkça Sorulan Sorular */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqItems.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent className="whitespace-pre-line">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        {/* Kredi Tutarları */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6">{bankName} Faizsiz Kredi Tutarları</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {loanAmounts.map((amount, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">{amount} TL</h3>
+                  <p className="text-sm text-gray-600">Faizsiz Kredi</p>
+                  <Button className="mt-4 w-full bg-orange-500 hover:bg-orange-600">
+                    Başvur
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
