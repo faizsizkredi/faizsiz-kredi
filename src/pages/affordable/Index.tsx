@@ -102,6 +102,17 @@ const AffordableIndex = () => {
       currentTab={currentTab}
       onSortChange={() => {}}
       faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">En Uygun Kredi Veren Bankalar Hangileri?</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında en uygun kredi veren bankalar arasında Ziraat Bankası, Halkbank ve Vakıfbank gibi kamu bankaları öne çıkıyor. Bu bankalar, düşük faiz oranları ve uzun vade seçenekleriyle dikkat çekiyor. Özellikle Ziraat Bankası %1.89'dan başlayan faiz oranlarıyla, Halkbank ise 48 aya varan vade seçenekleriyle avantajlı krediler sunuyor. Bunun yanında İş Bankası ve TEB gibi özel bankalar da rekabetçi faiz oranları ve esnek ödeme seçenekleriyle tüketicilere cazip fırsatlar sunmaktadır.
+          </p>
+          <p className="text-gray-700">
+            En uygun kredi başvurusu yapmadan önce, bankaların sunduğu faiz oranlarını, vade seçeneklerini ve ek masrafları karşılaştırmanız önerilir. Ayrıca bankaların dijital kanallarını kullanarak online başvuru yapmanız, sürecin daha hızlı ve kolay ilerlemesini sağlayacaktır.
+          </p>
+        </div>
+      }
     />
   );
 };

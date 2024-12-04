@@ -102,6 +102,17 @@ const ZeroInterestIndex = () => {
       currentTab={currentTab}
       onSortChange={() => {}}
       faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">Faizsiz Kredi Kampanyaları ve Başvuru Koşulları</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında birçok banka, özellikle yeni müşterilerine özel faizsiz kredi kampanyaları sunuyor. Yapı Kredi 50.000 TL'ye varan tutarlarda 6 ay vadeli, Garanti BBVA 30.000 TL'ye kadar 3 ay vadeli, QNB Finansbank ise 40.000 TL'ye varan tutarlarda 4 ay vadeli faizsiz kredi imkanı sağlıyor. ING Bank ve HSBC gibi bankalar da benzer kampanyalarla müşterilerine avantajlı fırsatlar sunuyor.
+          </p>
+          <p className="text-gray-700">
+            Faizsiz kredi kampanyalarından yararlanmak için genellikle yeni müşteri olma şartı aranıyor. Başvurular çoğunlukla dijital kanallar üzerinden yapılabiliyor ve hızlı sonuç alınabiliyor. Kredi başvurusu yapmadan önce bankaların sunduğu vade seçeneklerini ve kredi tutarlarını karşılaştırmanız önerilir.
+          </p>
+        </div>
+      }
     />
   );
 };
