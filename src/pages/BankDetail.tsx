@@ -147,7 +147,7 @@ const BankDetail = () => {
         {/* Diğer Ürünler */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">{bankName} Diğer Kredi, Kredi Kartı ve Mevduat Ürünleri</h2>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Card className="text-center cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/konut-kredisi')}>
               <CardContent className="p-6">
                 <Home className="w-8 h-8 mx-auto mb-2 text-red-600" />
