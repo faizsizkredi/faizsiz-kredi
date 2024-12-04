@@ -12,6 +12,7 @@ interface FilterContentProps {
   currentTab: string;
   onSortChange: (option: string) => void;
   faqItems?: { question: string; answer: string }[];
+  additionalContent?: ReactNode;
 }
 
 const CURRENT_RATES = [
@@ -34,6 +35,7 @@ const FilterContent = ({
   currentTab,
   onSortChange,
   faqItems = [],
+  additionalContent,
 }: FilterContentProps) => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -101,6 +103,8 @@ const FilterContent = ({
             </Accordion>
           </div>
         )}
+
+        {additionalContent}
       </div>
     </div>
   );

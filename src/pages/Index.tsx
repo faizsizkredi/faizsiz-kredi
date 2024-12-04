@@ -45,6 +45,13 @@ const Index = () => {
         <BankList sortOption={sortOption} interestRates={interestRates} />
         
         <HomeFAQ />
+
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">En Avantajlı Faizsiz Kredi Fırsatları</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında bankalar, müşterilerine çeşitli faizsiz kredi seçenekleri sunmaktadır. Özellikle yeni müşterilere özel kampanyalar kapsamında, 6 aya varan vade seçenekleriyle faizsiz kredi kullanma imkanı bulunmaktadır. QNB Finansbank, Akbank, Garanti BBVA gibi önde gelen bankalar, düzenli olarak faizsiz kredi kampanyaları düzenlemektedir. Bu kampanyalardan yararlanmak için bankaların dijital kanallarını kullanabilir veya şubelerini ziyaret edebilirsiniz.
+          </p>
+        </div>
       </div>
     </div>
   );
