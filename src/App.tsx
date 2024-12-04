@@ -9,8 +9,8 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import BankDetail from "./pages/BankDetail";
+import Mevduat from "./pages/Mevduat";
 
-// Import all pages
 import RetiredIndex from "./pages/retired/Index";
 import RiskyIndex from "./pages/risky/Index";
 import EasyIndex from "./pages/easiest/Index";
@@ -66,6 +66,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/bank/:bankSlug" element={<BankDetail />} />
+                <Route path="/mevduat" element={<Mevduat />} />
                 
                 {/* QNB Routes */}
                 <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
