@@ -25,10 +25,6 @@ import KrediFaizHesaplama from "./pages/KrediFaizHesaplama";
 import TasitKredisi from "./pages/TasitKredisi";
 import KobiKredisi from "./pages/KobiKredisi";
 
-// Blog Pages
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-
 // QNB Pages
 import FiveThousandLoan from "./pages/bank/qnb/FiveThousandLoan";
 import SevenThousandFiveHundredLoan from "./pages/bank/qnb/SevenThousandFiveHundredLoan";
@@ -108,10 +104,6 @@ const App = () => {
                 <Route path="/kredi-faiz-hesaplama" element={<KrediFaizHesaplama />} />
                 <Route path="/tasit-kredisi" element={<TasitKredisi />} />
                 <Route path="/kobi-kredisi" element={<KobiKredisi />} />
-
-                {/* Blog Routes */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
               </Routes>
             </main>
             <Footer />
