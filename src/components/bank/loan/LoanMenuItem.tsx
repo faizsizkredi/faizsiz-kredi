@@ -1,5 +1,5 @@
 import { LucideIcon } from "lucide-react";
-import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
+import { Link } from "react-router-dom";
 
 interface LoanMenuItemProps {
   title: string;
@@ -9,14 +9,15 @@ interface LoanMenuItemProps {
 
 const LoanMenuItem = ({ title, url, Icon }: LoanMenuItemProps) => {
   return (
-    <SidebarMenuItem>
-      <SidebarMenuButton asChild>
-        <a href={url}>
-          <Icon />
-          <span>{title}</span>
-        </a>
-      </SidebarMenuButton>
-    </SidebarMenuItem>
+    <li className="hover:bg-gray-100 transition-colors rounded">
+      <Link 
+        to={url} 
+        className="flex items-center gap-2 p-2 text-gray-700 hover:text-primary"
+      >
+        <Icon className="w-5 h-5" />
+        <span>{title}</span>
+      </Link>
+    </li>
   );
 };
 
