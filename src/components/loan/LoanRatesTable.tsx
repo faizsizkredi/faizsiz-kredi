@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import { format } from "date-fns";
 import { tr } from "date-fns/locale";
+import { CURRENT_RATES } from "@/data/loanRatesData";
 
 const LoanRatesTable = () => {
   const currentDate = format(new Date(), "d MMMM yyyy", { locale: tr });
