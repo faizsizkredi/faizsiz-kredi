@@ -6,24 +6,20 @@ import { Building } from "lucide-react";
 const AkbankIndex = () => {
   const currentYear = new Date().getFullYear();
   const bankName = "Akbank";
+  const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Akbank Faizsiz Kredi Başvurusu - {currentYear}</title>
+        <title>{pageTitle}</title>
         <meta 
           name="description" 
-          content={`Akbank bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`}
+          content={`${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`}
         />
       </Helmet>
 
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">Akbank Kredi Kampanyaları ve Başvuru {currentYear}</h1>
-        <p className="text-gray-600 mb-8">
-          Akbank bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. 
-          Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.
-          {currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!
-        </p>
+        <h1 className="text-3xl font-bold mb-4">{pageTitle}</h1>
 
         {/* Yeni Müşteri Kampanyası */}
         <Card className="mb-8">
