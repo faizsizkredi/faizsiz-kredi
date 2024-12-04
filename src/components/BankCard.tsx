@@ -45,7 +45,8 @@ const BankCard = ({
     "description": `${amount} tutarında, ${term} vadeli, ${interestRate} faiz oranlı kredi fırsatı`,
     "provider": {
       "@type": "BankOrCreditUnion",
-      "name": name
+      "name": name,
+      "image": `/bank-logos/${name.toLowerCase().replace(/\s+/g, '')}.svg`
     },
     "interestRate": interestRate,
     "amount": amount,
@@ -55,6 +56,10 @@ const BankCard = ({
       "ratingValue": userRating,
       "reviewCount": parseInt(applicationCount || "1000")
     }
+  };
+
+  const getBankLogo = (bankName: string) => {
+    return `/bank-logos/${bankName.toLowerCase().replace(/\s+/g, '')}.svg`;
   };
 
   return (
@@ -68,6 +73,7 @@ const BankCard = ({
             <BankCardHeader
               name={name}
               icon={icon}
+              logo={getBankLogo(name)}
               specialOffer={specialOffer}
               lastUpdate={lastUpdate}
               userRating={userRating}
