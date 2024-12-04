@@ -20,7 +20,7 @@ const HomeMeta = () => {
   return (
     <Helmet>
       <html lang="tr" />
-      <title>Faizsiz Kredi Veren Bankalar {currentYear} | Güncel Faiz Oranları ve Kampanyalar</title>
+      <title>{`Faizsiz Kredi Veren Bankalar ${currentYear} | Güncel Faiz Oranları ve Kampanyalar`}</title>
       <meta 
         name="description" 
         content={`${currentYear} yılında faizsiz kredi veren bankaların güncel faiz oranları, kampanyaları ve başvuru koşulları. QNB, Akbank, Garanti BBVA ve diğer bankaların faizsiz kredi fırsatları.`}
