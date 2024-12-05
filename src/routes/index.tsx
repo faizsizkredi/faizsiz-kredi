@@ -28,6 +28,16 @@ import TwentyFiveThousandLoan from "../pages/bank/qnb/TwentyFiveThousandLoan";
 import FiftyThousandLoan from "../pages/bank/qnb/FiftyThousandLoan";
 import HundredThousandLoan from "../pages/bank/qnb/HundredThousandLoan";
 
+// Denizbank Pages
+import DenizbankFiveThousandLoan from "../pages/bank/denizbank/FiveThousandLoan";
+import DenizbankSevenThousandFiveHundredLoan from "../pages/bank/denizbank/SevenThousandFiveHundredLoan";
+import DenizbankTenThousandLoan from "../pages/bank/denizbank/TenThousandLoan";
+import DenizbankFifteenThousandLoan from "../pages/bank/denizbank/FifteenThousandLoan";
+import DenizbankTwentyThousandLoan from "../pages/bank/denizbank/TwentyThousandLoan";
+import DenizbankTwentyFiveThousandLoan from "../pages/bank/denizbank/TwentyFiveThousandLoan";
+import DenizbankFiftyThousandLoan from "../pages/bank/denizbank/FiftyThousandLoan";
+import DenizbankHundredThousandLoan from "../pages/bank/denizbank/HundredThousandLoan";
+
 // VakıfBank Pages
 import VakifbankFiveThousandLoan from "../pages/bank/vakifbank/FiveThousandLoan";
 import VakifbankSevenThousandFiveHundredLoan from "../pages/bank/vakifbank/SevenThousandFiveHundredLoan";
@@ -55,6 +65,16 @@ const AppRoutes = () => {
       <Route path="/bank/qnb/25000-tl-faizsiz-kredi" element={<TwentyFiveThousandLoan />} />
       <Route path="/bank/qnb/50000-tl-faizsiz-kredi" element={<FiftyThousandLoan />} />
       <Route path="/bank/qnb/100000-tl-faizsiz-kredi" element={<HundredThousandLoan />} />
+      
+      {/* Denizbank Routes */}
+      <Route path="/bank/denizbank/5000-tl-faizsiz-kredi" element={<DenizbankFiveThousandLoan />} />
+      <Route path="/bank/denizbank/7500-tl-faizsiz-kredi" element={<DenizbankSevenThousandFiveHundredLoan />} />
+      <Route path="/bank/denizbank/10000-tl-faizsiz-kredi" element={<DenizbankTenThousandLoan />} />
+      <Route path="/bank/denizbank/15000-tl-faizsiz-kredi" element={<DenizbankFifteenThousandLoan />} />
+      <Route path="/bank/denizbank/20000-tl-faizsiz-kredi" element={<DenizbankTwentyThousandLoan />} />
+      <Route path="/bank/denizbank/25000-tl-faizsiz-kredi" element={<DenizbankTwentyFiveThousandLoan />} />
+      <Route path="/bank/denizbank/50000-tl-faizsiz-kredi" element={<DenizbankFiftyThousandLoan />} />
+      <Route path="/bank/denizbank/100000-tl-faizsiz-kredi" element={<DenizbankHundredThousandLoan />} />
       
       {/* VakıfBank Routes */}
       <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
