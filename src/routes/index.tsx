@@ -38,14 +38,15 @@ import DenizbankTwentyFiveThousandLoan from "../pages/bank/denizbank/TwentyFiveT
 import DenizbankFiftyThousandLoan from "../pages/bank/denizbank/FiftyThousandLoan";
 import DenizbankHundredThousandLoan from "../pages/bank/denizbank/HundredThousandLoan";
 
-// VakıfBank Pages
-import VakifbankFiveThousandLoan from "../pages/bank/vakifbank/FiveThousandLoan";
-import VakifbankSevenThousandFiveHundredLoan from "../pages/bank/vakifbank/SevenThousandFiveHundredLoan";
-import VakifbankTenThousandLoan from "../pages/bank/vakifbank/TenThousandLoan";
-import VakifbankTwentyThousandLoan from "../pages/bank/vakifbank/TwentyThousandLoan";
-import VakifbankTwentyFiveThousandLoan from "../pages/bank/vakifbank/TwentyFiveThousandLoan";
-import VakifbankFiftyThousandLoan from "../pages/bank/vakifbank/FiftyThousandLoan";
-import VakifbankHundredThousandLoan from "../pages/bank/vakifbank/HundredThousandLoan";
+// Akbank Pages
+import AkbankFiveThousandLoan from "../pages/bank/akbank/FiveThousandLoan";
+import AkbankSevenThousandFiveHundredLoan from "../pages/bank/akbank/SevenThousandFiveHundredLoan";
+import AkbankTenThousandLoan from "../pages/bank/akbank/TenThousandLoan";
+import AkbankFifteenThousandLoan from "../pages/bank/akbank/FifteenThousandLoan";
+import AkbankTwentyThousandLoan from "../pages/bank/akbank/TwentyThousandLoan";
+import AkbankTwentyFiveThousandLoan from "../pages/bank/akbank/TwentyFiveThousandLoan";
+import AkbankFiftyThousandLoan from "../pages/bank/akbank/FiftyThousandLoan";
+import AkbankHundredThousandLoan from "../pages/bank/akbank/HundredThousandLoan";
 
 const AppRoutes = () => {
   return (
@@ -76,14 +77,15 @@ const AppRoutes = () => {
       <Route path="/bank/denizbank/50000-tl-faizsiz-kredi" element={<DenizbankFiftyThousandLoan />} />
       <Route path="/bank/denizbank/100000-tl-faizsiz-kredi" element={<DenizbankHundredThousandLoan />} />
       
-      {/* VakıfBank Routes */}
-      <Route path="/bank/vakifbank/5000-tl-faizsiz-kredi" element={<VakifbankFiveThousandLoan />} />
-      <Route path="/bank/vakifbank/7500-tl-faizsiz-kredi" element={<VakifbankSevenThousandFiveHundredLoan />} />
-      <Route path="/bank/vakifbank/10000-tl-faizsiz-kredi" element={<VakifbankTenThousandLoan />} />
-      <Route path="/bank/vakifbank/20000-tl-faizsiz-kredi" element={<VakifbankTwentyThousandLoan />} />
-      <Route path="/bank/vakifbank/25000-tl-faizsiz-kredi" element={<VakifbankTwentyFiveThousandLoan />} />
-      <Route path="/bank/vakifbank/50000-tl-faizsiz-kredi" element={<VakifbankFiftyThousandLoan />} />
-      <Route path="/bank/vakifbank/100000-tl-faizsiz-kredi" element={<VakifbankHundredThousandLoan />} />
+      {/* Akbank Routes */}
+      <Route path="/bank/akbank/5000-tl-faizsiz-kredi" element={<AkbankFiveThousandLoan />} />
+      <Route path="/bank/akbank/7500-tl-faizsiz-kredi" element={<AkbankSevenThousandFiveHundredLoan />} />
+      <Route path="/bank/akbank/10000-tl-faizsiz-kredi" element={<AkbankTenThousandLoan />} />
+      <Route path="/bank/akbank/15000-tl-faizsiz-kredi" element={<AkbankFifteenThousandLoan />} />
+      <Route path="/bank/akbank/20000-tl-faizsiz-kredi" element={<AkbankTwentyThousandLoan />} />
+      <Route path="/bank/akbank/25000-tl-faizsiz-kredi" element={<AkbankTwentyFiveThousandLoan />} />
+      <Route path="/bank/akbank/50000-tl-faizsiz-kredi" element={<AkbankFiftyThousandLoan />} />
+      <Route path="/bank/akbank/100000-tl-faizsiz-kredi" element={<AkbankHundredThousandLoan />} />
       
       {/* Generic Route */}
       <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
