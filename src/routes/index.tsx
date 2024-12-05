@@ -48,6 +48,16 @@ import AkbankTwentyFiveThousandLoan from "../pages/bank/akbank/TwentyFiveThousan
 import AkbankFiftyThousandLoan from "../pages/bank/akbank/FiftyThousandLoan";
 import AkbankHundredThousandLoan from "../pages/bank/akbank/HundredThousandLoan";
 
+// Garanti BBVA Pages
+import GarantiFiveThousandLoan from "../pages/bank/garanti/FiveThousandLoan";
+import GarantiSevenThousandFiveHundredLoan from "../pages/bank/garanti/SevenThousandFiveHundredLoan";
+import GarantiTenThousandLoan from "../pages/bank/garanti/TenThousandLoan";
+import GarantiFifteenThousandLoan from "../pages/bank/garanti/FifteenThousandLoan";
+import GarantiTwentyThousandLoan from "../pages/bank/garanti/TwentyThousandLoan";
+import GarantiTwentyFiveThousandLoan from "../pages/bank/garanti/TwentyFiveThousandLoan";
+import GarantiFiftyThousandLoan from "../pages/bank/garanti/FiftyThousandLoan";
+import GarantiHundredThousandLoan from "../pages/bank/garanti/HundredThousandLoan";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -86,6 +96,16 @@ const AppRoutes = () => {
       <Route path="/bank/akbank/25000-tl-faizsiz-kredi" element={<AkbankTwentyFiveThousandLoan />} />
       <Route path="/bank/akbank/50000-tl-faizsiz-kredi" element={<AkbankFiftyThousandLoan />} />
       <Route path="/bank/akbank/100000-tl-faizsiz-kredi" element={<AkbankHundredThousandLoan />} />
+      
+      {/* Garanti BBVA Routes */}
+      <Route path="/bank/garanti/5000-tl-faizsiz-kredi" element={<GarantiFiveThousandLoan />} />
+      <Route path="/bank/garanti/7500-tl-faizsiz-kredi" element={<GarantiSevenThousandFiveHundredLoan />} />
+      <Route path="/bank/garanti/10000-tl-faizsiz-kredi" element={<GarantiTenThousandLoan />} />
+      <Route path="/bank/garanti/15000-tl-faizsiz-kredi" element={<GarantiFifteenThousandLoan />} />
+      <Route path="/bank/garanti/20000-tl-faizsiz-kredi" element={<GarantiTwentyThousandLoan />} />
+      <Route path="/bank/garanti/25000-tl-faizsiz-kredi" element={<GarantiTwentyFiveThousandLoan />} />
+      <Route path="/bank/garanti/50000-tl-faizsiz-kredi" element={<GarantiFiftyThousandLoan />} />
+      <Route path="/bank/garanti/100000-tl-faizsiz-kredi" element={<GarantiHundredThousandLoan />} />
       
       {/* Generic Route */}
       <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
