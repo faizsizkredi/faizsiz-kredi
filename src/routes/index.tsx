@@ -58,6 +58,16 @@ import GarantiTwentyFiveThousandLoan from "../pages/bank/garanti/TwentyFiveThous
 import GarantiFiftyThousandLoan from "../pages/bank/garanti/FiftyThousandLoan";
 import GarantiHundredThousandLoan from "../pages/bank/garanti/HundredThousandLoan";
 
+// İş Bankası Pages
+import IsBankasiFiveThousandLoan from "../pages/bank/isbankasi/FiveThousandLoan";
+import IsBankasiSevenThousandFiveHundredLoan from "../pages/bank/isbankasi/SevenThousandFiveHundredLoan";
+import IsBankasiTenThousandLoan from "../pages/bank/isbankasi/TenThousandLoan";
+import IsBankasiFifteenThousandLoan from "../pages/bank/isbankasi/FifteenThousandLoan";
+import IsBankasiTwentyThousandLoan from "../pages/bank/isbankasi/TwentyThousandLoan";
+import IsBankasiTwentyFiveThousandLoan from "../pages/bank/isbankasi/TwentyFiveThousandLoan";
+import IsBankasiFiftyThousandLoan from "../pages/bank/isbankasi/FiftyThousandLoan";
+import IsBankasiHundredThousandLoan from "../pages/bank/isbankasi/HundredThousandLoan";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -106,6 +116,16 @@ const AppRoutes = () => {
       <Route path="/bank/garanti/25000-tl-faizsiz-kredi" element={<GarantiTwentyFiveThousandLoan />} />
       <Route path="/bank/garanti/50000-tl-faizsiz-kredi" element={<GarantiFiftyThousandLoan />} />
       <Route path="/bank/garanti/100000-tl-faizsiz-kredi" element={<GarantiHundredThousandLoan />} />
+      
+      {/* İş Bankası Routes */}
+      <Route path="/bank/isbankasi/5000-tl-faizsiz-kredi" element={<IsBankasiFiveThousandLoan />} />
+      <Route path="/bank/isbankasi/7500-tl-faizsiz-kredi" element={<IsBankasiSevenThousandFiveHundredLoan />} />
+      <Route path="/bank/isbankasi/10000-tl-faizsiz-kredi" element={<IsBankasiTenThousandLoan />} />
+      <Route path="/bank/isbankasi/15000-tl-faizsiz-kredi" element={<IsBankasiFifteenThousandLoan />} />
+      <Route path="/bank/isbankasi/20000-tl-faizsiz-kredi" element={<IsBankasiTwentyThousandLoan />} />
+      <Route path="/bank/isbankasi/25000-tl-faizsiz-kredi" element={<IsBankasiTwentyFiveThousandLoan />} />
+      <Route path="/bank/isbankasi/50000-tl-faizsiz-kredi" element={<IsBankasiFiftyThousandLoan />} />
+      <Route path="/bank/isbankasi/100000-tl-faizsiz-kredi" element={<IsBankasiHundredThousandLoan />} />
       
       {/* Generic Route */}
       <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />
