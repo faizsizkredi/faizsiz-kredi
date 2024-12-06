@@ -1,5 +1,5 @@
 import { Clock, Users } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -23,8 +23,7 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
   const navigate = useNavigate();
 
   const handleApplyClick = () => {
-    const formattedAmount = loan.amount.replace(/\./g, '');
-    navigate(`/bank/${bankSlug}/${formattedAmount}-tl-faizsiz-kredi`);
+    navigate(`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`);
   };
 
   return (
