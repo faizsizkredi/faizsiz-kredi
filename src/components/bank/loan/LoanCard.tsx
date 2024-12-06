@@ -1,5 +1,5 @@
 import { Clock, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -20,6 +20,13 @@ interface LoanCardProps {
 }
 
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
+  const navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    const formattedAmount = loan.amount.replace(/\./g, '');
+    navigate(`/bank/${bankSlug}/${formattedAmount}-tl-faizsiz-kredi`);
+  };
+
   return (
     <Card className="p-6">
       <div className="flex items-start justify-between">
@@ -39,14 +46,12 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
           <Badge variant="secondary" className="bg-blue-50 text-blue-600">
             BDDK Onaylı
           </Badge>
-          <Link 
-            to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
-            className="inline-flex"
+          <Button 
+            onClick={handleApplyClick}
+            className="bg-primary hover:bg-primary/90"
           >
-            <Button className="bg-primary hover:bg-primary/90">
-              Hemen Başvur
-            </Button>
-          </Link>
+            Hemen Başvur
+          </Button>
         </div>
       </div>
 
