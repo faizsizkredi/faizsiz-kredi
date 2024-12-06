@@ -91,7 +91,7 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
               key={loan.amount}
               bankName={bankName}
               loan={loan}
-              bankSlug="enpara"
+              bankSlug={bankSlug}
             />
           ))}
         </div>

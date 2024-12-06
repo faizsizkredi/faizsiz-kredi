@@ -68,16 +68,6 @@ import IsBankasiTwentyFiveThousandLoan from "../pages/bank/isbankasi/TwentyFiveT
 import IsBankasiFiftyThousandLoan from "../pages/bank/isbankasi/FiftyThousandLoan";
 import IsBankasiHundredThousandLoan from "../pages/bank/isbankasi/HundredThousandLoan";
 
-// Enpara Pages
-import EnparaFiveThousandLoan from "../pages/bank/enpara/FiveThousandLoan";
-import EnparaSevenThousandFiveHundredLoan from "../pages/bank/enpara/SevenThousandFiveHundredLoan";
-import EnparaTenThousandLoan from "../pages/bank/enpara/TenThousandLoan";
-import EnparaFifteenThousandLoan from "../pages/bank/enpara/FifteenThousandLoan";
-import EnparaTwentyThousandLoan from "../pages/bank/enpara/TwentyThousandLoan";
-import EnparaTwentyFiveThousandLoan from "../pages/bank/enpara/TwentyFiveThousandLoan";
-import EnparaFiftyThousandLoan from "../pages/bank/enpara/FiftyThousandLoan";
-import EnparaHundredThousandLoan from "../pages/bank/enpara/HundredThousandLoan";
-
 const AppRoutes = () => {
   return (
     <Routes>
@@ -86,16 +76,6 @@ const AppRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/bank/:bankSlug" element={<BankDetail />} />
       <Route path="/mevduat" element={<Mevduat />} />
-      
-      {/* Enpara Routes */}
-      <Route path="/bank/enpara/5000-tl-faizsiz-kredi" element={<EnparaFiveThousandLoan />} />
-      <Route path="/bank/enpara/7500-tl-faizsiz-kredi" element={<EnparaSevenThousandFiveHundredLoan />} />
-      <Route path="/bank/enpara/10000-tl-faizsiz-kredi" element={<EnparaTenThousandLoan />} />
-      <Route path="/bank/enpara/15000-tl-faizsiz-kredi" element={<EnparaFifteenThousandLoan />} />
-      <Route path="/bank/enpara/20000-tl-faizsiz-kredi" element={<EnparaTwentyThousandLoan />} />
-      <Route path="/bank/enpara/25000-tl-faizsiz-kredi" element={<EnparaTwentyFiveThousandLoan />} />
-      <Route path="/bank/enpara/50000-tl-faizsiz-kredi" element={<EnparaFiftyThousandLoan />} />
-      <Route path="/bank/enpara/100000-tl-faizsiz-kredi" element={<EnparaHundredThousandLoan />} />
       
       {/* QNB Routes */}
       <Route path="/bank/qnb/5000-tl-faizsiz-kredi" element={<FiveThousandLoan />} />
