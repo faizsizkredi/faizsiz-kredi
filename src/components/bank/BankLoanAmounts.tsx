@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Building } from "lucide-react";
 import LoanCard from "./loan/LoanCard";
 
 interface BankLoanAmountsProps {
@@ -10,6 +11,16 @@ const LOAN_AMOUNTS = [
   { 
     amount: "5000",
     label: "5.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "7500",
+    label: "7.500 TL",
     interestRate: "%0",
     term: "6 Ay",
     processingTime: "30 dakika",
@@ -38,8 +49,28 @@ const LOAN_AMOUNTS = [
     lastUpdate: "03.12.2024"
   },
   { 
+    amount: "25000",
+    label: "25.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
     amount: "50000",
     label: "50.000 TL",
+    interestRate: "%0",
+    term: "6 Ay",
+    processingTime: "30 dakika",
+    targetAudience: "Tüm müşteriler",
+    applicationCount: "1000+",
+    lastUpdate: "03.12.2024"
+  },
+  { 
+    amount: "100000",
+    label: "100.000 TL",
     interestRate: "%0",
     term: "6 Ay",
     processingTime: "30 dakika",
