@@ -37,7 +37,7 @@ const BankCard = ({
   applicationCount,
   trustBadges,
 }: BankCardProps) => {
-  // JSON-LD structured data for SEO
+  // JSON-LD yapılandırılmış veri - Genişletilmiş SEO için
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -45,16 +45,39 @@ const BankCard = ({
     "description": `${amount} tutarında, ${term} vadeli, ${interestRate} faiz oranlı kredi fırsatı`,
     "provider": {
       "@type": "BankOrCreditUnion",
-      "name": name
+      "name": name,
+      "areaServed": "TR",
+      "priceRange": amount
     },
     "interestRate": interestRate,
     "amount": amount,
     "term": term,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "price": amount.replace(/[^0-9]/g, ""),
+      "priceCurrency": "TRY",
+      "validFrom": lastUpdate
+    },
     "review": {
       "@type": "AggregateRating",
       "ratingValue": userRating,
-      "reviewCount": parseInt(applicationCount || "1000")
-    }
+      "reviewCount": parseInt(applicationCount || "1000"),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Hedef Kitle",
+        "value": targetAudience
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "İşlem Süresi",
+        "value": processingTime
+      }
+    ]
   };
 
   return (
@@ -64,7 +87,15 @@ const BankCard = ({
       </script>
       <Card className="mb-4 transition-all hover:shadow-lg">
         <CardContent className="p-6">
-          <article itemScope itemType="https://schema.org/FinancialProduct">
+          <article 
+            itemScope 
+            itemType="https://schema.org/FinancialProduct"
+            className="h-full"
+          >
+            <meta itemProp="category" content="Kredi" />
+            <meta itemProp="audience" content={targetAudience} />
+            <meta itemProp="dateModified" content={lastUpdate} />
+            
             <BankCardHeader
               name={name}
               icon={icon}
@@ -88,6 +119,17 @@ const BankCard = ({
               amount={amount}
               monthlyPayment={monthlyPayment}
             />
+
+            <footer className="mt-4 text-sm text-gray-500">
+              <p itemProp="description" className="mb-2">
+                {details.join(" • ")}
+              </p>
+              {lastUpdate && (
+                <time itemProp="datePublished" dateTime={lastUpdate}>
+                  Son güncelleme: {lastUpdate}
+                </time>
+              )}
+            </footer>
           </article>
         </CardContent>
       </Card>
