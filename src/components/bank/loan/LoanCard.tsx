@@ -22,6 +22,13 @@ interface LoanCardProps {
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
   console.log('LoanCard - bankSlug:', bankSlug);
   console.log('LoanCard - bankName:', bankName);
+  console.log('LoanCard - loan amount:', loan.amount);
+
+  const getCorrectPath = () => {
+    // Ensure we're using the normalized slug for İş Bankası
+    const normalizedSlug = bankSlug === 'turkiye-is-bankasi' ? 'isbankasi' : bankSlug;
+    return `/bank/${normalizedSlug}/${loan.amount}-tl-faizsiz-kredi`;
+  };
 
   return (
     <Card className="p-6">
@@ -43,7 +50,7 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
             BDDK Onaylı
           </Badge>
           <Link 
-            to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
+            to={getCorrectPath()}
             className="inline-flex"
           >
             <Button className="bg-primary hover:bg-primary/90">
