@@ -47,7 +47,11 @@ const BankCard = ({
       "@type": "BankOrCreditUnion",
       "name": name,
       "areaServed": "TR",
-      "priceRange": amount
+      "priceRange": amount,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      }
     },
     "interestRate": interestRate,
     "amount": amount,
@@ -57,7 +61,8 @@ const BankCard = ({
       "availability": "https://schema.org/InStock",
       "price": amount.replace(/[^0-9]/g, ""),
       "priceCurrency": "TRY",
-      "validFrom": lastUpdate
+      "validFrom": lastUpdate,
+      "priceValidUntil": lastUpdate ? new Date(new Date(lastUpdate).getTime() + 7 * 24 * 60 * 60 * 1000).toISOString() : undefined
     },
     "review": {
       "@type": "AggregateRating",
@@ -76,8 +81,18 @@ const BankCard = ({
         "@type": "PropertyValue",
         "name": "İşlem Süresi",
         "value": processingTime
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Güven Belgeleri",
+        "value": trustBadges?.join(", ")
       }
-    ]
+    ],
+    "category": "Bireysel Kredi",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": targetAudience
+    }
   };
 
   return (
@@ -95,6 +110,11 @@ const BankCard = ({
             <meta itemProp="category" content="Kredi" />
             <meta itemProp="audience" content={targetAudience} />
             <meta itemProp="dateModified" content={lastUpdate} />
+            <meta itemProp="creditType" content="Bireysel Kredi" />
+            <meta itemProp="currency" content="TRY" />
+            <meta itemProp="areaServed" content="TR" />
+            <meta itemProp="applicationCategory" content="Finansal Ürün" />
+            <meta itemProp="keywords" content={`${name}, kredi, ihtiyaç kredisi, ${amount}, ${interestRate}, ${term}`} />
             
             <BankCardHeader
               name={name}
