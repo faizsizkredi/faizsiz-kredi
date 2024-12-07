@@ -20,12 +20,8 @@ interface LoanCardProps {
 }
 
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
-  const getCorrectBankSlug = (slug: string) => {
-    if (bankName.toLowerCase().includes('iş bankası')) {
-      return 'turkiye-is-bankasi';
-    }
-    return slug;
-  };
+  console.log('LoanCard - bankSlug:', bankSlug);
+  console.log('LoanCard - bankName:', bankName);
 
   return (
     <Card className="p-6">
@@ -47,7 +43,7 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
             BDDK Onaylı
           </Badge>
           <Link 
-            to={`/bank/${getCorrectBankSlug(bankSlug)}/${loan.amount}-tl-faizsiz-kredi`}
+            to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
             className="inline-flex"
           >
             <Button className="bg-primary hover:bg-primary/90">
