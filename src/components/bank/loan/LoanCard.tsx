@@ -24,19 +24,6 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
   console.log('LoanCard - bankName:', bankName);
   console.log('LoanCard - loan amount:', loan.amount);
 
-  const getCorrectPath = () => {
-    // Normalize bank slugs
-    let normalizedSlug = bankSlug;
-    
-    if (bankSlug === 'turkiye-is-bankasi') {
-      normalizedSlug = 'isbankasi';
-    } else if (bankSlug === 'garanti-bbva') {
-      normalizedSlug = 'garanti';
-    }
-    
-    return `/bank/${normalizedSlug}/${loan.amount}-tl-faizsiz-kredi`;
-  };
-
   return (
     <Card className="p-6">
       <div className="flex items-start justify-between">
@@ -57,7 +44,7 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
             BDDK Onaylı
           </Badge>
           <Link 
-            to={getCorrectPath()}
+            to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
             className="inline-flex"
           >
             <Button className="bg-primary hover:bg-primary/90">

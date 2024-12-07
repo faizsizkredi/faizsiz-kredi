@@ -84,15 +84,6 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
   console.log('Current bankSlug:', bankSlug);
   console.log('Current bankName:', bankName);
 
-  const getCorrectBankSlug = (slug: string) => {
-    if (slug.includes('turkiye-is-bankasi') || 
-        slug.includes('turkiye-i̇s-bankasi') || 
-        bankName.toLowerCase().includes('iş bankası')) {
-      return 'turkiye-is-bankasi';
-    }
-    return slug;
-  };
-
   return (
     <Card className="mt-8">
       <CardContent className="p-6">
@@ -103,7 +94,7 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
               key={loan.amount}
               bankName={bankName}
               loan={loan}
-              bankSlug={getCorrectBankSlug(bankSlug)}
+              bankSlug={bankSlug}
             />
           ))}
         </div>
