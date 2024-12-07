@@ -26,7 +26,7 @@ const BankDetail = () => {
 
   // URL'yi düzeltmek için yönlendirme kontrolü
   React.useEffect(() => {
-    if (bankSlug?.includes('turkiye-is-bankasi')) {
+    if (bankSlug?.includes('is-bankasi')) {
       window.history.replaceState({}, '', '/bank/isbankasi');
     }
   }, [bankSlug]);
