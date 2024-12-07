@@ -13,7 +13,7 @@ const BankDetail = () => {
   const getBankName = (slug?: string) => {
     if (!slug) return '';
     
-    // Handle İş Bankası specifically
+    // İş Bankası için özel kontrol
     if (slug.includes('turkiye-is-bankasi') || slug === 'isbankasi') {
       return 'İş Bankası';
     }
@@ -22,6 +22,13 @@ const BankDetail = () => {
       word.charAt(0).toUpperCase() + word.slice(1)
     ).join(' ');
   };
+
+  // URL'yi düzeltmek için yönlendirme kontrolü
+  React.useEffect(() => {
+    if (bankSlug?.includes('turkiye-is-bankasi')) {
+      window.history.replaceState({}, '', '/bank/isbankasi');
+    }
+  }, [bankSlug]);
 
   const bankName = getBankName(bankSlug);
   const currentYear = new Date().getFullYear();
