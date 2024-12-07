@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import BankCardHeader from "./bank/BankCardHeader";
 import BankCardStats from "./bank/BankCardStats";
 import BankCardDetails from "./bank/BankCardDetails";
+import BankFeatures from "./bank/BankFeatures";
+import BankPromotions from "./bank/BankPromotions";
 
 interface BankCardProps {
   name: string;
@@ -29,6 +31,13 @@ interface BankCardProps {
     author: string;
     date: string;
   }>;
+  establishedYear?: string;
+  securityFeatures?: string[];
+  awards?: string[];
+  customerSatisfaction?: string;
+  currentPromotions?: string[];
+  promotionEndDate?: string;
+  promotionTags?: string[];
 }
 
 const BankCard = ({
@@ -51,6 +60,13 @@ const BankCard = ({
   bankBranches,
   onlineApplication,
   customerReviews,
+  establishedYear,
+  securityFeatures,
+  awards,
+  customerSatisfaction,
+  currentPromotions,
+  promotionEndDate,
+  promotionTags,
 }: BankCardProps) => {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -184,6 +200,20 @@ const BankCard = ({
               monthlyPayment={monthlyPayment}
               advantages={advantages}
               requirements={requirements}
+            />
+
+            <BankFeatures
+              bankBranches={bankBranches}
+              establishedYear={establishedYear}
+              securityFeatures={securityFeatures}
+              awards={awards}
+              satisfaction={customerSatisfaction}
+            />
+
+            <BankPromotions
+              currentPromotions={currentPromotions}
+              validUntil={promotionEndDate}
+              tags={promotionTags}
             />
 
             <footer className="mt-4 text-sm text-gray-500">
