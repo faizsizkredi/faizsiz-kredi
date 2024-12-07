@@ -10,10 +10,16 @@ import BankProducts from "@/components/bank/detail/BankProducts";
 const BankDetail = () => {
   const { bankSlug } = useParams();
   
-  const bankName = bankSlug?.split('-').map(word => 
-    word.charAt(0).toUpperCase() + word.slice(1)
-  ).join(' ');
+  const getBankName = (slug?: string) => {
+    if (slug?.includes('turkiye-is-bankasi')) {
+      return 'İş Bankası';
+    }
+    return slug?.split('-').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+  };
 
+  const bankName = getBankName(bankSlug);
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
   const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
