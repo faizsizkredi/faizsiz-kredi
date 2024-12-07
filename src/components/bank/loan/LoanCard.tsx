@@ -25,8 +25,15 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
   console.log('LoanCard - loan amount:', loan.amount);
 
   const getCorrectPath = () => {
-    // Ensure we're using the normalized slug for İş Bankası
-    const normalizedSlug = bankSlug === 'turkiye-is-bankasi' ? 'isbankasi' : bankSlug;
+    // Normalize bank slugs
+    let normalizedSlug = bankSlug;
+    
+    if (bankSlug === 'turkiye-is-bankasi') {
+      normalizedSlug = 'isbankasi';
+    } else if (bankSlug === 'garanti-bbva') {
+      normalizedSlug = 'garanti';
+    }
+    
     return `/bank/${normalizedSlug}/${loan.amount}-tl-faizsiz-kredi`;
   };
 
