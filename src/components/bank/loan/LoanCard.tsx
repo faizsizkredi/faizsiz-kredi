@@ -20,6 +20,13 @@ interface LoanCardProps {
 }
 
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
+  const getCorrectBankSlug = (slug: string) => {
+    if (bankName.toLowerCase().includes('iş bankası')) {
+      return 'isbankasi';
+    }
+    return slug;
+  };
+
   return (
     <Card className="p-6">
       <div className="flex items-start justify-between">
@@ -40,7 +47,7 @@ const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
             BDDK Onaylı
           </Badge>
           <Link 
-            to={`/bank/${bankSlug}/${loan.amount}-tl-faizsiz-kredi`}
+            to={`/bank/${getCorrectBankSlug(bankSlug)}/${loan.amount}-tl-faizsiz-kredi`}
             className="inline-flex"
           >
             <Button className="bg-primary hover:bg-primary/90">
