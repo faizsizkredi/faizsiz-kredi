@@ -23,6 +23,9 @@ const BankCardHeader = ({
   trustBadges = ["BDDK Onaylı"],
 }: BankCardHeaderProps) => {
   const getBankSlug = (bankName: string) => {
+    if (bankName.toLowerCase().includes('iş bankası')) {
+      return 'isbankasi';
+    }
     return bankName
       .toLowerCase()
       .replace(/\s+/g, '-')

@@ -81,6 +81,13 @@ const LOAN_AMOUNTS = [
 ];
 
 const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
+  const getCorrectBankSlug = (slug: string) => {
+    if (slug.includes('turkiye-is-bankasi')) {
+      return 'isbankasi';
+    }
+    return slug;
+  };
+
   return (
     <Card className="mt-8">
       <CardContent className="p-6">
@@ -91,7 +98,7 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
               key={loan.amount}
               bankName={bankName}
               loan={loan}
-              bankSlug={bankSlug}
+              bankSlug={getCorrectBankSlug(bankSlug)}
             />
           ))}
         </div>
