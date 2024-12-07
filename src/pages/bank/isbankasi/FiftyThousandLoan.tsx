@@ -24,7 +24,7 @@ const FiftyThousandLoan = () => {
     <BankLoanTemplate
       bankName="İş Bankası"
       amount="50.000"
-      iconColor="text-blue-700"
+      iconColor="text-blue-600"
       otherBanks={OTHER_BANKS}
     />
   );
