@@ -83,7 +83,7 @@ const LOAN_AMOUNTS = [
 const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
   const getCorrectBankSlug = (slug: string) => {
     if (slug.includes('turkiye-is-bankasi') || bankName.toLowerCase().includes('iş bankası')) {
-      return 'isbankasi';
+      return 'turkiye-is-bankasi';
     }
     return slug;
   };

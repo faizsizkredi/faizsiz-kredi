@@ -22,7 +22,7 @@ interface LoanCardProps {
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
   const getCorrectBankSlug = (slug: string) => {
     if (bankName.toLowerCase().includes('iş bankası')) {
-      return 'isbankasi';
+      return 'turkiye-is-bankasi';
     }
     return slug;
   };
