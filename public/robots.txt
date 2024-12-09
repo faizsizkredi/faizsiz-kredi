@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Sitemap: https://faizsiz-kredi-bulucu-rehberi.com/sitemap.xml
+Disallow: /admin/
+Disallow: /private/
+Disallow: /login
+Disallow: /signup
+
+# Crawl-delay: 10
+# Clean URLs
+Allow: /*.html
+Allow: /*.php
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
