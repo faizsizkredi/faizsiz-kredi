@@ -20,10 +20,6 @@ interface LoanCardProps {
 }
 
 const LoanCard = ({ bankName, loan, bankSlug }: LoanCardProps) => {
-  console.log('LoanCard - bankSlug:', bankSlug);
-  console.log('LoanCard - bankName:', bankName);
-  console.log('LoanCard - loan amount:', loan.amount);
-
   return (
     <Card className="p-6">
       <div className="flex items-start justify-between">

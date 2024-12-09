@@ -81,9 +81,6 @@ const LOAN_AMOUNTS = [
 ];
 
 const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
-  console.log('Current bankSlug:', bankSlug);
-  console.log('Current bankName:', bankName);
-
   return (
     <Card className="mt-8">
       <CardContent className="p-6">

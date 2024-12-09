@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -11,30 +10,13 @@ import BankProducts from "@/components/bank/detail/BankProducts";
 const BankDetail = () => {
   const { bankSlug } = useParams();
   
-  const getBankName = (slug?: string) => {
-    if (!slug) return '';
-    
-    // İş Bankası için özel kontrol
-    if (slug.includes('turkiye-is-bankasi') || slug === 'isbankasi') {
-      return 'İş Bankası';
-    }
-    
-    return slug.split('-').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
-  };
+  const bankName = bankSlug?.split('-').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
 
-  // URL'yi düzeltmek için yönlendirme kontrolü
-  React.useEffect(() => {
-    if (bankSlug?.includes('is-bankasi')) {
-      window.history.replaceState({}, '', '/bank/isbankasi');
-    }
-  }, [bankSlug]);
-
-  const bankName = getBankName(bankSlug);
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
-  const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun. ${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
+  const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
 
   const faqItems = [
     {
@@ -98,11 +80,11 @@ const BankDetail = () => {
         <h1 className="text-3xl font-bold mb-4">{pageTitle}</h1>
         <p className="text-gray-600 mb-8">{pageDescription}</p>
 
-        <BankHero bankName={bankName} />
-        <BankStats bankName={bankName} />
-        <BankInfo bankName={bankName} />
-        <BankProducts bankName={bankName} />
-        <BankLoanAmounts bankName={bankName} bankSlug={bankSlug || ""} />
+        <BankHero bankName={bankName || ""} />
+        <BankStats bankName={bankName || ""} />
+        <BankInfo bankName={bankName || ""} />
+        <BankProducts bankName={bankName || ""} />
+        <BankLoanAmounts bankName={bankName || ""} bankSlug={bankSlug || ""} />
 
         <div className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
