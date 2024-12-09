@@ -1,6 +1,11 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { useState } from "react";
 import BankLoanAmounts from "@/components/bank/BankLoanAmounts";
 import BankHero from "@/components/bank/detail/BankHero";
 import BankStats from "@/components/bank/detail/BankStats";
@@ -9,14 +14,28 @@ import BankProducts from "@/components/bank/detail/BankProducts";
 
 const BankDetail = () => {
   const { bankSlug } = useParams();
+  const [comment, setComment] = useState("");
   
   const bankName = bankSlug?.split('-').map(word => 
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ');
 
   const currentYear = new Date().getFullYear();
+  const createdAt = "2024-01-01";
+  const updatedAt = new Date().toLocaleDateString('tr-TR');
+  const author = "Finans Uzmanı";
   const pageTitle = `${bankName} Faizsiz Kredi Başvurusu - ${currentYear}`;
   const pageDescription = `${bankName} bankanın en güncel kredi kampanyaları, avantajlı faiz oranları ve özel fırsatları. Tüm kredi seçeneklerini karşılaştırın, size en uygun krediye hemen başvurun.${currentYear} yılına özel kampanyalar ve fırsatlar için acele edin!`;
+
+  const handleCommentSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (comment.trim()) {
+      toast.success("Yorumunuz başarıyla gönderildi!");
+      setComment("");
+    } else {
+      toast.error("Lütfen bir yorum yazın");
+    }
+  };
 
   const faqItems = [
     {
@@ -34,38 +53,6 @@ const BankDetail = () => {
     {
       question: `${bankName} Faizsiz Kredi Ne Kadar Veriyor?`,
       answer: `${bankName} kampanyalarına göre 5.000 TL ile 100.000 TL arasında faizsiz kredi vermektedir. Kredi tutarı müşteri profiline ve kampanya şartlarına göre değişiklik gösterebilir.`
-    },
-    {
-      question: `${bankName} 5.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `${bankName} 5.000 TL faizsiz kredi başvurusu için bankanın dijital kanallarını kullanabilir veya şubeye gidebilirsiniz. Online başvuru için internet bankacılığı veya mobil uygulamayı kullanmanız yeterlidir.`
-    },
-    {
-      question: `${bankName} 7.500 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `7.500 TL faizsiz kredi için ${bankName} internet bankacılığı, mobil uygulama veya şubelerden başvuru yapabilirsiniz. Online başvuru en hızlı sonuç almanızı sağlayacaktır.`
-    },
-    {
-      question: `${bankName} 10.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `10.000 TL faizsiz kredi başvurusu için ${bankName}'ın dijital kanallarını kullanabilirsiniz. İnternet bankacılığı veya mobil uygulama üzerinden hızlıca başvurunuzu tamamlayabilirsiniz.`
-    },
-    {
-      question: `${bankName} 15.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `15.000 TL faizsiz kredi için ${bankName} internet bankacılığı veya mobil uygulaması üzerinden başvurabilirsiniz. Alternatif olarak size en yakın şubeyi ziyaret edebilirsiniz.`
-    },
-    {
-      question: `${bankName} 20.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `20.000 TL faizsiz kredi başvurusu için ${bankName}'ın dijital kanallarını kullanabilir veya şubeye gidebilirsiniz. Online başvuru için internet bankacılığı veya mobil uygulamayı kullanmanız yeterlidir.`
-    },
-    {
-      question: `${bankName} 25.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `25.000 TL faizsiz kredi için ${bankName} internet bankacılığı, mobil uygulama veya şubelerden başvuru yapabilirsiniz. Online başvuru en hızlı sonuç almanızı sağlayacaktır.`
-    },
-    {
-      question: `${bankName} 50.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `50.000 TL faizsiz kredi başvurusu için ${bankName}'ın dijital kanallarını kullanabilirsiniz. İnternet bankacılığı veya mobil uygulama üzerinden hızlıca başvurunuzu tamamlayabilirsiniz.`
-    },
-    {
-      question: `${bankName} 100.000 TL Faizsiz Kredi Başvurusu Nasıl Yapılır?`,
-      answer: `100.000 TL faizsiz kredi için ${bankName} internet bankacılığı veya mobil uygulaması üzerinden başvurabilirsiniz. Alternatif olarak size en yakın şubeyi ziyaret edebilirsiniz.`
     }
   ];
 
@@ -74,11 +61,25 @@ const BankDetail = () => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
+        <meta name="author" content={author} />
+        <meta property="article:published_time" content={createdAt} />
+        <meta property="article:modified_time" content={updatedAt} />
+        
+        {/* Hidden images for Google SEO */}
+        <meta property="og:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
+        <meta property="og:image:alt" content="Kredi Kartı" />
+        <meta name="twitter:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
       </Helmet>
 
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4">{pageTitle}</h1>
         <p className="text-gray-600 mb-8">{pageDescription}</p>
+
+        <div className="mb-6 text-sm text-gray-500">
+          <div>Yazar: {author}</div>
+          <div>Oluşturulma Tarihi: {createdAt}</div>
+          <div>Son Güncelleme: {updatedAt}</div>
+        </div>
 
         <BankHero bankName={bankName || ""} />
         <BankStats bankName={bankName || ""} />
@@ -96,6 +97,23 @@ const BankDetail = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+
+        <div className="mt-16">
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Yorumlar</h2>
+            <form onSubmit={handleCommentSubmit} className="space-y-4">
+              <Textarea
+                placeholder="Yorumunuzu buraya yazın..."
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                className="min-h-[100px]"
+              />
+              <Button type="submit">
+                Yorum Gönder
+              </Button>
+            </form>
+          </Card>
         </div>
       </main>
     </div>
