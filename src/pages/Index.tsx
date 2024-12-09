@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import HomeMeta from "@/components/home/HomeMeta";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import BankList from "@/components/home/BankList";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
 
 type SortOption = 
   | "recommended" 
@@ -21,6 +22,7 @@ const Index = () => {
   const [sortOption, setSortOption] = useState<SortOption>("recommended");
   const { data: interestRates, isError } = useInterestRates();
   const { toast } = useToast();
+  const currentDate = getCurrentMonthYear();
 
   if (isError) {
     toast({
@@ -35,7 +37,7 @@ const Index = () => {
       <HomeMeta />
 
       <div className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold mb-4">Faizsiz Kredi Veren Bankalar 2024</h1>
+        <h1 className="text-4xl font-bold mb-4">Faizsiz Kredi Veren Bankalar {currentDate}</h1>
         <p className="text-gray-600 mb-8">
           Türkiye'deki bankaların güncel faizsiz kredi kampanyalarını karşılaştırın, size en uygun krediye hemen başvurun. Tüm bankalar, güncel faiz oranları ve kampanya detayları tek sayfada!
         </p>
@@ -47,9 +49,9 @@ const Index = () => {
         <HomeFAQ />
 
         <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">En Avantajlı Faizsiz Kredi Fırsatları</h2>
+          <h2 className="text-2xl font-bold mb-4">En Avantajlı Faizsiz Kredi Fırsatları {currentDate}</h2>
           <p className="text-gray-700 mb-6">
-            2024 yılında bankalar, müşterilerine çeşitli faizsiz kredi seçenekleri sunmaktadır. Özellikle yeni müşterilere özel kampanyalar kapsamında, 6 aya varan vade seçenekleriyle faizsiz kredi kullanma imkanı bulunmaktadır. QNB Finansbank, Akbank, Garanti BBVA gibi önde gelen bankalar, düzenli olarak faizsiz kredi kampanyaları düzenlemektedir. Bu kampanyalardan yararlanmak için bankaların dijital kanallarını kullanabilir veya şubelerini ziyaret edebilirsiniz.
+            {new Date().getFullYear()} yılında bankalar, müşterilerine çeşitli faizsiz kredi seçenekleri sunmaktadır. Özellikle yeni müşterilere özel kampanyalar kapsamında, 6 aya varan vade seçenekleriyle faizsiz kredi kullanma imkanı bulunmaktadır. QNB Finansbank, Akbank, Garanti BBVA gibi önde gelen bankalar, düzenli olarak faizsiz kredi kampanyaları düzenlemektedir. Bu kampanyalardan yararlanmak için bankaların dijital kanallarını kullanabilir veya şubelerini ziyaret edebilirsiniz.
           </p>
         </div>
       </div>
