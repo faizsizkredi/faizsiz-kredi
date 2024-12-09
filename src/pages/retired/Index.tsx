@@ -1,6 +1,35 @@
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
+import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
+
+const RetiredIndex = () => {
+  const [currentTab] = useState("retired");
+  const currentDate = getCurrentMonthYear();
+
+  return (
+    <FilterContent
+      title={`Emekliye Özel Kredi Kampanyaları ${currentDate}`}
+      description={`${currentDate} ayına özel emeklilere özel kredi kampanyaları, düşük faizli krediler ve promosyon fırsatları. En avantajlı emekli kredisi teklifleri!`}
+      banks={RETIRED_BANKS}
+      currentTab={currentTab}
+      onSortChange={() => {}}
+      faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">Emekliye Faizsiz Kredi Veren Bankalar Hangileri?</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında emeklilere özel kredi kampanyaları sunan bankalar arasında Ziraat Bankası, Vakıfbank ve Halkbank öne çıkıyor. Ziraat Bankası %0 faiz oranıyla 100.000 TL'ye varan kredi imkanı sunarken, Vakıfbank %0.79'dan başlayan faiz oranlarıyla 150.000 TL'ye kadar kredi kullandırıyor. Halkbank ise %0.89 faiz oranıyla 125.000 TL'ye varan tutarlarda kredi seçenekleri sunuyor.
+          </p>
+          <p className="text-gray-700">
+            Emekliler için özel olarak tasarlanan bu kredi kampanyaları, düşük faiz oranları ve uzun vade seçenekleriyle dikkat çekiyor. Başvuru yapmadan önce bankaların sunduğu promosyonları ve ek avantajları karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır. Ayrıca, birçok banka emeklilere özel promosyon ödemeleri ve ücretsiz bankacılık hizmetleri de sunmaktadır.
+          </p>
+        </div>
+      }
+    />
+  );
+};
 
 const RETIRED_BANKS = [
   {
@@ -124,31 +153,5 @@ const FAQ_ITEMS = [
     answer: "Evet, bankalar genellikle 70-75 yaş üst sınırı uygulamaktadır. Kredi vadesi bittiğinde müşterinin yaşı bu sınırı geçmemelidir."
   }
 ];
-
-const RetiredIndex = () => {
-  const [currentTab] = useState("retired");
-
-  return (
-    <FilterContent
-      title="Emekliye Özel Kredi Kampanyaları 2024"
-      description="2024 yılında emeklilere özel kredi kampanyaları, düşük faizli krediler ve promosyon fırsatları. En avantajlı emekli kredisi teklifleri!"
-      banks={RETIRED_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">Emekliye Faizsiz Kredi Veren Bankalar Hangileri?</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında emeklilere özel kredi kampanyaları sunan bankalar arasında Ziraat Bankası, Vakıfbank ve Halkbank öne çıkıyor. Ziraat Bankası %0 faiz oranıyla 100.000 TL'ye varan kredi imkanı sunarken, Vakıfbank %0.79'dan başlayan faiz oranlarıyla 150.000 TL'ye kadar kredi kullandırıyor. Halkbank ise %0.89 faiz oranıyla 125.000 TL'ye varan tutarlarda kredi seçenekleri sunuyor.
-          </p>
-          <p className="text-gray-700">
-            Emekliler için özel olarak tasarlanan bu kredi kampanyaları, düşük faiz oranları ve uzun vade seçenekleriyle dikkat çekiyor. Başvuru yapmadan önce bankaların sunduğu promosyonları ve ek avantajları karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır. Ayrıca, birçok banka emeklilere özel promosyon ödemeleri ve ücretsiz bankacılık hizmetleri de sunmaktadır.
-          </p>
-        </div>
-      }
-    />
-  );
-};
 
 export default RetiredIndex;

@@ -2,6 +2,34 @@ import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
+
+const NewCustomerIndex = () => {
+  const [currentTab] = useState("newCustomer");
+  const currentDate = getCurrentMonthYear();
+
+  return (
+    <FilterContent
+      title={`Yeni Müşteriye Kredi Veren Bankalar ${currentDate}`}
+      description={`${currentDate} ayına özel yeni müşterilere sunulan kredi kampanyaları, faizsiz kredi fırsatları ve avantajlı başvuru koşulları. En uygun yeni müşteri kredisi fırsatları!`}
+      banks={NEW_CUSTOMER_BANKS}
+      currentTab={currentTab}
+      onSortChange={() => {}}
+      faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">Yeni Müşterilere Özel Kredi Kampanyaları 2024</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında bankalar, yeni müşterilerine özel avantajlı kredi kampanyaları sunuyor. QNB Finansbank %0 faiz oranıyla 45.000 TL'ye varan, Akbank 35.000 TL'ye varan, ING Bank ise 30.000 TL'ye varan faizsiz kredi imkanı sağlıyor. CEPTETEB ve Enpara gibi dijital bankalar da yeni müşterilerine özel fırsatlar ve masrafsız bankacılık hizmetleri sunuyor.
+          </p>
+          <p className="text-gray-700">
+            Yeni müşteri kredilerinden yararlanmak için bankaların dijital kanallarını kullanabilir, hızlı ve kolay bir şekilde başvurunuzu tamamlayabilirsiniz. Başvuru öncesinde bankaların sunduğu kampanya koşullarını ve kredi limitlerini karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır.
+          </p>
+        </div>
+      }
+    />
+  );
+};
 
 const NEW_CUSTOMER_BANKS: Bank[] = [
   {
@@ -90,31 +118,5 @@ const FAQ_ITEMS = [
     answer: "Bazı bankalar dosya masrafı veya tahsis ücreti alabilir. Başvuru öncesi tüm masrafları öğrenmeniz önerilir."
   }
 ];
-
-const NewCustomerIndex = () => {
-  const [currentTab] = useState("newCustomer");
-
-  return (
-    <FilterContent
-      title="Yeni Müşteriye Kredi Veren Bankalar 2024"
-      description="2024 yılında yeni müşterilere özel kredi veren bankaların güncel kampanyaları ve başvuru koşulları. En avantajlı yeni müşteri kredisi fırsatları!"
-      banks={NEW_CUSTOMER_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">Yeni Müşterilere Özel Kredi Kampanyaları 2024</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında bankalar, yeni müşterilerine özel avantajlı kredi kampanyaları sunuyor. QNB Finansbank %0 faiz oranıyla 45.000 TL'ye varan, Akbank 35.000 TL'ye varan, ING Bank ise 30.000 TL'ye varan faizsiz kredi imkanı sağlıyor. CEPTETEB ve Enpara gibi dijital bankalar da yeni müşterilerine özel fırsatlar ve masrafsız bankacılık hizmetleri sunuyor.
-          </p>
-          <p className="text-gray-700">
-            Yeni müşteri kredilerinden yararlanmak için bankaların dijital kanallarını kullanabilir, hızlı ve kolay bir şekilde başvurunuzu tamamlayabilirsiniz. Başvuru öncesinde bankaların sunduğu kampanya koşullarını ve kredi limitlerini karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır.
-          </p>
-        </div>
-      }
-    />
-  );
-};
 
 export default NewCustomerIndex;

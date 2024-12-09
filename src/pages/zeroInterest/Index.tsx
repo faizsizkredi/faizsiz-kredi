@@ -2,6 +2,34 @@ import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
+
+const ZeroInterestIndex = () => {
+  const [currentTab] = useState("zeroInterest");
+  const currentDate = getCurrentMonthYear();
+
+  return (
+    <FilterContent
+      title={`Sıfır (0) Faizli Kredi Veren Bankalar ${currentDate}`}
+      description={`${currentDate} ayına özel faizsiz kredi kampanyaları ve %0 faiz oranlı krediler. En avantajlı faizsiz kredi fırsatları!`}
+      banks={ZERO_INTEREST_BANKS}
+      currentTab={currentTab}
+      onSortChange={() => {}}
+      faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">Faizsiz Kredi Kampanyaları ve Başvuru Koşulları</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında birçok banka, özellikle yeni müşterilerine özel faizsiz kredi kampanyaları sunuyor. Yapı Kredi 50.000 TL'ye varan tutarlarda 6 ay vadeli, Garanti BBVA 30.000 TL'ye kadar 3 ay vadeli, QNB Finansbank ise 40.000 TL'ye varan tutarlarda 4 ay vadeli faizsiz kredi imkanı sağlıyor. ING Bank ve HSBC gibi bankalar da benzer kampanyalarla müşterilerine avantajlı fırsatlar sunuyor.
+          </p>
+          <p className="text-gray-700">
+            Faizsiz kredi kampanyalarından yararlanmak için genellikle yeni müşteri olma şartı aranıyor. Başvurular çoğunlukla dijital kanallar üzerinden yapılabiliyor ve hızlı sonuç alınabiliyor. Kredi başvurusu yapmadan önce bankaların sunduğu vade seçeneklerini ve kredi tutarlarını karşılaştırmanız önerilir.
+          </p>
+        </div>
+      }
+    />
+  );
+};
 
 const ZERO_INTEREST_BANKS: Bank[] = [
   {
@@ -90,31 +118,5 @@ const FAQ_ITEMS = [
     answer: "Genellikle düzenli gelir, temiz kredi geçmişi ve minimum kredi notu şartları aranır. Her bankanın kendine özel şartları olabilir."
   }
 ];
-
-const ZeroInterestIndex = () => {
-  const [currentTab] = useState("zeroInterest");
-
-  return (
-    <FilterContent
-      title="Sıfır Faizli Kredi Veren Bankalar 2024"
-      description="2024 yılında sıfır faiz ile kredi veren bankaların güncel kampanyaları ve başvuru koşulları. %0 faiz fırsatı ile kredi imkanları!"
-      banks={ZERO_INTEREST_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">Faizsiz Kredi Kampanyaları ve Başvuru Koşulları</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında birçok banka, özellikle yeni müşterilerine özel faizsiz kredi kampanyaları sunuyor. Yapı Kredi 50.000 TL'ye varan tutarlarda 6 ay vadeli, Garanti BBVA 30.000 TL'ye kadar 3 ay vadeli, QNB Finansbank ise 40.000 TL'ye varan tutarlarda 4 ay vadeli faizsiz kredi imkanı sağlıyor. ING Bank ve HSBC gibi bankalar da benzer kampanyalarla müşterilerine avantajlı fırsatlar sunuyor.
-          </p>
-          <p className="text-gray-700">
-            Faizsiz kredi kampanyalarından yararlanmak için genellikle yeni müşteri olma şartı aranıyor. Başvurular çoğunlukla dijital kanallar üzerinden yapılabiliyor ve hızlı sonuç alınabiliyor. Kredi başvurusu yapmadan önce bankaların sunduğu vade seçeneklerini ve kredi tutarlarını karşılaştırmanız önerilir.
-          </p>
-        </div>
-      }
-    />
-  );
-};
 
 export default ZeroInterestIndex;

@@ -2,6 +2,7 @@ import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
 
 const AFFORDABLE_BANKS: Bank[] = [
   {
@@ -93,11 +94,12 @@ const FAQ_ITEMS = [
 
 const AffordableIndex = () => {
   const [currentTab] = useState("affordable");
+  const currentDate = getCurrentMonthYear();
 
   return (
     <FilterContent
-      title="En Uygun Kredi Veren Bankalar 2024"
-      description="2024 yılında en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!"
+      title={`En Uygun Kredi Veren Bankalar ${currentDate}`}
+      description={`${currentDate} ayına özel en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!`}
       banks={AFFORDABLE_BANKS}
       currentTab={currentTab}
       onSortChange={() => {}}

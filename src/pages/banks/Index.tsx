@@ -2,6 +2,34 @@ import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
+
+const BanksIndex = () => {
+  const [currentTab] = useState("bank");
+  const currentDate = getCurrentMonthYear();
+
+  return (
+    <FilterContent
+      title={`Tüm Bankalar ve Kredi Fırsatları ${currentDate}`}
+      description={`${currentDate} ayında Türkiye'deki tüm bankaların güncel kredi faiz oranları, kampanyaları ve başvuru koşulları. En avantajlı kredi fırsatları!`}
+      banks={ALL_BANKS}
+      currentTab={currentTab}
+      onSortChange={() => {}}
+      faqItems={FAQ_ITEMS}
+      additionalContent={
+        <div className="mt-12 prose max-w-none">
+          <h2 className="text-2xl font-bold mb-4">2024 Yılında Kredi Veren Bankalar ve Güncel Faiz Oranları</h2>
+          <p className="text-gray-700 mb-6">
+            2024 yılında Türkiye'de faaliyet gösteren bankalar arasında Ziraat Bankası, İş Bankası, Garanti BBVA, Yapı Kredi ve Akbank öne çıkıyor. Bu bankalar, farklı ihtiyaçlara yönelik kredi seçenekleri ve rekabetçi faiz oranlarıyla dikkat çekiyor. Kamu bankaları genellikle daha uygun faiz oranları sunarken, özel bankalar dijital bankacılık hizmetleri ve hızlı başvuru süreçleriyle avantaj sağlıyor.
+          </p>
+          <p className="text-gray-700">
+            Kredi başvurusu yapmadan önce, bankaların sunduğu faiz oranlarını, vade seçeneklerini ve ek masrafları karşılaştırmanız önerilir. Her bankanın kendine özgü avantajları ve kampanyaları bulunduğundan, ihtiyacınıza en uygun seçeneği belirlemek için detaylı araştırma yapmanız faydalı olacaktır.
+          </p>
+        </div>
+      }
+    />
+  );
+};
 
 const ALL_BANKS: Bank[] = [
   {
@@ -90,31 +118,5 @@ const FAQ_ITEMS = [
     answer: "Genel olarak kimlik belgesi, gelir belgesi ve ikametgah belgesi temel gereksinimlerdir. Bazı bankalar ek belgeler talep edebilir."
   }
 ];
-
-const BanksIndex = () => {
-  const [currentTab] = useState("bank");
-
-  return (
-    <FilterContent
-      title="Tüm Bankalar ve Kredi Fırsatları 2024"
-      description="2024 yılında Türkiye'deki tüm bankaların güncel kredi faiz oranları, kampanyaları ve başvuru koşulları. En avantajlı kredi fırsatları!"
-      banks={ALL_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">2024 Yılında Kredi Veren Bankalar ve Güncel Faiz Oranları</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında Türkiye'de faaliyet gösteren bankalar arasında Ziraat Bankası, İş Bankası, Garanti BBVA, Yapı Kredi ve Akbank öne çıkıyor. Bu bankalar, farklı ihtiyaçlara yönelik kredi seçenekleri ve rekabetçi faiz oranlarıyla dikkat çekiyor. Kamu bankaları genellikle daha uygun faiz oranları sunarken, özel bankalar dijital bankacılık hizmetleri ve hızlı başvuru süreçleriyle avantaj sağlıyor.
-          </p>
-          <p className="text-gray-700">
-            Kredi başvurusu yapmadan önce, bankaların sunduğu faiz oranlarını, vade seçeneklerini ve ek masrafları karşılaştırmanız önerilir. Her bankanın kendine özgü avantajları ve kampanyaları bulunduğundan, ihtiyacınıza en uygun seçeneği belirlemek için detaylı araştırma yapmanız faydalı olacaktır.
-          </p>
-        </div>
-      }
-    />
-  );
-};
 
 export default BanksIndex;

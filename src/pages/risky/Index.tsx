@@ -2,6 +2,7 @@ import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
+import { getCurrentMonthYear } from "@/utils/dateUtils";
 
 const RISKY_BANKS: Bank[] = [
   {
@@ -93,11 +94,12 @@ const FAQ_ITEMS = [
 
 const RiskyIndex = () => {
   const [currentTab] = useState("risky");
+  const currentDate = getCurrentMonthYear();
 
   return (
     <FilterContent
-      title="Riskli Müşteriye Kredi Veren Bankalar 2024"
-      description="2024 yılında riskli müşterilere, kredi notu düşük olanlara ve kara listedeki kişilere kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En uygun riskli müşteri kredisi fırsatları!"
+      title={`Riskli Müşteriye Kredi Veren Bankalar ${currentDate}`}
+      description={`${currentDate} ayına özel riskli müşterilere, kredi notu düşük olanlara ve kara listedeki kişilere kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En uygun riskli müşteri kredisi fırsatları!`}
       banks={RISKY_BANKS}
       currentTab={currentTab}
       onSortChange={() => {}}
