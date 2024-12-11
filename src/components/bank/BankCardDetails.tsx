@@ -5,13 +5,44 @@ import { Calculator } from "lucide-react";
 interface BankCardDetailsProps {
   amount: string;
   monthlyPayment?: string;
+  interestRate?: string;
+  term?: string;
 }
 
 const BankCardDetails = ({
   amount,
-  monthlyPayment = "Hesaplanıyor..."
+  monthlyPayment = "Hesaplanıyor...",
+  interestRate = "0",
+  term = "36"
 }: BankCardDetailsProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const calculateMonthlyPayment = () => {
+    const loanAmount = parseFloat(amount.replace(/[^0-9.-]+/g, ""));
+    const maxTerm = parseInt(term);
+    
+    if (isNaN(loanAmount) || isNaN(maxTerm)) return "Hesaplanamadı";
+    
+    return (loanAmount / maxTerm).toLocaleString('tr-TR', { 
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2 
+    });
+  };
+
+  const calculateTotalCost = () => {
+    const loanAmount = parseFloat(amount.replace(/[^0-9.-]+/g, ""));
+    const rate = parseFloat(interestRate.replace(/[^0-9.-]+/g, ""));
+    const maxTerm = parseInt(term);
+    
+    if (isNaN(loanAmount) || isNaN(rate) || isNaN(maxTerm)) return "Hesaplanamadı";
+    
+    const totalCost = loanAmount * (1 + (rate / 100) * (maxTerm / 12));
+    
+    return totalCost.toLocaleString('tr-TR', { 
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2 
+    });
+  };
 
   return (
     <Accordion type="single" collapsible className="mt-4">
@@ -33,11 +64,11 @@ const BankCardDetails = ({
                 </div>
                 <div>
                   <p className="text-gray-600">Aylık Taksit</p>
-                  <p className="font-semibold">{monthlyPayment}</p>
+                  <p className="font-semibold">{calculateMonthlyPayment()} TL</p>
                 </div>
                 <div>
                   <p className="text-gray-600">Toplam Maliyet</p>
-                  <p className="font-semibold">Hesaplanıyor...</p>
+                  <p className="font-semibold">{calculateTotalCost()} TL</p>
                 </div>
               </div>
             </div>

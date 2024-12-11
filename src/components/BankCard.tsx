@@ -87,6 +87,8 @@ const BankCard = ({
             <BankCardDetails
               amount={amount}
               monthlyPayment={monthlyPayment}
+              interestRate={interestRate}
+              term={term}
             />
           </article>
         </CardContent>
