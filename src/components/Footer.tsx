@@ -29,6 +29,11 @@ const Footer = () => {
                   Üye Ol
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className="text-gray-600 hover:text-primary">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Index from "../pages/Index";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Blog from "../pages/Blog";
 import BankDetail from "../pages/BankDetail";
 import Mevduat from "../pages/Mevduat";
 import RetiredIndex from "../pages/retired/Index";
@@ -54,6 +55,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Index />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/blog" element={<Blog />} />
       <Route path="/bank/:bankSlug" element={<BankDetail />} />
       <Route path="/mevduat" element={<Mevduat />} />
       
