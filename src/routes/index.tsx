@@ -3,6 +3,7 @@ import Index from "../pages/Index";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Blog from "../pages/Blog";
+import BlogPost from "../pages/BlogPost";
 import BankDetail from "../pages/BankDetail";
 import Mevduat from "../pages/Mevduat";
 import RetiredIndex from "../pages/retired/Index";
@@ -56,6 +57,7 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/bank/:bankSlug" element={<BankDetail />} />
       <Route path="/mevduat" element={<Mevduat />} />
       
