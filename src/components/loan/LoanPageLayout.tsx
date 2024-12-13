@@ -27,13 +27,15 @@ const LoanPageLayout = ({
   faqs,
   additionalContent
 }: LoanPageLayoutProps) => {
+  const canonicalUrl = `https://faizsiz-kredi-bulucu-rehberi.com/${activeTab.toLowerCase()}-kredisi`;
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>{title} 2024 | En Uygun {title} Başvurusu</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`https://yourwebsite.com/${activeTab}-kredisi`} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={`${title} 2024 | En Uygun ${title} Başvurusu`} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
