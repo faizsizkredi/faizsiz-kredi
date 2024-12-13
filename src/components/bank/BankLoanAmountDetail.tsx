@@ -20,6 +20,7 @@ const BankLoanAmountDetail = ({
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} ${amount} TL Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
+  const canonicalUrl = `https://faizsiz-kredi-bulucu-rehberi.com/bank/${bankName.toLowerCase().replace(/\s+/g, '-')}/${amount}-tl-kredi`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,7 +28,7 @@ const BankLoanAmountDetail = ({
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={`${bankName}, ${amount} TL kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
-        <link rel="canonical" href={`https://yourwebsite.com/bank/${bankName.toLowerCase().replace(/\s+/g, '-')}/${amount}-tl-kredi`} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
