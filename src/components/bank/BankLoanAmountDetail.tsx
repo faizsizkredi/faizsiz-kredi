@@ -20,7 +20,7 @@ const BankLoanAmountDetail = ({
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} ${amount} TL Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
-  const canonicalUrl = `https://faizsiz-kredi-bulucu-rehberi.com/bank/${bankName.toLowerCase().replace(/\s+/g, '-')}/${amount}-tl-kredi`;
+  const canonicalUrl = `https://faizsizkrediverenbankalar.com/bank/${bankName.toLowerCase().replace(/\s+/g, '-')}/${amount}-tl-kredi`;
 
   return (
     <div className="min-h-screen bg-gray-50">

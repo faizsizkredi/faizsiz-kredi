@@ -27,7 +27,7 @@ const LoanPageLayout = ({
   faqs,
   additionalContent
 }: LoanPageLayoutProps) => {
-  const canonicalUrl = `https://faizsiz-kredi-bulucu-rehberi.com/${activeTab.toLowerCase()}-kredisi`;
+  const canonicalUrl = `https://faizsizkrediverenbankalar.com/${activeTab.toLowerCase()}-kredisi`;
   
   return (
     <div className="min-h-screen bg-gray-50">

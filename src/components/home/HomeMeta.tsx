@@ -11,7 +11,7 @@ const HomeMeta = () => {
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={`faizsiz kredi, ${new Date().getFullYear()} kredi kampanyaları, sıfır faizli kredi, ${currentDate} kredi fırsatları`} />
-      <link rel="canonical" href="https://faizsiz-kredi-bulucu-rehberi.com/" />
+      <link rel="canonical" href="https://faizsizkrediverenbankalar.com/" />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:type" content="website" />
