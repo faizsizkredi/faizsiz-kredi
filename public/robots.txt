@@ -1,19 +1,29 @@
 User-agent: *
 Allow: /
+
+# Sitemap location
 Sitemap: https://faizsizkrediverenbankalar.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /login
 Disallow: /signup
 
-# Crawl-delay: 10
-# Clean URLs
-Allow: /*.html
-Allow: /*.php
-Allow: /*.js
-Allow: /*.css
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.gif
-Allow: /*.svg
-Allow: /*.ico
+# Allow specific file types
+Allow: /*.html$
+Allow: /*.php$
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.ico$
+
+# Prevent duplicate content
+Disallow: /*?
+Disallow: /*&
