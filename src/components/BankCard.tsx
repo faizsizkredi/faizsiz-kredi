@@ -33,8 +33,8 @@ const BankCard = ({
   targetAudience,
   monthlyPayment,
   processingTime,
-  userRating,
-  applicationCount,
+  userRating = 4.5,
+  applicationCount = "1000",
   trustBadges,
 }: BankCardProps) => {
   // JSON-LD structured data for SEO
@@ -50,10 +50,20 @@ const BankCard = ({
     "interestRate": interestRate,
     "amount": amount,
     "term": term,
-    "review": {
+    "itemReviewed": {
+      "@type": "FinancialProduct",
+      "name": specialOffer,
+      "provider": {
+        "@type": "BankOrCreditUnion",
+        "name": name
+      }
+    },
+    "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": userRating,
-      "reviewCount": parseInt(applicationCount || "1000")
+      "ratingValue": userRating.toString(),
+      "reviewCount": parseInt(applicationCount),
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
