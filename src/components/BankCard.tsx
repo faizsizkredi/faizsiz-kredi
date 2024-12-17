@@ -37,7 +37,7 @@ const BankCard = ({
   applicationCount = "1000",
   trustBadges,
 }: BankCardProps) => {
-  // JSON-LD structured data for SEO
+  // Enhanced JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -45,11 +45,31 @@ const BankCard = ({
     "description": `${amount} tutarında, ${term} vadeli, ${interestRate} faiz oranlı kredi fırsatı`,
     "provider": {
       "@type": "BankOrCreditUnion",
-      "name": name
+      "name": name,
+      "image": {
+        "@type": "ImageObject",
+        "url": `https://faizsizkrediverenbankalar.com/images/banks/${name.toLowerCase()}.png`
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      }
     },
     "interestRate": interestRate,
-    "amount": amount,
+    "amount": {
+      "@type": "MonetaryAmount",
+      "currency": "TRY",
+      "value": amount.replace(/[^0-9]/g, '')
+    },
     "term": term,
+    "dateModified": lastUpdate || new Date().toISOString(),
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
+    },
     "itemReviewed": {
       "@type": "FinancialProduct",
       "name": specialOffer,
@@ -64,7 +84,19 @@ const BankCard = ({
       "reviewCount": parseInt(applicationCount),
       "bestRating": "5",
       "worstRating": "1"
-    }
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "targetAudience",
+        "value": targetAudience
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "processingTime",
+        "value": processingTime
+      }
+    ]
   };
 
   return (
