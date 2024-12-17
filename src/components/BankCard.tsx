@@ -70,12 +70,17 @@ const BankCard = ({
       "availability": "https://schema.org/InStock",
       "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
     },
-    "itemReviewed": {
-      "@type": "FinancialProduct",
-      "name": specialOffer,
-      "provider": {
-        "@type": "BankOrCreditUnion",
-        "name": name
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": userRating.toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Faizsiz Kredi Rehberi"
       }
     },
     "aggregateRating": {
@@ -83,7 +88,15 @@ const BankCard = ({
       "ratingValue": userRating.toString(),
       "reviewCount": parseInt(applicationCount),
       "bestRating": "5",
-      "worstRating": "1"
+      "worstRating": "1",
+      "itemReviewed": {
+        "@type": "FinancialProduct",
+        "name": specialOffer,
+        "provider": {
+          "@type": "BankOrCreditUnion",
+          "name": name
+        }
+      }
     },
     "additionalProperty": [
       {
