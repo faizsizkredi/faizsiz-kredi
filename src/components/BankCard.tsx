@@ -78,6 +78,14 @@ const BankCard = ({
         "bestRating": "5",
         "worstRating": "1"
       },
+      "itemReviewed": {
+        "@type": "FinancialProduct",
+        "name": specialOffer,
+        "provider": {
+          "@type": "BankOrCreditUnion",
+          "name": name
+        }
+      },
       "author": {
         "@type": "Organization",
         "name": "Faizsiz Kredi Rehberi"
