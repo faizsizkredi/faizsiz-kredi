@@ -37,6 +37,13 @@ const BankCard = ({
   applicationCount = "1000",
   trustBadges,
 }: BankCardProps) => {
+  // Calculate dynamic dates for price validity
+  const futureDate = new Date();
+  futureDate.setMonth(futureDate.getMonth() + 3); // Set price validity to 3 months from now
+  
+  // Convert applicationCount to number for reviewCount
+  const reviewCount = parseInt(applicationCount.replace(/[^0-9]/g, ''), 10);
+  
   // Enhanced JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
@@ -68,7 +75,7 @@ const BankCard = ({
       "price": "0",
       "priceCurrency": "TRY",
       "availability": "https://schema.org/InStock",
-      "priceValidUntil": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]
+      "priceValidUntil": futureDate.toISOString().split('T')[0]
     },
     "review": {
       "@type": "Review",
@@ -94,7 +101,8 @@ const BankCard = ({
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": userRating.toString(),
-      "reviewCount": parseInt(applicationCount),
+      "reviewCount": reviewCount,
+      "ratingCount": reviewCount,
       "bestRating": "5",
       "worstRating": "1",
       "itemReviewed": {
