@@ -20,8 +20,8 @@ const BankCardStats = ({
   applicationCount = "1000+"
 }: BankCardStatsProps) => {
   return (
-    <>
-      <div className="mt-6 grid grid-cols-4 gap-4">
+    <div className="space-y-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div>
           <p className="text-sm text-gray-600">Faiz Oranı</p>
           <p className="font-semibold" itemProp="interestRate">{interestRate}</p>
@@ -40,7 +40,7 @@ const BankCardStats = ({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-600">
         <div className="flex items-center gap-1">
           <Clock className="w-4 h-4" />
           <span>Onay Süresi: {processingTime}</span>
@@ -54,7 +54,7 @@ const BankCardStats = ({
           <span>{applicationCount} başvuru</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

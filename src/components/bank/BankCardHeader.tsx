@@ -36,31 +36,33 @@ const BankCardHeader = ({
   const IconComponent = icon as React.ComponentType;
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div className="flex items-center gap-4">
-        <div className="w-16 h-12 flex items-center justify-center bg-gray-50 rounded-lg">
+    <div className="flex flex-col gap-4">
+      <div className="flex items-start gap-4">
+        <div className="w-16 h-12 flex items-center justify-center bg-gray-50 rounded-lg shrink-0">
           {typeof icon === 'function' ? <IconComponent /> : icon}
         </div>
-        <div>
-          <div className="flex items-center gap-2">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
             <Link 
               to={`/bank/${getBankSlug(name)}`} 
-              className="text-lg sm:text-xl font-semibold hover:text-primary transition-colors"
+              className="text-lg font-semibold hover:text-primary transition-colors"
               itemProp="url"
             >
               <span itemProp="name">{name}</span>
             </Link>
             <BankCardRating rating={userRating} />
           </div>
-          <h2 className="text-base sm:text-lg font-medium text-gray-900" itemProp="description">
+          <h2 className="text-base font-medium text-gray-900 mt-1" itemProp="description">
             {specialOffer}
           </h2>
-          <p className="text-sm text-gray-600 mt-1">
-            {lastUpdate && `Son güncelleme: ${lastUpdate}`}
-          </p>
+          {lastUpdate && (
+            <p className="text-sm text-gray-600 mt-1">
+              Son güncelleme: {lastUpdate}
+            </p>
+          )}
         </div>
       </div>
-      <div className="flex flex-col sm:items-end gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <BankCardTrustBadges badges={trustBadges} />
         <BankCardApplyButton />
       </div>

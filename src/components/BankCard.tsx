@@ -135,7 +135,7 @@ const BankCard = ({
       </script>
       <Card className="mb-4 transition-all hover:shadow-lg">
         <CardContent className="p-4 sm:p-6">
-          <article itemScope itemType="https://schema.org/FinancialProduct">
+          <article itemScope itemType="https://schema.org/FinancialProduct" className="space-y-4">
             <BankCardHeader
               name={name}
               icon={icon}
