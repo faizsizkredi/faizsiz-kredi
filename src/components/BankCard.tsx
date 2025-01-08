@@ -134,7 +134,7 @@ const BankCard = ({
         {JSON.stringify(jsonLd)}
       </script>
       <Card className="mb-4 transition-all hover:shadow-lg">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <article itemScope itemType="https://schema.org/FinancialProduct">
             <BankCardHeader
               name={name}
@@ -145,15 +145,38 @@ const BankCard = ({
               trustBadges={trustBadges}
             />
 
-            <BankCardStats
-              interestRate={interestRate}
-              term={term}
-              amount={amount}
-              monthlyPayment={monthlyPayment}
-              processingTime={processingTime}
-              targetAudience={targetAudience}
-              applicationCount={applicationCount}
-            />
+            <div className="mt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div>
+                  <p className="text-sm text-gray-600">Faiz Oranı</p>
+                  <p className="font-semibold" itemProp="interestRate">{interestRate}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Vade</p>
+                  <p className="font-semibold" itemProp="term">{term}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Kredi Tutarı</p>
+                  <p className="font-semibold" itemProp="amount">{amount}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Aylık Taksit</p>
+                  <p className="font-semibold">{monthlyPayment}</p>
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-1">
+                  <span>Onay Süresi: {processingTime}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>Hedef Kitle: {targetAudience}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>{applicationCount} başvuru</span>
+                </div>
+              </div>
+            </div>
 
             <BankCardDetails
               amount={amount}
