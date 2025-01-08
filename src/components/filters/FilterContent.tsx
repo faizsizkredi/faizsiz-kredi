@@ -5,10 +5,6 @@ import FilterTabs from "../FilterTabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BankRatesTable from "../bank/BankRatesTable";
 import { Card } from "../ui/card";
-import { Button } from "../ui/button";
-import { Textarea } from "../ui/textarea";
-import { useState } from "react";
-import { toast } from "sonner";
 
 interface FilterContentProps {
   title: string;
@@ -29,20 +25,9 @@ const FilterContent = ({
   faqItems = [],
   additionalContent,
 }: FilterContentProps) => {
-  const [comment, setComment] = useState("");
   const createdAt = "2024-01-01";
   const updatedAt = new Date().toLocaleDateString('tr-TR');
   const author = "Finans Uzmanı";
-
-  const handleCommentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (comment.trim()) {
-      toast.success("Yorumunuz başarıyla gönderildi!");
-      setComment("");
-    } else {
-      toast.error("Lütfen bir yorum yazın");
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -105,23 +90,6 @@ const FilterContent = ({
         )}
 
         {additionalContent}
-
-        <div className="mt-16">
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Yorumlar</h2>
-            <form onSubmit={handleCommentSubmit} className="space-y-4">
-              <Textarea
-                placeholder="Yorumunuzu buraya yazın..."
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                className="min-h-[100px]"
-              />
-              <Button type="submit">
-                Yorum Gönder
-              </Button>
-            </form>
-          </Card>
-        </div>
       </div>
     </div>
   );
