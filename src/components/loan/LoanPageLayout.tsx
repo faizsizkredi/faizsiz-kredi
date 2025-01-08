@@ -29,20 +29,21 @@ const LoanPageLayout = ({
 }: LoanPageLayoutProps) => {
   const canonicalUrl = `https://faizsizkrediverenbankalar.com/${activeTab.toLowerCase()}-kredisi`;
   const currentYear = new Date().getFullYear();
+  const pageTitle = `${title} ${currentYear} | En Uygun ${title} Başvurusu`;
   
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>{title} {currentYear} | En Uygun {title} Başvurusu</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={`${title} ${currentYear} | En Uygun ${title} Başvurusu`} />
+        <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${title} ${currentYear} | En Uygun ${title} Başvurusu`} />
+        <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
       </Helmet>
 
