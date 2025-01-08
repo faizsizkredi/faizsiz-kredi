@@ -39,7 +39,7 @@ const BankCard = ({
 }: BankCardProps) => {
   // Calculate dynamic dates for price validity
   const futureDate = new Date();
-  futureDate.setMonth(futureDate.getMonth() + 3); // Set price validity to 3 months from now
+  futureDate.setMonth(futureDate.getMonth() + 3);
   
   // Convert applicationCount to number for reviewCount
   const reviewCount = parseInt(applicationCount.replace(/[^0-9]/g, ''), 10);
@@ -145,38 +145,15 @@ const BankCard = ({
               trustBadges={trustBadges}
             />
 
-            <div className="mt-6">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div>
-                  <p className="text-sm text-gray-600">Faiz Oranı</p>
-                  <p className="font-semibold" itemProp="interestRate">{interestRate}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Vade</p>
-                  <p className="font-semibold" itemProp="term">{term}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Kredi Tutarı</p>
-                  <p className="font-semibold" itemProp="amount">{amount}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Aylık Taksit</p>
-                  <p className="font-semibold">{monthlyPayment}</p>
-                </div>
-              </div>
-
-              <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
-                <div className="flex items-center gap-1">
-                  <span>Onay Süresi: {processingTime}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span>Hedef Kitle: {targetAudience}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span>{applicationCount} başvuru</span>
-                </div>
-              </div>
-            </div>
+            <BankCardStats
+              interestRate={interestRate}
+              term={term}
+              amount={amount}
+              monthlyPayment={monthlyPayment}
+              processingTime={processingTime}
+              targetAudience={targetAudience}
+              applicationCount={applicationCount}
+            />
 
             <BankCardDetails
               amount={amount}
