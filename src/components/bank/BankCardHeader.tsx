@@ -45,16 +45,16 @@ const BankCardHeader = ({
           <div className="flex items-center gap-2 flex-wrap">
             <Link 
               to={`/bank/${getBankSlug(name)}`} 
-              className="text-lg font-semibold hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors"
               itemProp="url"
             >
-              <span itemProp="name">{name}</span>
+              <h2 className="text-lg font-semibold" itemProp="name">{name}</h2>
             </Link>
             <BankCardRating rating={userRating} />
           </div>
-          <h2 className="text-base font-medium text-gray-900 mt-1" itemProp="description">
+          <h3 className="text-base font-medium text-gray-900 mt-1" itemProp="description">
             {specialOffer}
-          </h2>
+          </h3>
           {lastUpdate && (
             <p className="text-sm text-gray-600 mt-1">
               Son güncelleme: {lastUpdate}
