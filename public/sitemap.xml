@@ -9,7 +9,7 @@
   <!-- Ana Sayfa -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <news:news>
@@ -17,7 +17,7 @@
         <news:name>Faizsiz Kredi Rehberi</news:name>
         <news:language>tr</news:language>
       </news:publication>
-      <news:publication_date>2024-03-20</news:publication_date>
+      <news:publication_date>2025-03-20</news:publication_date>
       <news:title>Güncel Faizsiz Kredi Kampanyaları</news:title>
     </news:news>
   </url>
@@ -25,7 +25,7 @@
   <!-- Kredi Türleri -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/ihtiyac-kredisi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -37,31 +37,31 @@
   <!-- Diğer Kredi Sayfaları -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/konut-kredisi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://faizsizkrediverenbankalar.com/tasit-kredisi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://faizsizkrediverenbankalar.com/kobi-kredisi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://faizsizkrediverenbankalar.com/yeni-musteriye-kredi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://faizsizkrediverenbankalar.com/emekliye-faizsiz-kredi</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -69,7 +69,7 @@
   <!-- Banka Sayfaları -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/tum-bankalar</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -78,7 +78,7 @@
   <!-- Hesaplama Araçları -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/kredi-hesaplama</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -87,7 +87,7 @@
   <!-- Blog ve Bilgi Sayfaları -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/blog</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2025-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <news:news>
@@ -95,7 +95,7 @@
         <news:name>Faizsiz Kredi Rehberi Blog</news:name>
         <news:language>tr</news:language>
       </news:publication>
-      <news:publication_date>2024-03-20</news:publication_date>
+      <news:publication_date>2025-03-20</news:publication_date>
       <news:title>Kredi Haberleri ve Güncellemeler</news:title>
     </news:news>
   </url>
