@@ -75,6 +75,206 @@
     <mobile:mobile/>
   </url>
 
+  <!-- QNB Sayfaları -->
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/5000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/7500-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/10000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/15000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/20000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/25000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/50000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/qnb/100000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Denizbank Sayfaları -->
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/5000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/7500-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/10000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/15000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/20000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/25000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/50000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/denizbank/100000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Akbank Sayfaları -->
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/5000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/7500-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/10000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/15000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/20000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/25000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/50000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/akbank/100000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Vakıfbank Sayfaları -->
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/5000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/7500-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/10000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/15000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/20000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/25000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/50000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/bank/vakifbank/100000-tl-faizsiz-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <!-- Hesaplama Araçları -->
   <url>
     <loc>https://faizsizkrediverenbankalar.com/kredi-hesaplama</loc>
@@ -82,6 +282,38 @@
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
+  </url>
+
+  <!-- Özel Sayfalar -->
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/en-kolay-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/promosyonlu-krediler</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/en-uygun-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/sifir-faizli-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://faizsizkrediverenbankalar.com/riskli-musteriye-kredi</loc>
+    <lastmod>2025-01-12T14:40:05+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <!-- Blog ve Bilgi Sayfaları -->
