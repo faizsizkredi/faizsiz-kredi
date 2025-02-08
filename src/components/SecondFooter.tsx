@@ -1,13 +1,12 @@
 
 import { Link } from "react-router-dom";
+import { BANK_DATA } from "@/data/bankData";
 
 const SecondFooter = () => {
-  const banks = [
-    { name: "Akbank", path: "/bank/akbank" },
-    { name: "QNB Finansbank", path: "/bank/qnb" },
-    { name: "Denizbank", path: "/bank/denizbank" },
-    { name: "VakıfBank", path: "/bank/vakifbank" }
-  ];
+  const banks = BANK_DATA.map(bank => ({
+    name: bank.name,
+    path: `/bank/${bank.name.toLowerCase().replace(/\s+/g, '').replace(/[^a-z]/g, '')}`
+  }));
 
   const loanTypes = [
     { name: "İhtiyaç Kredisi", path: "/ihtiyac-kredisi" },
@@ -117,3 +116,4 @@ const SecondFooter = () => {
 };
 
 export default SecondFooter;
+
