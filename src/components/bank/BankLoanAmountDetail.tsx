@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet";
 import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
@@ -20,7 +21,7 @@ const BankLoanAmountDetail = ({
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} ${amount} TL Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
-  const canonicalUrl = `https://faizsizkrediverenbankalar.com/bank/${bankName.toLowerCase().replace(/\s+/g, '-')}/${amount}-tl-kredi`;
+  const canonicalUrl = window.location.href.split('?')[0]; // Dinamik olarak mevcut URL'i alır
 
   return (
     <div className="min-h-screen bg-gray-50">

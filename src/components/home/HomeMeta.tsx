@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 
@@ -6,7 +7,7 @@ const HomeMeta = () => {
   const currentYear = new Date().getFullYear();
   const pageTitle = `Faizsiz Kredi Veren Bankalar ${currentDate} | En Güncel Kredi Kampanyaları`;
   const pageDescription = `${currentDate} ayına özel faizsiz kredi kampanyaları, güncel faiz oranları ve başvuru koşulları. En uygun kredi fırsatları ve banka karşılaştırmaları. ${currentYear} yılının en avantajlı kredi seçenekleri.`;
-  const canonicalUrl = "https://faizsizkrediverenbankalar.com";
+  const canonicalUrl = window.location.href.split('?')[0]; // Dinamik olarak mevcut URL'i alır
 
   // Structured data for organization
   const organizationSchema = {
