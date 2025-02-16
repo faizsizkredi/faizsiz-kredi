@@ -15,25 +15,6 @@ const SecondFooter = () => {
     { name: "KOBİ Kredisi", path: "/kobi-kredisi" }
   ];
 
-  const loanAmounts = [
-    { name: "5.000 TL Kredi", path: "/bank/akbank/five-thousand-loan" },
-    { name: "7.500 TL Kredi", path: "/bank/akbank/seven-thousand-five-hundred-loan" },
-    { name: "10.000 TL Kredi", path: "/bank/akbank/ten-thousand-loan" },
-    { name: "15.000 TL Kredi", path: "/bank/akbank/fifteen-thousand-loan" },
-    { name: "20.000 TL Kredi", path: "/bank/akbank/twenty-thousand-loan" },
-    { name: "25.000 TL Kredi", path: "/bank/akbank/twenty-five-thousand-loan" },
-    { name: "50.000 TL Kredi", path: "/bank/akbank/fifty-thousand-loan" },
-    { name: "100.000 TL Kredi", path: "/bank/akbank/hundred-thousand-loan" }
-  ];
-
-  const specialPages = [
-    { name: "Kolay Krediler", path: "/easiest" },
-    { name: "Faizsiz Krediler", path: "/zeroInterest" },
-    { name: "Yeni Müşteri", path: "/newCustomer" },
-    { name: "Emekli", path: "/retired" },
-    { name: "Uygun Faizli", path: "/affordable" }
-  ];
-
   const utilityPages = [
     { name: "Kredi Faiz Hesaplama", path: "/kredi-faiz-hesaplama" },
     { name: "Mevduat", path: "/mevduat" },
@@ -44,7 +25,7 @@ const SecondFooter = () => {
   return (
     <footer className="bg-gray-100 border-t">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="font-semibold text-lg mb-4">Bankalar</h3>
             <ul className="space-y-2">
@@ -65,32 +46,6 @@ const SecondFooter = () => {
                 <li key={loan.path}>
                   <Link to={loan.path} className="text-gray-600 hover:text-primary">
                     {loan.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Kredi Tutarları</h3>
-            <ul className="space-y-2">
-              {loanAmounts.map((amount) => (
-                <li key={amount.path}>
-                  <Link to={amount.path} className="text-gray-600 hover:text-primary">
-                    {amount.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Özel Krediler</h3>
-            <ul className="space-y-2">
-              {specialPages.map((page) => (
-                <li key={page.path}>
-                  <Link to={page.path} className="text-gray-600 hover:text-primary">
-                    {page.name}
                   </Link>
                 </li>
               ))}
