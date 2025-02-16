@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SecondFooter from "./components/SecondFooter";
+import PageNavigation from "./components/navigation/PageNavigation";
 import AppRoutes from "./routes";
 
 const queryClient = new QueryClient({
@@ -25,6 +26,7 @@ const App = () => {
         <Router>
           <div className="min-h-screen flex flex-col">
             <Header />
+            <PageNavigation />
             <main className="flex-1">
               <AppRoutes />
             </main>
