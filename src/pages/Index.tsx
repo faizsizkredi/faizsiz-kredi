@@ -7,58 +7,105 @@ import HomeFAQ from "@/components/home/HomeFAQ";
 import BankList from "@/components/home/BankList";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import BankRatesTable from "@/components/bank/BankRatesTable";
-
-type SortOption = 
-  | "recommended" 
-  | "promotion" 
-  | "bank" 
-  | "risky" 
-  | "easiest" 
-  | "affordable" 
-  | "zeroInterest" 
-  | "newCustomer" 
-  | "retired";
-
+type SortOption = "recommended" | "promotion" | "bank" | "risky" | "easiest" | "affordable" | "zeroInterest" | "newCustomer" | "retired";
 const Index = () => {
   const [sortOption, setSortOption] = useState<SortOption>("recommended");
-  const { data: interestRates, isError } = useInterestRates();
-  const { toast } = useToast();
+  const {
+    data: interestRates,
+    isError
+  } = useInterestRates();
+  const {
+    toast
+  } = useToast();
   const currentDate = getCurrentMonthYear();
-
   if (isError) {
     toast({
       title: "Hata",
       description: "Faiz oranları güncellenirken bir hata oluştu.",
-      variant: "destructive",
+      variant: "destructive"
     });
   }
-
-  const currentRates = [
-    { name: "QNB Finansbank", productName: "Hoş Geldin Kredisi", interestRate: "0.00", minTerm: "1", maxTerm: "6" },
-    { name: "Akbank", productName: "Dijital Kredi", interestRate: "0.00", minTerm: "1", maxTerm: "6" },
-    { name: "Garanti BBVA", productName: "İhtiyaç Kredisi", interestRate: "2.99", minTerm: "3", maxTerm: "36" },
-    { name: "Yapı Kredi", productName: "İhtiyaç Kredisi", interestRate: "3.19", minTerm: "3", maxTerm: "36" },
-    { name: "Ziraat Bankası", productName: "Tüketici Kredisi", interestRate: "2.89", minTerm: "3", maxTerm: "36" }
-  ];
-
-  const extendedRates = [
-    { bank: "QNB Finansbank", product: "Hoş Geldin Kredisi", rate: "0.00", term: "6 Ay", maxAmount: "50.000 TL", requirements: "Yeni Müşteri" },
-    { bank: "Akbank", product: "Dijital Kredi", rate: "0.00", term: "6 Ay", maxAmount: "45.000 TL", requirements: "Yeni Müşteri" },
-    { bank: "Garanti BBVA", product: "İhtiyaç Kredisi", rate: "0.00", term: "3 Ay", maxAmount: "40.000 TL", requirements: "Yeni Müşteri" },
-    { bank: "Yapı Kredi", product: "Hoş Geldin Kredisi", rate: "0.00", term: "3 Ay", maxAmount: "35.000 TL", requirements: "Yeni Müşteri" },
-    { bank: "ING Bank", product: "Hoş Geldin Kredisi", rate: "0.00", term: "3 Ay", maxAmount: "30.000 TL", requirements: "Yeni Müşteri" },
-    { bank: "TEB", product: "Hoş Geldin Kredisi", rate: "0.00", term: "6 Ay", maxAmount: "25.000 TL", requirements: "Yeni Müşteri" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gray-50">
+  const currentRates = [{
+    name: "QNB Finansbank",
+    productName: "Hoş Geldin Kredisi",
+    interestRate: "0.00",
+    minTerm: "1",
+    maxTerm: "6"
+  }, {
+    name: "Akbank",
+    productName: "Dijital Kredi",
+    interestRate: "0.00",
+    minTerm: "1",
+    maxTerm: "6"
+  }, {
+    name: "Garanti BBVA",
+    productName: "İhtiyaç Kredisi",
+    interestRate: "2.99",
+    minTerm: "3",
+    maxTerm: "36"
+  }, {
+    name: "Yapı Kredi",
+    productName: "İhtiyaç Kredisi",
+    interestRate: "3.19",
+    minTerm: "3",
+    maxTerm: "36"
+  }, {
+    name: "Ziraat Bankası",
+    productName: "Tüketici Kredisi",
+    interestRate: "2.89",
+    minTerm: "3",
+    maxTerm: "36"
+  }];
+  const extendedRates = [{
+    bank: "QNB Finansbank",
+    product: "Hoş Geldin Kredisi",
+    rate: "0.00",
+    term: "6 Ay",
+    maxAmount: "50.000 TL",
+    requirements: "Yeni Müşteri"
+  }, {
+    bank: "Akbank",
+    product: "Dijital Kredi",
+    rate: "0.00",
+    term: "6 Ay",
+    maxAmount: "45.000 TL",
+    requirements: "Yeni Müşteri"
+  }, {
+    bank: "Garanti BBVA",
+    product: "İhtiyaç Kredisi",
+    rate: "0.00",
+    term: "3 Ay",
+    maxAmount: "40.000 TL",
+    requirements: "Yeni Müşteri"
+  }, {
+    bank: "Yapı Kredi",
+    product: "Hoş Geldin Kredisi",
+    rate: "0.00",
+    term: "3 Ay",
+    maxAmount: "35.000 TL",
+    requirements: "Yeni Müşteri"
+  }, {
+    bank: "ING Bank",
+    product: "Hoş Geldin Kredisi",
+    rate: "0.00",
+    term: "3 Ay",
+    maxAmount: "30.000 TL",
+    requirements: "Yeni Müşteri"
+  }, {
+    bank: "TEB",
+    product: "Hoş Geldin Kredisi",
+    rate: "0.00",
+    term: "6 Ay",
+    maxAmount: "25.000 TL",
+    requirements: "Yeni Müşteri"
+  }];
+  return <div className="min-h-screen bg-gray-50">
       <HomeMeta />
 
       <div className="container mx-auto py-8">
         <h1 className="text-4xl font-bold mb-4">Faizsiz Kredi Veren Bankalar {currentDate}</h1>
-        <p className="text-gray-600 mb-8">
-          Türkiye'deki bankaların güncel faizsiz kredi kampanyalarını karşılaştırın, size en uygun krediye hemen başvurun. Tüm bankalar, güncel faiz oranları ve kampanya detayları tek sayfada!
-        </p>
+        <p className="text-gray-600 mb-8">2025 yılında faizsiz kredi veren başlıca bankalar: QNB Finansbank, Akbank, Garanti BBVA, İş Bankası, DenizBank, Enpara.com, ON Dijital, CEPTETEB ve Albaraka Türk'tür. Her bankanın sunduğu faizsiz kredi limitleri ve vade süreleri farklılık gösterebilmektedir.
+      </p>
 
         <FilterTabs onSortChange={setSortOption} />
         
@@ -88,16 +135,14 @@ const Index = () => {
                 </tr>
               </thead>
               <tbody>
-                {extendedRates.map((rate, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                {extendedRates.map((rate, index) => <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="border border-gray-200 px-4 py-2">{rate.bank}</td>
                     <td className="border border-gray-200 px-4 py-2">{rate.product}</td>
                     <td className="border border-gray-200 px-4 py-2">%{rate.rate}</td>
                     <td className="border border-gray-200 px-4 py-2">{rate.term}</td>
                     <td className="border border-gray-200 px-4 py-2">{rate.maxAmount}</td>
                     <td className="border border-gray-200 px-4 py-2">{rate.requirements}</td>
-                  </tr>
-                ))}
+                  </tr>)}
               </tbody>
             </table>
           </div>
@@ -146,8 +191,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
