@@ -26,14 +26,6 @@ const SecondFooter = () => {
     { name: "100.000 TL Kredi", path: "/bank/akbank/hundred-thousand-loan" }
   ];
 
-  const specialPages = [
-    { name: "Kolay Krediler", path: "/easiest" },
-    { name: "Faizsiz Krediler", path: "/zeroInterest" },
-    { name: "Yeni Müşteri", path: "/newCustomer" },
-    { name: "Emekli", path: "/retired" },
-    { name: "Uygun Faizli", path: "/affordable" }
-  ];
-
   const utilityPages = [
     { name: "Kredi Faiz Hesaplama", path: "/kredi-faiz-hesaplama" },
     { name: "Mevduat", path: "/mevduat" },
@@ -44,7 +36,7 @@ const SecondFooter = () => {
   return (
     <footer className="bg-gray-100 border-t">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-semibold text-lg mb-4">Bankalar</h3>
             <ul className="space-y-2">
@@ -78,19 +70,6 @@ const SecondFooter = () => {
                 <li key={amount.path}>
                   <Link to={amount.path} className="text-gray-600 hover:text-primary">
                     {amount.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Özel Krediler</h3>
-            <ul className="space-y-2">
-              {specialPages.map((page) => (
-                <li key={page.path}>
-                  <Link to={page.path} className="text-gray-600 hover:text-primary">
-                    {page.name}
                   </Link>
                 </li>
               ))}
