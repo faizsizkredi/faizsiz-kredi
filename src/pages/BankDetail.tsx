@@ -105,10 +105,10 @@ const BankDetail = () => {
         </div>
 
         <BankHero bankName={bankName || ""} />
-        <BankInfo bankName={bankName || ""} />
         <BankProducts bankName={bankName || ""} />
         <BankLoanAmounts bankName={bankName || ""} bankSlug={bankSlug || ""} />
         <BankStats bankName={bankName || ""} />
+        <BankInfo bankName={bankName || ""} />
 
         <div className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Sıkça Sorulan Sorular</h2>
