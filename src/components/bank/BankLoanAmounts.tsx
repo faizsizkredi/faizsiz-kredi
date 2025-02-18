@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Building } from "lucide-react";
 import LoanCard from "./loan/LoanCard";
@@ -84,7 +85,7 @@ const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
   return (
     <Card className="mt-8">
       <CardContent className="p-6">
-        <h2 className="text-xl font-bold mb-6">{bankName} Kredi Seçenekleri</h2>
+        <h2 className="text-xl font-bold mb-6">{bankName} Kredi Seçenekleri ve Kampanyaları</h2>
         <div className="space-y-4">
           {LOAN_AMOUNTS.map((loan) => (
             <LoanCard
