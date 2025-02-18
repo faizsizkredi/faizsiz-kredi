@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 
 interface BankInfoProps {
@@ -7,20 +8,21 @@ interface BankInfoProps {
 const BankInfo = ({ bankName }: BankInfoProps) => {
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold mb-6">{bankName} Hakkında</h2>
+      <h2 className="text-2xl font-bold mb-6">{bankName} Kredi Kampanyaları</h2>
       <Card>
         <CardContent className="p-6">
-          <p className="text-gray-600 mb-6">
-            Ocak 1948'de özel sermayeli bir ticaret bankası olarak Adana'da kuruldu. Amacı bölgedeki pamuk üreticilerine kaynak sağlamak ve destek olmak olan {bankName}, ilk İstanbul şubesini 14 Temmuz 1950'de Sirkeci'de açtı. Kuruluşu gününden bu yana toplumun ve ekonominin gelişimi için bilinç ve sorumlulukla hareket ediyor, paydaşlarına sürdürülebilir değer yaratmak için 72 yıldır çalışıyor.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-4">
             <div>
-              <div className="text-sm text-gray-500 mb-1">Banka ATM Sayısı</div>
-              <div className="text-xl font-semibold">5.300</div>
+              <h3 className="text-lg font-semibold mb-2">Yeni Müşteri Kredisi</h3>
+              <p className="text-gray-600">
+                Yeni müşterilere özel faizsiz kredi kampanyası ile 50.000 TL'ye varan tutarlarda kredi kullanabilirsiniz.
+              </p>
             </div>
             <div>
-              <div className="text-sm text-gray-500 mb-1">Banka üye iş yeri sayısı</div>
-              <div className="text-xl font-semibold">350.000</div>
+              <h3 className="text-lg font-semibold mb-2">Uygun Faizli Krediler</h3>
+              <p className="text-gray-600">
+                36 aya varan vade seçenekleri ve uygun faiz oranları ile ihtiyaç kredisi kullanabilirsiniz.
+              </p>
             </div>
           </div>
         </CardContent>

@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -64,11 +65,6 @@ const BankDetail = () => {
         <meta name="author" content={author} />
         <meta property="article:published_time" content={createdAt} />
         <meta property="article:modified_time" content={updatedAt} />
-        
-        {/* Hidden images for Google SEO */}
-        <meta property="og:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
-        <meta property="og:image:alt" content="Kredi Kartı" />
-        <meta name="twitter:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
       </Helmet>
 
       <main className="container mx-auto px-4 py-8">
