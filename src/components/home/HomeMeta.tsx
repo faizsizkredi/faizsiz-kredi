@@ -45,7 +45,7 @@ const HomeMeta = () => {
       
       {/* Canonical and Alternate URLs */}
       <link rel="canonical" href={current} />
-      <link rel="alternate" href={homepage} hreflang="tr" />
+      <link rel="alternate" href={homepage} hrefLang="tr" />
       
       {/* Open Graph tags */}
       <meta property="og:title" content={pageTitle} />

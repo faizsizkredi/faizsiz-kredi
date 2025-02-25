@@ -33,7 +33,7 @@ const BankLoanAmountDetail = ({
         
         {/* Canonical and Alternate URLs */}
         <link rel="canonical" href={current} />
-        <link rel="alternate" href={homepage} hreflang="tr" />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
         
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
