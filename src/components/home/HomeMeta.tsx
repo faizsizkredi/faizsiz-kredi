@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { getPageUrls } from "@/utils/canonicalUrls";
@@ -7,6 +8,8 @@ const HomeMeta = () => {
   const currentYear = new Date().getFullYear();
   const pageTitle = `Faizsiz Kredi Veren Bankalar ${currentDate} | En Güncel Kredi Kampanyaları`;
   const pageDescription = `${currentDate} ayına özel faizsiz kredi kampanyaları, güncel faiz oranları ve başvuru koşulları. En uygun kredi fırsatları ve banka karşılaştırmaları. ${currentYear} yılının en avantajlı kredi seçenekleri.`;
+  
+  // Ana sayfa için URL'leri al
   const { canonical, homepage } = getPageUrls('', 'home');
 
   // Structured data for organization
@@ -46,7 +49,6 @@ const HomeMeta = () => {
       <link rel="canonical" href={canonical} />
       <link rel="alternate" href={homepage} hrefLang="tr" />
       
-      {/* Open Graph tags */}
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:type" content="website" />
@@ -54,7 +56,6 @@ const HomeMeta = () => {
       <meta property="og:site_name" content="Faizsiz Kredi Rehberi" />
       <meta property="og:locale" content="tr_TR" />
       
-      {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
       </script>
