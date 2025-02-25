@@ -1,8 +1,11 @@
 import { Building2 } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
+import { getPageUrls } from "@/utils/canonicalUrls";
 
 const KobiKredisi = () => {
+  const { canonical, homepage } = getPageUrls('kobi-kredisi');
+
   const faqs = [
     {
       question: "KOBİ kredisi için hangi belgeler gerekli?",
@@ -18,7 +21,6 @@ const KobiKredisi = () => {
     }
   ];
 
-  // JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -41,7 +43,9 @@ const KobiKredisi = () => {
         <title>KOBİ Kredisi 2024 | En Uygun KOBİ Kredisi Başvurusu</title>
         <meta name="description" content="2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun KOBİ kredisi veren bankalar." />
         <meta name="keywords" content="KOBİ kredisi, işletme kredisi, esnaf kredisi, kredi hesaplama, kredi başvurusu" />
-        <link rel="canonical" href="https://yourwebsite.com/kobi-kredisi" />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
+        <meta property="og:url" content={canonical} />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>

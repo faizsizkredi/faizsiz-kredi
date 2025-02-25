@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { getPageUrls } from "@/utils/canonicalUrls";
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const { canonical, homepage } = getPageUrls(`blog/${slug}`);
 
   // Statik blog içeriği
   const post = {
@@ -72,9 +74,12 @@ const BlogPost = () => {
         <title>{post.title} | Faizsiz Kredi Rehberi</title>
         <meta name="description" content={post.content.substring(0, 160)} />
         <meta name="author" content={post.author} />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.content.substring(0, 160)} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
         <meta property="og:image" content={post.image} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:author" content={post.author} />

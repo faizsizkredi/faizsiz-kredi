@@ -1,8 +1,11 @@
 import { Banknote } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
+import { getPageUrls } from "@/utils/canonicalUrls";
 
 const IhtiyacKredisi = () => {
+  const { canonical, homepage } = getPageUrls('ihtiyac-kredisi');
+
   const faqs = [
     {
       question: "İhtiyaç kredisi başvurusu nasıl yapılır?",
@@ -39,9 +42,17 @@ const IhtiyacKredisi = () => {
     <>
       <Helmet>
         <title>İhtiyaç Kredisi 2024 | En Uygun İhtiyaç Kredisi Başvurusu</title>
-        <meta name="description" content="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar." />
-        <meta name="keywords" content="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi" />
-        <link rel="canonical" href="https://yourwebsite.com/ihtiyac-kredisi" />
+        <meta 
+          name="description" 
+          content="2024 yılı güncel ihtiyaç kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun ihtiyaç kredisi veren bankalar." 
+        />
+        <meta 
+          name="keywords" 
+          content="ihtiyaç kredisi, kredi hesaplama, kredi başvurusu, banka kredileri, uygun kredi" 
+        />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
+        <meta property="og:url" content={canonical} />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>

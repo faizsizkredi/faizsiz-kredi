@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { getPageUrls } from "@/utils/canonicalUrls";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import { Calculator } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const KrediFaizHesaplama = () => {
+  const { canonical, homepage } = getPageUrls('kredi-faiz-hesaplama');
   const { toast } = useToast();
   const [amount, setAmount] = useState("");
   const [term, setTerm] = useState("");
@@ -63,6 +65,9 @@ const KrediFaizHesaplama = () => {
           name="keywords" 
           content="kredi hesaplama, faiz hesaplama, kredi faiz oranları, kredi taksit hesaplama, kredi ödeme planı" 
         />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
+        <meta property="og:url" content={canonical} />
       </Helmet>
 
       <div className="container mx-auto px-4 py-8">

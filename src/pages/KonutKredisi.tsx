@@ -1,8 +1,11 @@
 import { Home } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
+import { getPageUrls } from "@/utils/canonicalUrls";
 
 const KonutKredisi = () => {
+  const { canonical, homepage } = getPageUrls('konut-kredisi');
+
   const faqs = [
     {
       question: "Konut kredisi için ne kadar peşinat gerekiyor?",
@@ -18,7 +21,6 @@ const KonutKredisi = () => {
     }
   ];
 
-  // JSON-LD structured data for SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialProduct",
@@ -41,7 +43,9 @@ const KonutKredisi = () => {
         <title>Konut Kredisi 2024 | En Uygun Konut Kredisi Başvurusu</title>
         <meta name="description" content="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar." />
         <meta name="keywords" content="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu" />
-        <link rel="canonical" href="https://yourwebsite.com/konut-kredisi" />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={homepage} hrefLang="tr" />
+        <meta property="og:url" content={canonical} />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
