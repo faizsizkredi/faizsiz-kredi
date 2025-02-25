@@ -4,7 +4,7 @@ import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
-import { getCanonicalUrl, getAlternateUrls } from "@/utils/canonicalUrls";
+import { getBankPageUrls } from "@/utils/canonicalUrls";
 
 interface BankLoanAmountDetailProps {
   bankName: string;
@@ -22,7 +22,10 @@ const BankLoanAmountDetail = ({
   const currentYear = new Date().getFullYear();
   const pageTitle = `${bankName} ${amount} TL Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
-  const { homepage, current } = getAlternateUrls();
+  
+  // Bank slug oluştur
+  const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
+  const { canonical, homepage } = getBankPageUrls(bankSlug, amount);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,14 +34,14 @@ const BankLoanAmountDetail = ({
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={`${bankName}, ${amount} TL kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
         
-        {/* Canonical and Alternate URLs */}
-        <link rel="canonical" href={current} />
+        {/* Canonical ve Alternatif URL'ler */}
+        <link rel="canonical" href={canonical} />
         <link rel="alternate" href={homepage} hrefLang="tr" />
         
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={current} />
+        <meta property="og:url" content={canonical} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
