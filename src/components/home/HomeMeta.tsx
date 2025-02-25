@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { getPageUrls } from "@/utils/canonicalUrls";
@@ -8,7 +7,7 @@ const HomeMeta = () => {
   const currentYear = new Date().getFullYear();
   const pageTitle = `Faizsiz Kredi Veren Bankalar ${currentDate} | En Güncel Kredi Kampanyaları`;
   const pageDescription = `${currentDate} ayına özel faizsiz kredi kampanyaları, güncel faiz oranları ve başvuru koşulları. En uygun kredi fırsatları ve banka karşılaştırmaları. ${currentYear} yılının en avantajlı kredi seçenekleri.`;
-  const { canonical, homepage } = getPageUrls('/');
+  const { canonical, homepage } = getPageUrls('', 'home');
 
   // Structured data for organization
   const organizationSchema = {
@@ -44,7 +43,6 @@ const HomeMeta = () => {
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={`faizsiz kredi, ${currentYear} kredi kampanyaları, sıfır faizli kredi, ${currentDate} kredi fırsatları, kredi başvurusu, banka kredileri, ihtiyaç kredisi, konut kredisi, taşıt kredisi`} />
       
-      {/* Canonical ve Alternatif URL'ler */}
       <link rel="canonical" href={canonical} />
       <link rel="alternate" href={homepage} hrefLang="tr" />
       

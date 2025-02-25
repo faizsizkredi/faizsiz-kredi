@@ -1,20 +1,32 @@
 
 const BASE_URL = 'https://faizsizkrediverenbankalar.com';
 
-// Sayfa türlerine göre URL yapıları
-const createBankPageUrl = (bankSlug: string) => `${BASE_URL}/bank/${bankSlug}`;
-const createBankLoanPageUrl = (bankSlug: string, amount: string) => 
-  `${BASE_URL}/bank/${bankSlug}/${amount}-tl-kredi`;
+type PageType = 'home' | 'bank' | 'loan' | 'generic';
 
-export const getCanonicalUrl = (pathname: string = '') => {
-  // URL'deki gereksiz slash'leri temizle
-  const cleanPath = pathname.replace(/\/+/g, '/').replace(/\/$/, '');
-  return `${BASE_URL}${cleanPath}`;
+// Sayfa türlerine göre URL yapıları
+const createUrlByPageType = (path: string = '', pageType: PageType = 'generic') => {
+  const cleanPath = path.replace(/\/+/g, '/').replace(/^\/*|\/*$/g, '');
+  
+  switch (pageType) {
+    case 'home':
+      return BASE_URL;
+    case 'bank':
+      return `${BASE_URL}/bank/${cleanPath}`;
+    case 'loan':
+      return `${BASE_URL}/bank/${cleanPath}-tl-kredi`;
+    default:
+      return `${BASE_URL}/${cleanPath}`;
+  }
 };
 
-export const getPageUrls = (pathname: string = '') => {
+export const getCanonicalUrl = (pathname: string = '', pageType: PageType = 'generic') => {
+  return createUrlByPageType(pathname, pageType);
+};
+
+export const getPageUrls = (currentPath: string = '', pageType: PageType = 'generic') => {
   return {
-    canonical: getCanonicalUrl(pathname),
+    canonical: getCanonicalUrl(currentPath, pageType),
+    current: getCanonicalUrl(currentPath, pageType),
     homepage: BASE_URL
   };
 };
@@ -22,14 +34,8 @@ export const getPageUrls = (pathname: string = '') => {
 // Banka detay sayfaları için özel URL yapısı
 export const getBankPageUrls = (bankSlug: string, amount?: string) => {
   if (amount) {
-    return {
-      canonical: createBankLoanPageUrl(bankSlug, amount),
-      homepage: BASE_URL
-    };
+    return getPageUrls(`${bankSlug}/${amount}`, 'loan');
   }
-  
-  return {
-    canonical: createBankPageUrl(bankSlug),
-    homepage: BASE_URL
-  };
+  return getPageUrls(bankSlug, 'bank');
 };
+

@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet";
 import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
@@ -23,7 +22,6 @@ const BankLoanAmountDetail = ({
   const pageTitle = `${bankName} ${amount} TL Kredi Başvurusu ${currentYear} | Güncel Faiz Oranları`;
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
   
-  // Bank slug oluştur
   const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
   const { canonical, homepage } = getBankPageUrls(bankSlug, amount);
 
@@ -34,7 +32,6 @@ const BankLoanAmountDetail = ({
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={`${bankName}, ${amount} TL kredi, ihtiyaç kredisi, kredi başvurusu, kredi faiz oranları, ${currentYear}`} />
         
-        {/* Canonical ve Alternatif URL'ler */}
         <link rel="canonical" href={canonical} />
         <link rel="alternate" href={homepage} hrefLang="tr" />
         
