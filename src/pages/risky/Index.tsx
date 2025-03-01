@@ -5,6 +5,13 @@ import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import RiskyCustomerInfo from "@/components/risky/RiskyCustomerInfo";
+import RiskyLoanSteps from "@/components/risky/RiskyLoanSteps";
+import RiskyComparison from "@/components/risky/RiskyComparison";
+import RiskyLoanTips from "@/components/risky/RiskyLoanTips";
+import Schema from "@/components/risky/Schema";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const RISKY_BANKS: Bank[] = [
   {
@@ -82,24 +89,36 @@ const RISKY_BANKS: Bank[] = [
 const FAQ_ITEMS = [
   {
     question: "Kredi notum düşükken nasıl kredi alabilirim?",
-    answer: "Kredi notunuz düşük olsa bile bazı bankalar özel değerlendirme süreçleriyle kredi verebilmektedir. Yukarıdaki bankaların her biri, kredi notu düşük müşteriler için özel değerlendirme süreçlerine sahiptir."
+    answer: "Kredi notunuz düşük olsa bile bazı bankalar özel değerlendirme süreçleriyle kredi verebilmektedir. Yukarıdaki bankaların her biri, kredi notu düşük müşteriler için özel değerlendirme süreçlerine sahiptir. Başvuru yaparken düzenli bir gelir belgeniz olması ve mevcut borçlarınızın aylık gelirinize oranının makul seviyelerde olması önemlidir."
   },
   {
     question: "Kara listede olanlara kredi veren bankalar hangileridir?",
-    answer: "Bazı bankalar, kara listede olan müşteriler için özel değerlendirme süreçleri uygulayabilmektedir. İkinci Şans Bank ve Risk Dostu Bank gibi bankalar, bu durumdaki müşteriler için özel kredi paketleri sunmaktadır."
+    answer: "Bazı bankalar, kara listede olan müşteriler için özel değerlendirme süreçleri uygulayabilmektedir. Özellikle ING Bank ve Denizbank gibi bankalar, bu durumdaki müşteriler için özel kredi paketleri sunmaktadır. Ancak değerlendirme kriterleri daha sıkı olabilir ve faiz oranları standart kredilere göre daha yüksek olabilir."
   },
   {
     question: "Riskli müşterilere kredi başvurusu için gerekli belgeler nelerdir?",
-    answer: "Genellikle kimlik, gelir belgesi ve ikametgah belgesi temel gereksinimlerdir. Bazı bankalar ek teminat veya kefil isteyebilir. Her bankanın gereksinimleri farklılık gösterebilir."
+    answer: "Genellikle kimlik, gelir belgesi ve ikametgah belgesi temel gereksinimlerdir. Bazı bankalar ek teminat veya kefil isteyebilir. Kredi sicili bozuk müşterilerden son 3 aylık banka hesap hareketleri, mevcut borç durumunu gösteren belgeler ve düzenli geliri kanıtlayan ek belgeler talep edilebilir. Her bankanın gereksinimleri farklılık gösterebilir."
+  },
+  {
+    question: "Düşük faizli riskli müşteri kredisi mümkün mü?",
+    answer: "Genellikle riskli müşterilere sunulan kredilerde faiz oranları standart kredilere göre daha yüksektir. Ancak özellikle yeni müşteri kazanma amacı güden bazı bankalar dönemsel kampanyalarla daha uygun faiz oranları sunabilmektedir. Ayrıca, düzenli ödemeler yaparak kredi notunuzu yükselttiğinizde, ilerleyen dönemlerde daha uygun faiz oranlarından yararlanabilirsiniz."
+  },
+  {
+    question: "Kredi sicilim düzeldikten ne kadar süre sonra normal kredi başvurusu yapabilirim?",
+    answer: "Kredi sicilinizdeki olumsuz kayıtlar genellikle 5 yıl süreyle sistemde kalır. Ancak düzenli ödemeler yaparak kredi notunuzu yükseltmeye başladığınızda, yaklaşık 6-12 ay içinde kredi notunuzda iyileşme görülebilir. Bu süre zarfında tüm kredi kartı ve kredi ödemelerinizi düzenli yapmanız, yeni gecikmeler yaşamamanız ve borçluluk oranınızı düşürmeniz önemlidir."
+  },
+  {
+    question: "Gelir belgesiz riskli müşteriler kredi alabilir mi?",
+    answer: "Bazı bankalar, özellikle küçük tutarlı kredilerde gelir belgesiz başvuru kabul edebilmektedir. Örneğin, QNB Finansbank'ın belirli kampanyalarında gelir belgesiz kredi imkanı bulunmaktadır. Ancak kredi sicili bozuk veya kara listede olan müşteriler için genellikle gelir belgesi istenir. Alternatif olarak, son 3-6 aylık banka hesap hareketleri düzenli gelir göstergesi olarak kabul edilebilir."
   }
 ];
 
 const RiskyIndex = () => {
   const [currentTab] = useState("risky");
   const currentDate = getCurrentMonthYear();
-  const title = `Riskli Müşteriye Kredi Veren Bankalar ${currentDate}`;
+  const title = `Riskli Müşteriye Kredi Veren Bankalar ${currentDate} | Sicili Bozuklara Özel`;
   const description = `${currentDate} ayına özel riskli müşterilere, kredi notu düşük olanlara ve kara listedeki kişilere kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En uygun riskli müşteri kredisi fırsatları!`;
-  const keywords = "riskli müşteri kredisi, kredi notu düşük, kara liste, sicili bozuk, ikinci şans, kredi başvurusu";
+  const keywords = "riskli müşteri kredisi, kredi notu düşük, kara liste, sicili bozuk, ikinci şans, kredi başvurusu, düşük kredi notu, gecikmiş ödemeler, yüksek borçluluk";
 
   return (
     <>
@@ -109,7 +128,42 @@ const RiskyIndex = () => {
         keywords={keywords}
         pageSlug="riskli-musteriye-kredi"
         pageType="other"
+        imageUrl="https://faizsizkrediverenbankalar.com/images/riskli-musteriye-kredi.jpg"
+        author="Finans Uzmanı"
+        publishDate="2023-09-15"
+        modifiedDate={new Date().toISOString().split('T')[0]}
       />
+      
+      {/* Schema Markup for Rich Results */}
+      {RISKY_BANKS.map((bank, index) => (
+        <Schema 
+          key={index}
+          bankName={bank.name}
+          interestRate={bank.interestRate}
+          amount={bank.amount}
+          term={bank.term}
+          lastUpdate={bank.lastUpdate || new Date().toLocaleDateString('tr-TR')}
+        />
+      ))}
+      
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink as={Link} to="/">Ana Sayfa</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink as={Link} to="/tum-bankalar">Bankalar</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink isCurrentPage>Riskli Müşteriye Kredi</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       <FilterContent
         title={title}
         description={description}
@@ -118,14 +172,32 @@ const RiskyIndex = () => {
         onSortChange={() => {}}
         faqItems={FAQ_ITEMS}
         additionalContent={
-          <div className="mt-12 prose max-w-none">
-            <h2 className="text-2xl font-bold mb-4">Riskli Müşteriye Kredi Veren Bankalar Hangileri?</h2>
-            <p className="text-gray-700 mb-6">
-              Kredi notu düşük veya kara listede olan müşteriler için özel kredi seçenekleri sunan bankalar bulunmaktadır. Bu bankalar arasında Akbank, Yapı Kredi, QNB Finansbank, ING Bank ve Denizbank öne çıkmaktadır. Her banka farklı risk değerlendirme kriterleri kullanmakta ve buna göre kredi limiti ve faiz oranı belirlemektedir. Riskli müşteri kategorisinde değerlendirilen kişiler için özel hazırlanmış kredi paketleri, daha esnek ödeme seçenekleri ve alternatif değerlendirme kriterleri sunulmaktadır.
-            </p>
-            <p className="text-gray-700 mb-6">
-              Bankalar, riskli müşterilere kredi verirken genellikle ek teminat veya kefil talep edebilmektedir. Ayrıca, risk seviyesine göre daha yüksek faiz oranları uygulanabilmektedir. Ancak, düzenli ödemeler yapıldıkça kredi notu yükselecek ve daha avantajlı kredilere erişim imkanı artacaktır. Riskli müşteriler için en uygun kredi seçeneğini bulmak adına, bankaların sunduğu farklı kampanyaları karşılaştırmak ve başvuru şartlarını detaylı incelemek önemlidir.
-            </p>
+          <div className="mt-12 space-y-8">
+            <RiskyCustomerInfo />
+            
+            <div className="prose max-w-none">
+              <h2 className="text-2xl font-bold mb-4">Riskli Müşteriye Kredi Veren Bankalar Hangileri?</h2>
+              <p className="text-gray-700 mb-6">
+                Kredi notu düşük veya kara listede olan müşteriler için özel kredi seçenekleri sunan bankalar bulunmaktadır. Bu bankalar arasında Akbank, Yapı Kredi, QNB Finansbank, ING Bank ve Denizbank öne çıkmaktadır. Her banka farklı risk değerlendirme kriterleri kullanmakta ve buna göre kredi limiti ve faiz oranı belirlemektedir. Riskli müşteri kategorisinde değerlendirilen kişiler için özel hazırlanmış kredi paketleri, daha esnek ödeme seçenekleri ve alternatif değerlendirme kriterleri sunulmaktadır.
+              </p>
+              <p className="text-gray-700 mb-6">
+                Bankalar, riskli müşterilere kredi verirken genellikle ek teminat veya kefil talep edebilmektedir. Ayrıca, risk seviyesine göre daha yüksek faiz oranları uygulanabilmektedir. Ancak, düzenli ödemeler yapıldıkça kredi notu yükselecek ve daha avantajlı kredilere erişim imkanı artacaktır. Riskli müşteriler için en uygun kredi seçeneğini bulmak adına, bankaların sunduğu farklı kampanyaları karşılaştırmak ve başvuru şartlarını detaylı incelemek önemlidir.
+              </p>
+            </div>
+            
+            <RiskyLoanSteps />
+            <RiskyComparison />
+            <RiskyLoanTips />
+            
+            <div className="prose max-w-none">
+              <h2 className="text-2xl font-bold mb-4">Kredi Notunu Düzeltme Stratejileri</h2>
+              <p className="text-gray-700 mb-6">
+                Kredi notunuzu düzeltmek için öncelikle tüm ödemelerinizi zamanında yapmanız çok önemlidir. Mevcut borçlarınızı azaltmak, kredi kartı limitinizin %30'undan fazlasını kullanmamak ve yeni kredi başvurularını sınırlamak da kredi notunuzu iyileştirmenin etkili yollarıdır. Ayrıca, düzenli olarak kredi raporunuzu kontrol ederek hataları düzeltmek, finansal profilinizi güçlendirmek ve uzun vadeli bir kredi geçmişi oluşturmak da kredi notunuzu yükseltmenize yardımcı olacaktır.
+              </p>
+              <p className="text-gray-700 mb-6">
+                Finansal yönetim becerilerinizi geliştirebilecek eğitimler ve danışmanlık hizmetleri de bulunmaktadır. Banka ve finans kuruluşlarının sunduğu finansal okuryazarlık programları, bütçe planlaması ve borç yönetimi konularında destek sağlayabilir. Unutmayın ki, kredi notunuzu düzeltmek zaman alacak bir süreçtir ve sabır gerektirir. Ancak, doğru stratejileri uygulayarak finansal sağlığınızı iyileştirebilir ve gelecekte daha avantajlı kredi fırsatlarından yararlanabilirsiniz.
+              </p>
+            </div>
           </div>
         }
       />

@@ -9,6 +9,9 @@ interface PageMetaProps {
   pageSlug: string;
   pageType: "home" | "bank" | "loan" | "blog" | "calculator" | "other";
   imageUrl?: string;
+  author?: string;
+  publishDate?: string;
+  modifiedDate?: string;
 }
 
 const DOMAIN = "https://faizsizkrediverenbankalar.com";
@@ -34,7 +37,10 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   keywords, 
   pageSlug,
   pageType,
-  imageUrl
+  imageUrl,
+  author = "Finans Uzmanı",
+  publishDate = "2023-09-15",
+  modifiedDate = new Date().toISOString().split('T')[0]
 }) => {
   const canonicalUrl = getCanonicalUrl(pageSlug);
   const homepageUrl = DOMAIN;
@@ -47,7 +53,15 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       <link rel="canonical" href={canonicalUrl} />
       {/* Always include home page reference for SEO */}
       <link rel="home" href={homepageUrl} />
+      
+      {/* Author and dates */}
+      {author && <meta name="author" content={author} />}
+      {publishDate && <meta property="article:published_time" content={publishDate} />}
+      {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+      
+      {/* Image */}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && <meta property="og:image:alt" content={title} />}
       
       {/* Open Graph tags for better social sharing */}
       <meta property="og:title" content={title} />
@@ -60,6 +74,14 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      
+      {/* Locale */}
+      <meta property="og:locale" content="tr_TR" />
+      
+      {/* Additional SEO meta tags */}
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     </Helmet>
   );
 };
