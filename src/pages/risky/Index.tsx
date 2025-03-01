@@ -132,6 +132,7 @@ const RiskyIndex = () => {
         author="Finans Uzmanı"
         publishDate="2023-09-15"
         modifiedDate={new Date().toISOString().split('T')[0]}
+        canonicalUrl="https://faizsizkrediverenbankalar.com/riskli-musteriye-kredi"
       />
       
       {/* Schema Markup for Rich Results */}
@@ -150,15 +151,21 @@ const RiskyIndex = () => {
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/">Ana Sayfa</BreadcrumbLink>
+              <BreadcrumbLink asChild>
+                <Link to="/">Ana Sayfa</Link>
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/tum-bankalar">Bankalar</BreadcrumbLink>
+              <BreadcrumbLink asChild>
+                <Link to="/tum-bankalar">Bankalar</Link>
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink isCurrentPage>Riskli Müşteriye Kredi</BreadcrumbLink>
+              <BreadcrumbLink className="cursor-default">
+                Riskli Müşteriye Kredi
+              </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
