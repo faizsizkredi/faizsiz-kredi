@@ -11,14 +11,23 @@ interface PageMetaProps {
   imageUrl?: string;
 }
 
+const DOMAIN = "https://faizsizkrediverenbankalar.com";
+
+/**
+ * Gets the canonical URL for a page
+ * @param pageSlug The page's slug (without leading slash)
+ * @returns The full canonical URL
+ */
 export const getCanonicalUrl = (pageSlug: string): string => {
-  const base = "https://faizsizkrediverenbankalar.com";
   if (!pageSlug || pageSlug === "") {
-    return base;
+    return DOMAIN;
   }
-  return `${base}/${pageSlug}`;
+  return `${DOMAIN}/${pageSlug}`;
 };
 
+/**
+ * Renders meta tags for SEO
+ */
 export const PageMeta: React.FC<PageMetaProps> = ({ 
   title, 
   description, 
@@ -28,7 +37,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   imageUrl
 }) => {
   const canonicalUrl = getCanonicalUrl(pageSlug);
-  const homepageUrl = "https://faizsizkrediverenbankalar.com";
+  const homepageUrl = DOMAIN;
   
   return (
     <Helmet>
@@ -36,8 +45,21 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
-      {pageType !== "home" && <link rel="home" href={homepageUrl} />}
+      {/* Always include home page reference for SEO */}
+      <link rel="home" href={homepageUrl} />
       {imageUrl && <meta property="og:image" content={imageUrl} />}
+      
+      {/* Open Graph tags for better social sharing */}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:type" content={pageType === "blog" ? "article" : "website"} />
+      <meta property="og:site_name" content="Faizsiz Kredi Veren Bankalar" />
+      
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
     </Helmet>
   );
 };
