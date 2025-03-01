@@ -12,6 +12,7 @@ interface PageMetaProps {
   author?: string;
   publishDate?: string;
   modifiedDate?: string;
+  canonicalUrl?: string; // Added this property
 }
 
 const DOMAIN = "https://faizsizkrediverenbankalar.com";
@@ -40,9 +41,11 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   imageUrl,
   author = "Finans Uzmanı",
   publishDate = "2023-09-15",
-  modifiedDate = new Date().toISOString().split('T')[0]
+  modifiedDate = new Date().toISOString().split('T')[0],
+  canonicalUrl
 }) => {
-  const canonicalUrl = getCanonicalUrl(pageSlug);
+  // Use provided canonicalUrl if available, otherwise generate from pageSlug
+  const finalCanonicalUrl = canonicalUrl || getCanonicalUrl(pageSlug);
   const homepageUrl = DOMAIN;
   
   return (
@@ -50,7 +53,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={finalCanonicalUrl} />
       {/* Always include home page reference for SEO */}
       <link rel="home" href={homepageUrl} />
       
@@ -66,7 +69,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       {/* Open Graph tags for better social sharing */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={finalCanonicalUrl} />
       <meta property="og:type" content={pageType === "blog" ? "article" : "website"} />
       <meta property="og:site_name" content="Faizsiz Kredi Veren Bankalar" />
       
