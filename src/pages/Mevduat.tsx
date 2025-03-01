@@ -1,4 +1,3 @@
-
 import { Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DepositTypes from "@/components/mevduat/DepositTypes";
@@ -10,8 +9,8 @@ import { PageMeta } from "@/utils/seoUtils";
 const Mevduat = () => {
   const currentYear = new Date().getFullYear();
   const title = `Mevduat Hesabı Açma ${currentYear} | En Yüksek Faizli Mevduat`;
-  const description = "En yüksek faizli mevduat hesapları, vadeli ve vadesiz mevduat seçenekleri, döviz mevduatı ve e-mevduat hesapları hakkında detaylı bilgi.";
-  const keywords = "mevduat hesabı, vadeli mevduat, vadesiz mevduat, yüksek faizli mevduat, döviz mevduatı, e-mevduat";
+  const description = "En yüksek faizli mevduat hesapları, vadeli ve vadesiz mevduat seçenekleri, döviz mevduatı ve e-mevduat hesapları hakkında detaylı bilgi. Güncel faiz oranları ve kampanyaları karşılaştırın.";
+  const keywords = "mevduat hesabı, vadeli mevduat, vadesiz mevduat, yüksek faizli mevduat, döviz mevduatı, e-mevduat, mevduat faiz oranları, mevduat hesabı açma";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -40,7 +39,6 @@ const Mevduat = () => {
         <InterestRates />
         <DepositFAQ />
 
-        {/* CTA Section */}
         <section className="bg-primary/5 rounded-lg p-8 text-center mt-8">
           <h2 className="text-2xl font-bold mb-4">Hemen Mevduat Hesabı Açın</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">

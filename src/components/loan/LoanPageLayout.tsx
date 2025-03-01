@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import LoanCalculator from "./LoanCalculator";

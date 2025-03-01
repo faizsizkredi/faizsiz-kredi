@@ -1,8 +1,10 @@
+
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
+import { PageMeta } from "@/utils/seoUtils";
 
 const EASY_BANKS: Bank[] = [
   {
@@ -95,27 +97,39 @@ const FAQ_ITEMS = [
 const EasyIndex = () => {
   const [currentTab] = useState("easiest");
   const currentDate = getCurrentMonthYear();
+  const title = `En Kolay Kredi Veren Bankalar ${currentDate}`;
+  const description = `${currentDate} ayına özel en kolay ve en hızlı kredi veren bankaların güncel faiz oranları ve başvuru koşulları. Minimum evrak ve hızlı onay ile kredi fırsatları!`;
+  const keywords = "kolay kredi, hızlı kredi, anında kredi onayı, evrak istemeyen kredi, online kredi başvurusu, dijital kredi";
 
   return (
-    <FilterContent
-      title={`En Kolay Kredi Veren Bankalar ${currentDate}`}
-      description={`${currentDate} ayına özel en kolay ve en hızlı kredi veren bankaların güncel faiz oranları ve başvuru koşulları. Minimum evrak ve hızlı onay ile kredi fırsatları!`}
-      banks={EASY_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">En Kolay Kredi Nasıl Alınır?</h2>
-          <p className="text-gray-700 mb-6">
-            Günümüzde bankalar, müşterilerine hızlı ve kolay kredi kullanım imkanı sunmaktadır. Özellikle dijital bankacılık kanalları üzerinden yapılan başvurular, minimum evrak ve hızlı onay süreçleriyle dikkat çekmektedir. Garanti BBVA, Yapı Kredi, QNB Finansbank, ING Bank ve CEPTETEB gibi bankalar, müşterilerine online kanallar üzerinden anında kredi kullanma imkanı tanımaktadır.
-          </p>
-          <p className="text-gray-700 mb-6">
-            En kolay kredi başvurusu için bankaların mobil uygulamaları veya internet şubeleri tercih edilebilir. E-Devlet entegrasyonu sayesinde gelir belgesi gibi evraklar otomatik olarak sistem tarafından kontrol edilmekte, böylece başvuru süreci hızlanmaktadır. Video görüşme ile kimlik doğrulama yapan bankalar, şubeye gitme zorunluluğunu ortadan kaldırarak kredi kullanımını kolaylaştırmaktadır.
-          </p>
-        </div>
-      }
-    />
+    <>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords={keywords}
+        pageSlug="en-kolay-kredi"
+        pageType="page"
+      />
+      <FilterContent
+        title={title}
+        description={description}
+        banks={EASY_BANKS}
+        currentTab={currentTab}
+        onSortChange={() => {}}
+        faqItems={FAQ_ITEMS}
+        additionalContent={
+          <div className="mt-12 prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">En Kolay Kredi Nasıl Alınır?</h2>
+            <p className="text-gray-700 mb-6">
+              Günümüzde bankalar, müşterilerine hızlı ve kolay kredi kullanım imkanı sunmaktadır. Özellikle dijital bankacılık kanalları üzerinden yapılan başvurular, minimum evrak ve hızlı onay süreçleriyle dikkat çekmektedir. Garanti BBVA, Yapı Kredi, QNB Finansbank, ING Bank ve CEPTETEB gibi bankalar, müşterilerine online kanallar üzerinden anında kredi kullanma imkanı tanımaktadır.
+            </p>
+            <p className="text-gray-700 mb-6">
+              En kolay kredi başvurusu için bankaların mobil uygulamaları veya internet şubeleri tercih edilebilir. E-Devlet entegrasyonu sayesinde gelir belgesi gibi evraklar otomatik olarak sistem tarafından kontrol edilmekte, böylece başvuru süreci hızlanmaktadır. Video görüşme ile kimlik doğrulama yapan bankalar, şubeye gitme zorunluluğunu ortadan kaldırarak kredi kullanımını kolaylaştırmaktadır.
+            </p>
+          </div>
+        }
+      />
+    </>
   );
 };
 
