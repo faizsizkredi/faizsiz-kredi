@@ -1,6 +1,5 @@
 
 import { ReactNode } from "react";
-import { Helmet } from "react-helmet";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import LoanCalculator from "./LoanCalculator";
 import RecommendedLoans from "./RecommendedLoans";
@@ -8,7 +7,7 @@ import PopularLoans from "./PopularLoans";
 import LoanRatesTable from "./LoanRatesTable";
 import { LucideIcon } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 interface LoanPageLayoutProps {
   title: string;
@@ -29,26 +28,18 @@ const LoanPageLayout = ({
   faqs,
   additionalContent
 }: LoanPageLayoutProps) => {
-  const { canonical, homepage } = getPageUrls(activeTab + '-kredisi', 'loan');
   const currentYear = new Date().getFullYear();
   const pageTitle = `${title} ${currentYear} | En Uygun ${title} Başvurusu`;
   
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonical} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={description} />
-      </Helmet>
+      <PageMeta
+        title={pageTitle}
+        description={description}
+        keywords={keywords}
+        pageSlug={`${activeTab}-kredisi`}
+        pageType="loan"
+      />
 
       <main className="container mx-auto px-4 py-8">
         <header className="mb-8">

@@ -1,24 +1,27 @@
-import { Helmet } from "react-helmet";
+
 import { Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DepositTypes from "@/components/mevduat/DepositTypes";
 import DepositAdvantages from "@/components/mevduat/DepositAdvantages";
 import InterestRates from "@/components/mevduat/InterestRates";
 import DepositFAQ from "@/components/mevduat/DepositFAQ";
+import { PageMeta } from "@/utils/seoUtils";
 
 const Mevduat = () => {
   const currentYear = new Date().getFullYear();
-  const pageTitle = `Mevduat Hesabı Açma ${currentYear} | En Yüksek Faizli Mevduat`;
+  const title = `Mevduat Hesabı Açma ${currentYear} | En Yüksek Faizli Mevduat`;
+  const description = "En yüksek faizli mevduat hesapları, vadeli ve vadesiz mevduat seçenekleri, döviz mevduatı ve e-mevduat hesapları hakkında detaylı bilgi.";
+  const keywords = "mevduat hesabı, vadeli mevduat, vadesiz mevduat, yüksek faizli mevduat, döviz mevduatı, e-mevduat";
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta 
-          name="description" 
-          content="En yüksek faizli mevduat hesapları, vadeli ve vadesiz mevduat seçenekleri, döviz mevduatı ve e-mevduat hesapları hakkında detaylı bilgi." 
-        />
-      </Helmet>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords={keywords}
+        pageSlug="mevduat"
+        pageType="page"
+      />
 
       <main className="container mx-auto px-4 py-8">
         <header className="mb-8">
