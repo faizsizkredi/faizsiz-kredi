@@ -34,6 +34,7 @@ const BankLoanTemplate = ({
   const description = `${bankName} ${formattedAmount} TL faizsiz kredi kampanyası ${currentDate} - %0 faiz oranı ile ${formattedAmount} TL kredi kullanma fırsatı. Hemen başvur, anında sonuç al.`;
   const keywords = `${bankName.toLowerCase()} ${formattedAmount} tl kredi, ${bankName.toLowerCase()} faizsiz kredi, ${formattedAmount} tl kredi, faizsiz kredi, sıfır faizli kredi`;
   const pageSlug = `bank/${bankName.toLowerCase()}/${formattedAmount}-tl-faizsiz-kredi`;
+  const bankSlug = bankName.toLowerCase().replace(/\s+/g, "-"); // Generate bankSlug from bankName
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -149,7 +150,7 @@ const BankLoanTemplate = ({
               </CardContent>
             </Card>
 
-            <BankLoanAmounts bankName={bankName} currentAmount={formattedAmount} />
+            <BankLoanAmounts bankName={bankName} bankSlug={bankSlug} currentAmount={formattedAmount} />
           </div>
 
           <div>

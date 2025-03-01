@@ -6,7 +6,7 @@ import LoanCard from "./loan/LoanCard";
 interface BankLoanAmountsProps {
   bankName: string;
   bankSlug: string;
-  currentAmount?: string; // Make this prop optional
+  currentAmount?: string; // This is already optional
 }
 
 const LOAN_AMOUNTS = [
