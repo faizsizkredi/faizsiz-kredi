@@ -1,33 +1,47 @@
+
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
+import { PageMeta } from "@/utils/seoUtils";
 
 const PromotionIndex = () => {
   const [currentTab] = useState("promotion");
   const currentDate = getCurrentMonthYear();
+  const title = `Promosyonlu Kredi Veren Bankalar ${currentDate}`;
+  const description = `${currentDate} ayına özel en yüksek promosyon ve hediye veren bankaların güncel kredi kampanyaları. Nakit para, telefon, altın ve tatil gibi hediyelerle kredi fırsatları!`;
+  const keywords = "promosyonlu kredi, hediyeli kredi, nakit promosyon, kredi kampanyaları, bonus puan";
 
   return (
-    <FilterContent
-      title={`Promosyonlu Kredi Veren Bankalar ${currentDate}`}
-      description={`${currentDate} ayına özel en yüksek promosyon ve hediye veren bankaların güncel kredi kampanyaları. Nakit para, telefon, altın ve tatil gibi hediyelerle kredi fırsatları!`}
-      banks={PROMOTION_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">2024 Yılının En İyi Promosyonlu Kredi Kampanyaları</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında bankalar, kredi kullanımını teşvik etmek için çeşitli promosyon kampanyaları düzenliyor. Akbank 10.000 TL'ye varan nakit hediye, Garanti BBVA iPhone 15 hediyesi, Yapı Kredi 50.000 bonus puan gibi cazip fırsatlar sunuyor. İş Bankası'nın 5 yıldızlı otelde tatil hediyesi ve QNB Finansbank'ın 50 gram altın hediyesi de dikkat çeken kampanyalar arasında yer alıyor.
-          </p>
-          <p className="text-gray-700">
-            Promosyonlu kredi kampanyalarından yararlanmak için bankaların web siteleri veya mobil uygulamaları üzerinden başvuru yapabilirsiniz. Kampanya şartlarını ve kredi koşullarını dikkatle incelemeniz, size en uygun seçeneği belirlemenizde yardımcı olacaktır.
-          </p>
-        </div>
-      }
-    />
+    <>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords={keywords}
+        pageSlug="promosyonlu-kredi"
+        pageType="page"
+      />
+      <FilterContent
+        title={title}
+        description={description}
+        banks={PROMOTION_BANKS}
+        currentTab={currentTab}
+        onSortChange={() => {}}
+        faqItems={FAQ_ITEMS}
+        additionalContent={
+          <div className="mt-12 prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">2024 Yılının En İyi Promosyonlu Kredi Kampanyaları</h2>
+            <p className="text-gray-700 mb-6">
+              2024 yılında bankalar, kredi kullanımını teşvik etmek için çeşitli promosyon kampanyaları düzenliyor. Akbank 10.000 TL'ye varan nakit hediye, Garanti BBVA iPhone 15 hediyesi, Yapı Kredi 50.000 bonus puan gibi cazip fırsatlar sunuyor. İş Bankası'nın 5 yıldızlı otelde tatil hediyesi ve QNB Finansbank'ın 50 gram altın hediyesi de dikkat çeken kampanyalar arasında yer alıyor.
+            </p>
+            <p className="text-gray-700">
+              Promosyonlu kredi kampanyalarından yararlanmak için bankaların web siteleri veya mobil uygulamaları üzerinden başvuru yapabilirsiniz. Kampanya şartlarını ve kredi koşullarını dikkatle incelemeniz, size en uygun seçeneği belirlemenizde yardımcı olacaktır.
+            </p>
+          </div>
+        }
+      />
+    </>
   );
 };
 

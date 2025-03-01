@@ -17,7 +17,7 @@ export const getPageUrls = (pageSlug: string, pageType: 'home' | 'bank' | 'loan'
     // Homepage canonical is just the base URL
     canonical = homepage;
   } else if (pageType === 'bank') {
-    canonical = `${homepage}/${pageSlug}`;
+    canonical = `${homepage}/banka/${pageSlug}`;
   } else if (pageType === 'loan') {
     canonical = `${homepage}/${pageSlug}-kredisi`;
   } else if (pageType === 'blog') {

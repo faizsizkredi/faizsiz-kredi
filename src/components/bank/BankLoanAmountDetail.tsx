@@ -3,6 +3,7 @@ import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
 import { Card } from "@/components/ui/card";
 import { PageMeta } from "@/utils/seoUtils";
+import { getBankPageUrls } from "@/utils/canonicalUrls";
 
 interface BankLoanAmountDetailProps {
   bankName: string;
@@ -24,15 +25,14 @@ const BankLoanAmountDetail = ({
   
   const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
   const amountSlug = amount.replace(/\./g, '');
-  const pageSlug = `bank/${bankSlug}/${amountSlug}`;
-
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <PageMeta
         title={pageTitle}
         description={pageDescription}
         keywords={keywords}
-        pageSlug={pageSlug}
+        pageSlug={`${bankSlug}/${amountSlug}`}
         pageType="bank"
         imageUrl="https://faizsizkrediverenbankalar.com/images/bank-loans.jpg"
       />
