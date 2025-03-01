@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import SecondFooter from "./components/SecondFooter";
 import PageNavigation from "./components/navigation/PageNavigation";
 import AppRoutes from "./routes";
+import "./App.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Router>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col bg-gray-50">
             <Header />
             <PageNavigation />
             <main className="flex-1">
