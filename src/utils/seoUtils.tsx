@@ -1,45 +1,40 @@
 
-import React from 'react';
+import React from "react";
 import { Helmet } from "react-helmet";
-import { getPageUrls } from "./canonicalUrls";
 
-interface MetaProps {
+interface PageMetaProps {
   title: string;
   description: string;
   keywords?: string;
   pageSlug: string;
-  pageType: 'home' | 'bank' | 'loan' | 'blog' | 'page';
-  imageUrl?: string;
+  pageType: "home" | "bank" | "loan" | "blog" | "calculator" | "other";
 }
 
-export const PageMeta: React.FC<MetaProps> = ({
-  title,
-  description,
-  keywords,
+export const getCanonicalUrl = (pageSlug: string): string => {
+  const base = "https://faizsizkrediverenbankalar.com";
+  if (!pageSlug || pageSlug === "") {
+    return base;
+  }
+  return `${base}/${pageSlug}`;
+};
+
+export const PageMeta: React.FC<PageMetaProps> = ({ 
+  title, 
+  description, 
+  keywords, 
   pageSlug,
-  pageType,
-  imageUrl
+  pageType 
 }) => {
-  const { canonical, homepage } = getPageUrls(pageSlug, pageType);
-  const currentYear = new Date().getFullYear();
-  const formattedTitle = title.includes(String(currentYear)) ? title : `${title} ${currentYear}`;
+  const canonicalUrl = getCanonicalUrl(pageSlug);
+  const homepageUrl = "https://faizsizkrediverenbankalar.com";
   
   return (
     <Helmet>
-      <title>{formattedTitle}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonical} />
-      <link rel="alternate" href={homepage} hrefLang="tr" />
-      <meta property="og:title" content={formattedTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonical} />
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={formattedTitle} />
-      <meta name="twitter:description" content={description} />
-      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      <link rel="canonical" href={canonicalUrl} />
+      {pageType !== "home" && <link rel="home" href={homepageUrl} />}
     </Helmet>
   );
 };
