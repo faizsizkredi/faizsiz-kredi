@@ -20,7 +20,7 @@ const NewCustomerIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="yeni-musteriye-kredi"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}

@@ -20,7 +20,7 @@ const RetiredIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="emekliye-kredi"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}

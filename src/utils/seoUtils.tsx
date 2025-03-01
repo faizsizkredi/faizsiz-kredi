@@ -8,6 +8,7 @@ interface PageMetaProps {
   keywords?: string;
   pageSlug: string;
   pageType: "home" | "bank" | "loan" | "blog" | "calculator" | "other";
+  imageUrl?: string;
 }
 
 export const getCanonicalUrl = (pageSlug: string): string => {
@@ -23,7 +24,8 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   description, 
   keywords, 
   pageSlug,
-  pageType 
+  pageType,
+  imageUrl
 }) => {
   const canonicalUrl = getCanonicalUrl(pageSlug);
   const homepageUrl = "https://faizsizkrediverenbankalar.com";
@@ -35,6 +37,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
       {pageType !== "home" && <link rel="home" href={homepageUrl} />}
+      {imageUrl && <meta property="og:image" content={imageUrl} />}
     </Helmet>
   );
 };

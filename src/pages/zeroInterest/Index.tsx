@@ -1,3 +1,4 @@
+
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
@@ -19,7 +20,7 @@ const ZeroInterestIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="sifir-faizli-kredi"
-        pageType="page"
+        pageType="other"
       />
       
       <FilterContent

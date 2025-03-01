@@ -1,8 +1,10 @@
+
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
+import { PageMeta } from "@/utils/seoUtils";
 
 const AFFORDABLE_BANKS: Bank[] = [
   {
@@ -95,27 +97,39 @@ const FAQ_ITEMS = [
 const AffordableIndex = () => {
   const [currentTab] = useState("affordable");
   const currentDate = getCurrentMonthYear();
+  const title = `En Uygun Kredi Veren Bankalar ${currentDate}`;
+  const description = `${currentDate} ayına özel en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!`;
+  const keywords = "uygun kredi, düşük faizli kredi, ekonomik kredi, uygun faiz oranları, kredi karşılaştırma";
 
   return (
-    <FilterContent
-      title={`En Uygun Kredi Veren Bankalar ${currentDate}`}
-      description={`${currentDate} ayına özel en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!`}
-      banks={AFFORDABLE_BANKS}
-      currentTab={currentTab}
-      onSortChange={() => {}}
-      faqItems={FAQ_ITEMS}
-      additionalContent={
-        <div className="mt-12 prose max-w-none">
-          <h2 className="text-2xl font-bold mb-4">En Uygun Kredi Veren Bankalar Hangileri?</h2>
-          <p className="text-gray-700 mb-6">
-            2024 yılında en uygun kredi veren bankalar arasında Ziraat Bankası, Halkbank ve Vakıfbank gibi kamu bankaları öne çıkıyor. Bu bankalar, düşük faiz oranları ve uzun vade seçenekleriyle dikkat çekiyor. Özellikle Ziraat Bankası %1.89'dan başlayan faiz oranlarıyla, Halkbank ise 48 aya varan vade seçenekleriyle avantajlı krediler sunuyor. Bunun yanında İş Bankası ve TEB gibi özel bankalar da rekabetçi faiz oranları ve esnek ödeme seçenekleriyle tüketicilere cazip fırsatlar sunmaktadır.
-          </p>
-          <p className="text-gray-700">
-            En uygun kredi başvurusu yapmadan önce, bankaların sunduğu faiz oranlarını, vade seçeneklerini ve ek masrafları karşılaştırmanız önerilir. Ayrıca bankaların dijital kanallarını kullanarak online başvuru yapmanız, sürecin daha hızlı ve kolay ilerlemesini sağlayacaktır.
-          </p>
-        </div>
-      }
-    />
+    <>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords={keywords}
+        pageSlug="en-uygun-kredi"
+        pageType="other"
+      />
+      <FilterContent
+        title={`En Uygun Kredi Veren Bankalar ${currentDate}`}
+        description={`${currentDate} ayına özel en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!`}
+        banks={AFFORDABLE_BANKS}
+        currentTab={currentTab}
+        onSortChange={() => {}}
+        faqItems={FAQ_ITEMS}
+        additionalContent={
+          <div className="mt-12 prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">En Uygun Kredi Veren Bankalar Hangileri?</h2>
+            <p className="text-gray-700 mb-6">
+              2024 yılında en uygun kredi veren bankalar arasında Ziraat Bankası, Halkbank ve Vakıfbank gibi kamu bankaları öne çıkıyor. Bu bankalar, düşük faiz oranları ve uzun vade seçenekleriyle dikkat çekiyor. Özellikle Ziraat Bankası %1.89'dan başlayan faiz oranlarıyla, Halkbank ise 48 aya varan vade seçenekleriyle avantajlı krediler sunuyor. Bunun yanında İş Bankası ve TEB gibi özel bankalar da rekabetçi faiz oranları ve esnek ödeme seçenekleriyle tüketicilere cazip fırsatlar sunmaktadır.
+            </p>
+            <p className="text-gray-700">
+              En uygun kredi başvurusu yapmadan önce, bankaların sunduğu faiz oranlarını, vade seçeneklerini ve ek masrafları karşılaştırmanız önerilir. Ayrıca bankaların dijital kanallarını kullanarak online başvuru yapmanız, sürecin daha hızlı ve kolay ilerlemesini sağlayacaktır.
+            </p>
+          </div>
+        }
+      />
+    </>
   );
 };
 

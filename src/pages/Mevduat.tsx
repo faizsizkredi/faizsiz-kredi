@@ -1,3 +1,4 @@
+
 import { Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DepositTypes from "@/components/mevduat/DepositTypes";
@@ -19,7 +20,7 @@ const Mevduat = () => {
         description={description}
         keywords={keywords}
         pageSlug="mevduat"
-        pageType="page"
+        pageType="other"
       />
 
       <main className="container mx-auto px-4 py-8">

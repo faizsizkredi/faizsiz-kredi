@@ -20,7 +20,7 @@ const PromotionIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="promosyonlu-kredi"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}

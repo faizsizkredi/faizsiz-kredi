@@ -20,7 +20,7 @@ const BanksIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="bankalar"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}

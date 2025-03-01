@@ -1,3 +1,4 @@
+
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
@@ -107,7 +108,7 @@ const RiskyIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="riskli-musteriye-kredi"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}

@@ -108,7 +108,7 @@ const EasyIndex = () => {
         description={description}
         keywords={keywords}
         pageSlug="en-kolay-kredi"
-        pageType="page"
+        pageType="other"
       />
       <FilterContent
         title={title}
