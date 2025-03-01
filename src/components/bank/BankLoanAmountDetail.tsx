@@ -1,8 +1,8 @@
+
 import { Helmet } from "react-helmet";
 import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import { getBankPageUrls } from "@/utils/canonicalUrls";
 
 interface BankLoanAmountDetailProps {

@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { Link } from "react-router-dom";
@@ -5,7 +6,7 @@ import { Eye } from "lucide-react";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const Blog = () => {
-  const { canonical, homepage } = getPageUrls('blog');
+  const { canonical, homepage } = getPageUrls('', 'blog');
 
   const blogPosts = [
     {

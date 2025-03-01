@@ -1,10 +1,11 @@
+
 import { Banknote } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const IhtiyacKredisi = () => {
-  const { canonical, homepage } = getPageUrls('ihtiyac-kredisi');
+  const { canonical, homepage } = getPageUrls('ihtiyac', 'loan');
 
   const faqs = [
     {

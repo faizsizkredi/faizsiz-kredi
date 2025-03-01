@@ -1,10 +1,11 @@
+
 import { Home } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const KonutKredisi = () => {
-  const { canonical, homepage } = getPageUrls('konut-kredisi');
+  const { canonical, homepage } = getPageUrls('konut', 'loan');
 
   const faqs = [
     {

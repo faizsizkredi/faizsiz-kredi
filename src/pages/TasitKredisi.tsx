@@ -1,10 +1,11 @@
+
 import { Car } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const TasitKredisi = () => {
-  const { canonical, homepage } = getPageUrls('tasit-kredisi');
+  const { canonical, homepage } = getPageUrls('tasit', 'loan');
 
   const faqs = [
     {
