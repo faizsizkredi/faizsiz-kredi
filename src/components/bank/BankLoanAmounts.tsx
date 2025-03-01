@@ -6,6 +6,7 @@ import LoanCard from "./loan/LoanCard";
 interface BankLoanAmountsProps {
   bankName: string;
   bankSlug: string;
+  currentAmount?: string; // Make this prop optional
 }
 
 const LOAN_AMOUNTS = [
@@ -81,7 +82,7 @@ const LOAN_AMOUNTS = [
   }
 ];
 
-const BankLoanAmounts = ({ bankName, bankSlug }: BankLoanAmountsProps) => {
+const BankLoanAmounts = ({ bankName, bankSlug, currentAmount }: BankLoanAmountsProps) => {
   return (
     <Card className="mt-8">
       <CardContent className="p-6">

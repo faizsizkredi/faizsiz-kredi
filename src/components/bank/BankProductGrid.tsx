@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -9,13 +10,50 @@ interface BankProduct {
 }
 
 interface BankProductGridProps {
-  products: BankProduct[];
+  products?: BankProduct[];
+  bankName?: string; // Add bankName prop
 }
 
-const BankProductGrid = ({ products }: BankProductGridProps) => {
+// Default products if none are provided
+const defaultProducts = [
+  {
+    title: "İhtiyaç Kredisi",
+    interestRate: "1.89",
+    minTerm: "3",
+    maxTerm: "36"
+  },
+  {
+    title: "Konut Kredisi",
+    interestRate: "1.29",
+    minTerm: "12",
+    maxTerm: "120"
+  },
+  {
+    title: "Taşıt Kredisi",
+    interestRate: "1.59",
+    minTerm: "12",
+    maxTerm: "60"
+  },
+  {
+    title: "KOBİ Kredisi",
+    interestRate: "1.69",
+    minTerm: "6",
+    maxTerm: "48"
+  }
+];
+
+const BankProductGrid = ({ products = defaultProducts, bankName }: BankProductGridProps) => {
+  // If bankName is provided, update product titles to include the bank name
+  const displayProducts = bankName 
+    ? products.map(product => ({
+        ...product,
+        title: `${bankName} ${product.title}`
+      })) 
+    : products;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      {products.map((product, index) => (
+      {displayProducts.map((product, index) => (
         <Card key={index} className="bg-white">
           <CardContent className="p-6">
             <div className="mb-4 h-12">

@@ -1,11 +1,14 @@
+
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck } from "lucide-react";
 
 interface BankCardTrustBadgesProps {
-  badges: string[];
+  badges?: string[]; // Make badges optional with a default value
 }
 
-const BankCardTrustBadges = ({ badges = ["BDDK Onaylı"] }: BankCardTrustBadgesProps) => {
+const defaultBadges = ["BDDK Onaylı", "Güvenli İşlem"];
+
+const BankCardTrustBadges = ({ badges = defaultBadges }: BankCardTrustBadgesProps) => {
   return (
     <div className="flex flex-wrap gap-2">
       {badges.map((badge, index) => (

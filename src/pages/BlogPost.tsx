@@ -1,10 +1,11 @@
+
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const { canonical, homepage } = getPageUrls(`blog/${slug}`);
+  const { canonical, homepage } = getPageUrls(slug || '', 'blog');
 
   // Statik blog içeriği
   const post = {

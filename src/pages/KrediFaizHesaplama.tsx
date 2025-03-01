@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 import { useState } from "react";
@@ -9,7 +10,7 @@ import { Calculator } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const KrediFaizHesaplama = () => {
-  const { canonical, homepage } = getPageUrls('kredi-faiz-hesaplama');
+  const { canonical, homepage } = getPageUrls('kredi-faiz-hesaplama', 'page');
   const { toast } = useToast();
   const [amount, setAmount] = useState("");
   const [term, setTerm] = useState("");

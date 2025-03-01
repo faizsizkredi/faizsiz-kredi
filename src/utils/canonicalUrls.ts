@@ -6,7 +6,7 @@ export interface PageUrlsResult {
   homepage: string;
 }
 
-export const getPageUrls = (pageSlug: string, pageType: 'home' | 'bank' | 'loan' | 'blog' | 'page'): PageUrlsResult => {
+export const getPageUrls = (pageSlug: string, pageType: 'home' | 'bank' | 'loan' | 'blog' | 'page' = 'page'): PageUrlsResult => {
   // Homepage is always the same
   const homepage = BASE_URL;
   
