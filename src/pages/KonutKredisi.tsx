@@ -1,12 +1,9 @@
 
 import { Home } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import { Helmet } from "react-helmet";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 const KonutKredisi = () => {
-  const { canonical, homepage } = getPageUrls('konut', 'loan');
-
   const faqs = [
     {
       question: "Konut kredisi için ne kadar peşinat gerekiyor?",
@@ -40,17 +37,18 @@ const KonutKredisi = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Konut Kredisi 2024 | En Uygun Konut Kredisi Başvurusu</title>
-        <meta name="description" content="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar." />
-        <meta name="keywords" content="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu" />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:url" content={canonical} />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+      <PageMeta
+        title="Konut Kredisi 2024 | En Uygun Konut Kredisi Başvurusu"
+        description="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar."
+        keywords="konut kredisi, ev kredisi, mortgage, kredi hesaplama, kredi başvurusu"
+        pageSlug="konut"
+        pageType="loan"
+      />
+      
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+      
       <LoanPageLayout
         title="Konut Kredisi"
         description="2024 yılı güncel konut kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun konut kredisi veren bankalar."

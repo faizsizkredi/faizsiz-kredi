@@ -1,37 +1,30 @@
-
 import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
-import { Helmet } from "react-helmet";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 const ZeroInterestIndex = () => {
   const [currentTab] = useState("zeroInterest");
   const currentDate = getCurrentMonthYear();
-  const { canonical, homepage } = getPageUrls('sifir-faizli-kredi', 'generic');
-  
-  const pageTitle = `Sıfır (0) Faizli Kredi Veren Bankalar ${currentDate}`;
-  const pageDescription = `${currentDate} ayına özel faizsiz kredi kampanyaları ve %0 faiz oranlı krediler. En avantajlı faizsiz kredi fırsatları!`;
+  const title = `Sıfır (0) Faizli Kredi Veren Bankalar ${currentDate}`;
+  const description = `${currentDate} ayına özel faizsiz kredi kampanyaları ve %0 faiz oranlı krediler. En avantajlı faizsiz kredi fırsatları!`;
+  const keywords = `sıfır faizli kredi, faizsiz kredi, 0 faiz kredi, kredi kampanyaları, ${currentDate}`;
 
   return (
     <>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={`sıfır faizli kredi, faizsiz kredi, 0 faiz kredi, kredi kampanyaları, ${currentDate}`} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonical} />
-      </Helmet>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords={keywords}
+        pageSlug="sifir-faizli-kredi"
+        pageType="page"
+      />
       
       <FilterContent
-        title={pageTitle}
-        description={pageDescription}
+        title={title}
+        description={description}
         banks={ZERO_INTEREST_BANKS}
         currentTab={currentTab}
         onSortChange={() => {}}

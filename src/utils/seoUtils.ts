@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Helmet } from "react-helmet";
 import { getPageUrls } from "./canonicalUrls";
 
@@ -11,14 +12,14 @@ interface MetaProps {
   imageUrl?: string;
 }
 
-export const PageMeta = ({
+export const PageMeta: React.FC<MetaProps> = ({
   title,
   description,
   keywords,
   pageSlug,
   pageType,
   imageUrl
-}: MetaProps) => {
+}) => {
   const { canonical, homepage } = getPageUrls(pageSlug, pageType);
   const currentYear = new Date().getFullYear();
   const formattedTitle = title.includes(String(currentYear)) ? title : `${title} ${currentYear}`;

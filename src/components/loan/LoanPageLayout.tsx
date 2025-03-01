@@ -1,3 +1,4 @@
+
 import { ReactNode } from "react";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import LoanCalculator from "./LoanCalculator";
@@ -6,7 +7,6 @@ import PopularLoans from "./PopularLoans";
 import LoanRatesTable from "./LoanRatesTable";
 import { LucideIcon } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { PageMeta } from "@/utils/seoUtils";
 
 interface LoanPageLayoutProps {
   title: string;
@@ -28,18 +28,9 @@ const LoanPageLayout = ({
   additionalContent
 }: LoanPageLayoutProps) => {
   const currentYear = new Date().getFullYear();
-  const pageTitle = `${title} ${currentYear} | En Uygun ${title} Başvurusu`;
   
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageMeta
-        title={pageTitle}
-        description={description}
-        keywords={keywords}
-        pageSlug={`${activeTab}-kredisi`}
-        pageType="loan"
-      />
-
       <main className="container mx-auto px-4 py-8">
         <header className="mb-8">
           <div className="flex items-center gap-3 mb-4">

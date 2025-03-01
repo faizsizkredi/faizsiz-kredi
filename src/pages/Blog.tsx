@@ -1,13 +1,9 @@
 
-import { Helmet } from "react-helmet";
-import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { Link } from "react-router-dom";
 import { Eye } from "lucide-react";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 const Blog = () => {
-  const { canonical, homepage } = getPageUrls('', 'blog');
-
   const blogPosts = [
     {
       id: 1,
@@ -33,18 +29,13 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>Kredi ve Finans Blogu | Faizsiz Kredi Rehberi</title>
-        <meta name="description" content="Kredi, finans ve bankacılık dünyasından en güncel haberler, ipuçları ve uzman görüşleri." />
-        <meta name="author" content="Faizsiz Kredi Rehberi" />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:title" content="Kredi ve Finans Blogu" />
-        <meta property="og:description" content="Kredi ve finans dünyasından güncel bilgiler ve öneriler." />
-        <meta property="og:type" content="blog" />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
-      </Helmet>
+      <PageMeta
+        title="Kredi ve Finans Blogu | Faizsiz Kredi Rehberi"
+        description="Kredi, finans ve bankacılık dünyasından en güncel haberler, ipuçları ve uzman görüşleri."
+        keywords="kredi blogu, finans blogu, kredi rehberi, kredi haberleri, faizsiz kredi"
+        pageSlug=""
+        pageType="blog"
+      />
 
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-4xl font-bold mb-8">Son Eklenen Kredi Yazıları</h1>

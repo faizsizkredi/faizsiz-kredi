@@ -1,12 +1,9 @@
 
 import { Car } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import { Helmet } from "react-helmet";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 const TasitKredisi = () => {
-  const { canonical, homepage } = getPageUrls('tasit-kredisi', 'loan');
-
   const faqs = [
     {
       question: "Taşıt kredisi için araç yaşı önemli mi?",
@@ -40,17 +37,18 @@ const TasitKredisi = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Taşıt Kredisi 2024 | En Uygun Taşıt Kredisi Başvurusu</title>
-        <meta name="description" content="2024 yılı güncel taşıt kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun taşıt kredisi veren bankalar." />
-        <meta name="keywords" content="taşıt kredisi, araba kredisi, araç kredisi, kredi hesaplama, kredi başvurusu" />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:url" content={canonical} />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+      <PageMeta
+        title="Taşıt Kredisi 2024 | En Uygun Taşıt Kredisi Başvurusu"
+        description="2024 yılı güncel taşıt kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun taşıt kredisi veren bankalar."
+        keywords="taşıt kredisi, araba kredisi, araç kredisi, kredi hesaplama, kredi başvurusu"
+        pageSlug="tasit-kredisi"
+        pageType="loan"
+      />
+      
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+      
       <LoanPageLayout
         title="Taşıt Kredisi"
         description="2024 yılı güncel taşıt kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun taşıt kredisi veren bankalar."

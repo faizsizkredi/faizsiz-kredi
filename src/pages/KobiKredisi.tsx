@@ -1,12 +1,9 @@
 
 import { Building2 } from "lucide-react";
 import LoanPageLayout from "@/components/loan/LoanPageLayout";
-import { Helmet } from "react-helmet";
-import { getPageUrls } from "@/utils/canonicalUrls";
+import { PageMeta } from "@/utils/seoUtils";
 
 const KobiKredisi = () => {
-  const { canonical, homepage } = getPageUrls('kobi', 'loan');
-
   const faqs = [
     {
       question: "KOBİ kredisi için hangi belgeler gerekli?",
@@ -40,17 +37,18 @@ const KobiKredisi = () => {
 
   return (
     <>
-      <Helmet>
-        <title>KOBİ Kredisi 2024 | En Uygun KOBİ Kredisi Başvurusu</title>
-        <meta name="description" content="2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun KOBİ kredisi veren bankalar." />
-        <meta name="keywords" content="KOBİ kredisi, işletme kredisi, esnaf kredisi, kredi hesaplama, kredi başvurusu" />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" href={homepage} hrefLang="tr" />
-        <meta property="og:url" content={canonical} />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+      <PageMeta
+        title="KOBİ Kredisi 2024 | En Uygun KOBİ Kredisi Başvurusu"
+        description="2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun KOBİ kredisi veren bankalar."
+        keywords="KOBİ kredisi, işletme kredisi, esnaf kredisi, kredi hesaplama, kredi başvurusu"
+        pageSlug="kobi"
+        pageType="loan"
+      />
+      
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+      
       <LoanPageLayout
         title="KOBİ Kredisi"
         description="2024 yılı güncel KOBİ kredisi kampanyaları, faiz oranları ve başvuru koşulları. En uygun KOBİ kredisi veren bankalar."

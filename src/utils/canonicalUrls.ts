@@ -17,14 +17,22 @@ export const getPageUrls = (pageSlug: string, pageType: 'home' | 'bank' | 'loan'
     // Homepage canonical is just the base URL
     canonical = homepage;
   } else if (pageType === 'bank') {
-    canonical = `${homepage}/bank/${pageSlug}`;
-  } else if (pageType === 'loan') {
     canonical = `${homepage}/${pageSlug}`;
+  } else if (pageType === 'loan') {
+    canonical = `${homepage}/${pageSlug}-kredisi`;
   } else if (pageType === 'blog') {
     canonical = `${homepage}/blog/${pageSlug}`;
   } else if (pageType === 'page') {
     canonical = `${homepage}/${pageSlug}`;
   }
+  
+  return { canonical, homepage };
+};
+
+// Specific function for bank loan amounts
+export const getBankPageUrls = (bankSlug: string, amountSlug: string): PageUrlsResult => {
+  const homepage = BASE_URL;
+  const canonical = `${homepage}/banka/${bankSlug}/${amountSlug}-tl-kredi`;
   
   return { canonical, homepage };
 };
