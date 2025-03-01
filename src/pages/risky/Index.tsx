@@ -1,8 +1,6 @@
 
-import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
-import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
-import { Bank } from "@/types/bank";
+import FilterContent from "@/components/filters/FilterContent";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
 import RiskyCustomerInfo from "@/components/risky/RiskyCustomerInfo";
@@ -10,108 +8,11 @@ import RiskyLoanSteps from "@/components/risky/RiskyLoanSteps";
 import RiskyComparison from "@/components/risky/RiskyComparison";
 import RiskyLoanTips from "@/components/risky/RiskyLoanTips";
 import Schema from "@/components/risky/Schema";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Link } from "react-router-dom";
-
-const RISKY_BANKS: Bank[] = [
-  {
-    name: "Akbank",
-    icon: <Building2 className="w-8 h-8 text-red-600" />,
-    specialOffer: "Riskli Müşterilere Özel!",
-    interestRate: "%2.89",
-    term: "36 Ay",
-    amount: "50.000 TL",
-    details: [
-      "Kredi notu düşük müşteriler için özel değerlendirme",
-      "Esnek ödeme seçenekleri",
-      "Hızlı kredi tahsis süreci"
-    ],
-    lastUpdate: new Date().toLocaleDateString('tr-TR')
-  },
-  {
-    name: "Yapı Kredi",
-    icon: <CircleDollarSign className="w-8 h-8 text-blue-800" />,
-    specialOffer: "İkinci Şans Kredisi!",
-    interestRate: "%2.95",
-    term: "24 Ay",
-    amount: "35.000 TL",
-    details: [
-      "Kredi sicili bozuk müşteriler için özel değerlendirme",
-      "24 ay vade imkanı",
-      "Minimum evrak ile başvuru"
-    ],
-    lastUpdate: new Date().toLocaleDateString('tr-TR')
-  },
-  {
-    name: "QNB Finansbank",
-    icon: <Wallet className="w-8 h-8 text-purple-600" />,
-    specialOffer: "Temiz Sayfa Kredisi",
-    interestRate: "%2.99",
-    term: "48 Ay",
-    amount: "25.000 TL",
-    details: [
-      "Kredi geçmişi olmayanlar için özel değerlendirme",
-      "48 aya varan vade seçenekleri",
-      "Gelir belgesiz başvuru imkanı"
-    ],
-    lastUpdate: new Date().toLocaleDateString('tr-TR')
-  },
-  {
-    name: "ING Bank",
-    icon: <Building className="w-8 h-8 text-orange-600" />,
-    specialOffer: "Yeniden Başla Kredisi",
-    interestRate: "%3.15",
-    term: "36 Ay",
-    amount: "30.000 TL",
-    details: [
-      "Kara listede olanlar için özel değerlendirme",
-      "Esnek ödeme planı",
-      "7/24 online başvuru imkanı"
-    ],
-    lastUpdate: new Date().toLocaleDateString('tr-TR')
-  },
-  {
-    name: "Denizbank",
-    icon: <Landmark className="w-8 h-8 text-blue-600" />,
-    specialOffer: "Yeni Fırsat Kredisi",
-    interestRate: "%3.25",
-    term: "24 Ay",
-    amount: "20.000 TL",
-    details: [
-      "Düşük kredi notuna özel değerlendirme",
-      "Kefilsiz kredi imkanı",
-      "Aynı gün sonuç"
-    ],
-    lastUpdate: new Date().toLocaleDateString('tr-TR')
-  }
-];
-
-const FAQ_ITEMS = [
-  {
-    question: "Kredi notum düşükken nasıl kredi alabilirim?",
-    answer: "Kredi notunuz düşük olsa bile bazı bankalar özel değerlendirme süreçleriyle kredi verebilmektedir. Yukarıdaki bankaların her biri, kredi notu düşük müşteriler için özel değerlendirme süreçlerine sahiptir. Başvuru yaparken düzenli bir gelir belgeniz olması ve mevcut borçlarınızın aylık gelirinize oranının makul seviyelerde olması önemlidir."
-  },
-  {
-    question: "Kara listede olanlara kredi veren bankalar hangileridir?",
-    answer: "Bazı bankalar, kara listede olan müşteriler için özel değerlendirme süreçleri uygulayabilmektedir. Özellikle ING Bank ve Denizbank gibi bankalar, bu durumdaki müşteriler için özel kredi paketleri sunmaktadır. Ancak değerlendirme kriterleri daha sıkı olabilir ve faiz oranları standart kredilere göre daha yüksek olabilir."
-  },
-  {
-    question: "Riskli müşterilere kredi başvurusu için gerekli belgeler nelerdir?",
-    answer: "Genellikle kimlik, gelir belgesi ve ikametgah belgesi temel gereksinimlerdir. Bazı bankalar ek teminat veya kefil isteyebilir. Kredi sicili bozuk müşterilerden son 3 aylık banka hesap hareketleri, mevcut borç durumunu gösteren belgeler ve düzenli geliri kanıtlayan ek belgeler talep edilebilir. Her bankanın gereksinimleri farklılık gösterebilir."
-  },
-  {
-    question: "Düşük faizli riskli müşteri kredisi mümkün mü?",
-    answer: "Genellikle riskli müşterilere sunulan kredilerde faiz oranları standart kredilere göre daha yüksektir. Ancak özellikle yeni müşteri kazanma amacı güden bazı bankalar dönemsel kampanyalarla daha uygun faiz oranları sunabilmektedir. Ayrıca, düzenli ödemeler yaparak kredi notunuzu yükselttiğinizde, ilerleyen dönemlerde daha uygun faiz oranlarından yararlanabilirsiniz."
-  },
-  {
-    question: "Kredi sicilim düzeldikten ne kadar süre sonra normal kredi başvurusu yapabilirim?",
-    answer: "Kredi sicilinizdeki olumsuz kayıtlar genellikle 5 yıl süreyle sistemde kalır. Ancak düzenli ödemeler yaparak kredi notunuzu yükseltmeye başladığınızda, yaklaşık 6-12 ay içinde kredi notunuzda iyileşme görülebilir. Bu süre zarfında tüm kredi kartı ve kredi ödemelerinizi düzenli yapmanız, yeni gecikmeler yaşamamanız ve borçluluk oranınızı düşürmeniz önemlidir."
-  },
-  {
-    question: "Gelir belgesiz riskli müşteriler kredi alabilir mi?",
-    answer: "Bazı bankalar, özellikle küçük tutarlı kredilerde gelir belgesiz başvuru kabul edebilmektedir. Örneğin, QNB Finansbank'ın belirli kampanyalarında gelir belgesiz kredi imkanı bulunmaktadır. Ancak kredi sicili bozuk veya kara listede olan müşteriler için genellikle gelir belgesi istenir. Alternatif olarak, son 3-6 aylık banka hesap hareketleri düzenli gelir göstergesi olarak kabul edilebilir."
-  }
-];
+import RiskyBreadcrumb from "@/components/risky/RiskyBreadcrumb";
+import RiskyIntroduction from "@/components/risky/RiskyIntroduction";
+import CreditScoreImprovement from "@/components/risky/CreditScoreImprovement";
+import { RISKY_BANKS } from "@/data/riskyBanksData";
+import { RISKY_FAQ_ITEMS } from "@/data/riskyFaqData";
 
 const RiskyIndex = () => {
   const [currentTab] = useState("risky");
@@ -147,29 +48,7 @@ const RiskyIndex = () => {
         />
       ))}
       
-      <div className="container mx-auto px-4 py-4">
-        <Breadcrumb className="mb-6">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Ana Sayfa</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/tum-bankalar">Bankalar</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink className="cursor-default">
-                Riskli Müşteriye Kredi
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
+      <RiskyBreadcrumb />
 
       <FilterContent
         title={title}
@@ -177,34 +56,15 @@ const RiskyIndex = () => {
         banks={RISKY_BANKS}
         currentTab={currentTab}
         onSortChange={() => {}}
-        faqItems={FAQ_ITEMS}
+        faqItems={RISKY_FAQ_ITEMS}
         additionalContent={
           <div className="mt-12 space-y-8">
             <RiskyCustomerInfo />
-            
-            <div className="prose max-w-none">
-              <h2 className="text-2xl font-bold mb-4">Riskli Müşteriye Kredi Veren Bankalar Hangileri?</h2>
-              <p className="text-gray-700 mb-6">
-                Kredi notu düşük veya kara listede olan müşteriler için özel kredi seçenekleri sunan bankalar bulunmaktadır. Bu bankalar arasında Akbank, Yapı Kredi, QNB Finansbank, ING Bank ve Denizbank öne çıkmaktadır. Her banka farklı risk değerlendirme kriterleri kullanmakta ve buna göre kredi limiti ve faiz oranı belirlemektedir. Riskli müşteri kategorisinde değerlendirilen kişiler için özel hazırlanmış kredi paketleri, daha esnek ödeme seçenekleri ve alternatif değerlendirme kriterleri sunulmaktadır.
-              </p>
-              <p className="text-gray-700 mb-6">
-                Bankalar, riskli müşterilere kredi verirken genellikle ek teminat veya kefil talep edebilmektedir. Ayrıca, risk seviyesine göre daha yüksek faiz oranları uygulanabilmektedir. Ancak, düzenli ödemeler yapıldıkça kredi notu yükselecek ve daha avantajlı kredilere erişim imkanı artacaktır. Riskli müşteriler için en uygun kredi seçeneğini bulmak adına, bankaların sunduğu farklı kampanyaları karşılaştırmak ve başvuru şartlarını detaylı incelemek önemlidir.
-              </p>
-            </div>
-            
+            <RiskyIntroduction />
             <RiskyLoanSteps />
             <RiskyComparison />
             <RiskyLoanTips />
-            
-            <div className="prose max-w-none">
-              <h2 className="text-2xl font-bold mb-4">Kredi Notunu Düzeltme Stratejileri</h2>
-              <p className="text-gray-700 mb-6">
-                Kredi notunuzu düzeltmek için öncelikle tüm ödemelerinizi zamanında yapmanız çok önemlidir. Mevcut borçlarınızı azaltmak, kredi kartı limitinizin %30'undan fazlasını kullanmamak ve yeni kredi başvurularını sınırlamak da kredi notunuzu iyileştirmenin etkili yollarıdır. Ayrıca, düzenli olarak kredi raporunuzu kontrol ederek hataları düzeltmek, finansal profilinizi güçlendirmek ve uzun vadeli bir kredi geçmişi oluşturmak da kredi notunuzu yükseltmenize yardımcı olacaktır.
-              </p>
-              <p className="text-gray-700 mb-6">
-                Finansal yönetim becerilerinizi geliştirebilecek eğitimler ve danışmanlık hizmetleri de bulunmaktadır. Banka ve finans kuruluşlarının sunduğu finansal okuryazarlık programları, bütçe planlaması ve borç yönetimi konularında destek sağlayabilir. Unutmayın ki, kredi notunuzu düzeltmek zaman alacak bir süreçtir ve sabır gerektirir. Ancak, doğru stratejileri uygulayarak finansal sağlığınızı iyileştirebilir ve gelecekte daha avantajlı kredi fırsatlarından yararlanabilirsiniz.
-              </p>
-            </div>
+            <CreditScoreImprovement />
           </div>
         }
       />
