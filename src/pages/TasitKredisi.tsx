@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { getPageUrls } from "@/utils/canonicalUrls";
 
 const TasitKredisi = () => {
-  const { canonical, homepage } = getPageUrls('tasit', 'loan');
+  const { canonical, homepage } = getPageUrls('tasit-kredisi', 'loan');
 
   const faqs = [
     {

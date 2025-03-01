@@ -23,7 +23,8 @@ const BankLoanAmountDetail = ({
   const pageDescription = `${bankName} ${amount} TL kredi başvurusu yapın! ${currentYear} yılına özel ${amount} TL kredi kampanyası, hesaplama araçları, başvuru şartları ve detayları. Hemen başvurun, anında sonuç alın.`;
   
   const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
-  const { canonical, homepage } = getBankPageUrls(bankSlug, amount);
+  const amountSlug = amount.replace(/\./g, '');
+  const { canonical, homepage } = getBankPageUrls(bankSlug, amountSlug);
 
   return (
     <div className="min-h-screen bg-gray-50">

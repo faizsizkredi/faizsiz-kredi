@@ -29,7 +29,7 @@ const LoanPageLayout = ({
   faqs,
   additionalContent
 }: LoanPageLayoutProps) => {
-  const { canonical, homepage } = getPageUrls(activeTab, 'loan');
+  const { canonical, homepage } = getPageUrls(activeTab + '-kredisi', 'loan');
   const currentYear = new Date().getFullYear();
   const pageTitle = `${title} ${currentYear} | En Uygun ${title} Başvurusu`;
   
