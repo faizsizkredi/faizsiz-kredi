@@ -8,7 +8,7 @@ interface SchemaProps {
     interestRate: string;
     amount: string;
     term: string;
-    lastUpdate: string;
+    lastUpdate?: string; // Made lastUpdate optional with ?
   }[];
 }
 
@@ -89,7 +89,7 @@ const EasySchema: React.FC<SchemaProps> = ({ currentDate, banks }) => {
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       <script type="application/ld+json">{JSON.stringify(comparisonSchema)}</script>
       
-      {/* Her banka için ayrı finansal ürün şeması */}
+      {/* Each bank schema with optional lastUpdate handling */}
       {banks.map((bank, index) => {
         const bankSchema = {
           "@context": "https://schema.org",
@@ -121,7 +121,7 @@ const EasySchema: React.FC<SchemaProps> = ({ currentDate, banks }) => {
               "addressCountry": "TR"
             }
           },
-          "dateModified": bank.lastUpdate
+          "dateModified": bank.lastUpdate || new Date().toLocaleDateString('tr-TR') // Provide a default if lastUpdate is missing
         };
         
         return (

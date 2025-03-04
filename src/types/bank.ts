@@ -12,6 +12,9 @@ export interface Bank {
   lastUpdate?: string;
   products?: BankProduct[];
   description?: string;
+  metaDescription?: string;
+  canonicalUrl?: string;
+  pageKeywords?: string;
 }
 
 export interface BankProduct {
