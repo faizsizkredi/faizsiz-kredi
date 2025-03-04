@@ -1,38 +1,49 @@
 
-const BASE_URL = "https://faizsizkrediverenbankalar.com";
-
-export interface PageUrlsResult {
-  canonical: string;
-  homepage: string;
-}
-
-export const getPageUrls = (pageSlug: string, pageType: 'home' | 'bank' | 'loan' | 'blog' | 'page' = 'page'): PageUrlsResult => {
-  // Homepage is always the same
-  const homepage = BASE_URL;
+/**
+ * Generates bank page URLs for a given bank and amounts
+ */
+export const getBankPageUrls = (bankName: string, amounts: string[]) => {
+  const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
   
-  // Build canonical URL based on page type and slug
-  let canonical = homepage;
-  
-  if (pageType === 'home') {
-    // Homepage canonical is just the base URL
-    canonical = homepage;
-  } else if (pageType === 'bank') {
-    canonical = `${homepage}/banka/${pageSlug}`;
-  } else if (pageType === 'loan') {
-    canonical = `${homepage}/${pageSlug}-kredisi`;
-  } else if (pageType === 'blog') {
-    canonical = `${homepage}/blog/${pageSlug}`;
-  } else if (pageType === 'page') {
-    canonical = `${homepage}/${pageSlug}`;
-  }
-  
-  return { canonical, homepage };
+  return amounts.map(amount => {
+    const amountSlug = amount.replace(/\./g, '');
+    return {
+      amount,
+      url: `/bank/${bankSlug}/${amountSlug}-tl-faizsiz-kredi`
+    };
+  });
 };
 
-// Specific function for bank loan amounts
-export const getBankPageUrls = (bankSlug: string, amountSlug: string): PageUrlsResult => {
-  const homepage = BASE_URL;
-  const canonical = `${homepage}/banka/${bankSlug}/${amountSlug}-tl-kredi`;
+/**
+ * Gets canonical URL for all page types
+ */
+export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
+  const baseUrl = "https://faizsizkrediverenbankalar.com";
   
-  return { canonical, homepage };
+  switch (pageType) {
+    case "home":
+      return baseUrl;
+    case "bank":
+      return `${baseUrl}/bank/${pageSlug || ''}`;
+    case "loan":
+      return `${baseUrl}/${pageSlug || 'kredi'}`;
+    case "retired":
+      return `${baseUrl}/emekliye-kredi`;
+    case "easy":
+      return `${baseUrl}/en-kolay-kredi`;
+    case "affordable":
+      return `${baseUrl}/en-uygun-kredi`;
+    case "risky":
+      return `${baseUrl}/riskli-kredi`;
+    case "zero-interest":
+      return `${baseUrl}/faizsiz-kredi`;
+    case "new-customer":
+      return `${baseUrl}/yeni-musteri-kredisi`;
+    case "promotion":
+      return `${baseUrl}/kredi-promosyonlari`;
+    case "blog":
+      return `${baseUrl}/blog/${pageSlug || ''}`;
+    default:
+      return pageSlug ? `${baseUrl}/${pageSlug}` : baseUrl;
+  }
 };
