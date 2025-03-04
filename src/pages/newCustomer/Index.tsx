@@ -1,17 +1,25 @@
 
-import { Building, Building2, Landmark, CircleDollarSign, Wallet } from "lucide-react";
+import { Building, Building2, Landmark, CircleDollarSign, Wallet, BadgeCheck, Clock, CheckCircle2 } from "lucide-react";
 import FilterContent from "@/components/filters/FilterContent";
 import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
+import NewCustomerBreadcrumb from "@/components/newCustomer/NewCustomerBreadcrumb";
+import NewCustomerSchema from "@/components/newCustomer/NewCustomerSchema";
+import NewCustomerBenefits from "@/components/newCustomer/NewCustomerBenefits";
+import NewCustomerEligibility from "@/components/newCustomer/NewCustomerEligibility";
+import NewCustomerComparison from "@/components/newCustomer/NewCustomerComparison";
 
 const NewCustomerIndex = () => {
   const [currentTab] = useState("newCustomer");
-  const currentDate = getCurrentMonthYear();
-  const title = `Yeni Müşteriye Kredi Veren Bankalar ${currentDate}`;
+  const currentDate = "Mart 2025";
+  const title = `Yeni Müşteriye Faizsiz Kredi Veren Bankalar - ${currentDate}`;
   const description = `${currentDate} ayına özel yeni müşterilere sunulan kredi kampanyaları, faizsiz kredi fırsatları ve avantajlı başvuru koşulları. En uygun yeni müşteri kredisi fırsatları!`;
-  const keywords = "yeni müşteri kredisi, ilk kredi, hoş geldin kredisi, faizsiz kredi, dijital bankacılık";
+  const keywords = "yeni müşteri kredisi, ilk kredi, hoş geldin kredisi, faizsiz kredi, dijital bankacılık, sıfır faizli kredi, yeni müşteriye özel, mart 2025";
+  const canonicalUrl = getCanonicalUrl("new-customer");
+  const pageSlug = "yeni-musteriye-kredi";
 
   return (
     <>
@@ -19,9 +27,18 @@ const NewCustomerIndex = () => {
         title={title}
         description={description}
         keywords={keywords}
-        pageSlug="yeni-musteriye-kredi"
+        pageSlug={pageSlug}
         pageType="other"
+        canonicalUrl={canonicalUrl}
       />
+      <NewCustomerSchema 
+        bankName="QNB Finansbank"
+        interestRate="0"
+        amount="45.000"
+        term="6"
+        lastUpdate={new Date().toLocaleDateString('tr-TR')}
+      />
+      <NewCustomerBreadcrumb />
       <FilterContent
         title={title}
         description={description}
@@ -30,15 +47,21 @@ const NewCustomerIndex = () => {
         onSortChange={() => {}}
         faqItems={FAQ_ITEMS}
         additionalContent={
-          <div className="mt-12 prose max-w-none">
-            <h2 className="text-2xl font-bold mb-4">Yeni Müşterilere Özel Kredi Kampanyaları 2024</h2>
-            <p className="text-gray-700 mb-6">
-              2024 yılında bankalar, yeni müşterilerine özel avantajlı kredi kampanyaları sunuyor. QNB Finansbank %0 faiz oranıyla 45.000 TL'ye varan, Akbank 35.000 TL'ye varan, ING Bank ise 30.000 TL'ye varan faizsiz kredi imkanı sağlıyor. CEPTETEB ve Enpara gibi dijital bankalar da yeni müşterilerine özel fırsatlar ve masrafsız bankacılık hizmetleri sunuyor.
-            </p>
-            <p className="text-gray-700">
-              Yeni müşteri kredilerinden yararlanmak için bankaların dijital kanallarını kullanabilir, hızlı ve kolay bir şekilde başvurunuzu tamamlayabilirsiniz. Başvuru öncesinde bankaların sunduğu kampanya koşullarını ve kredi limitlerini karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır.
-            </p>
-          </div>
+          <>
+            <div className="mt-12 prose max-w-none">
+              <h2 className="text-2xl font-bold mb-4">Yeni Müşterilere Özel Kredi Kampanyaları {new Date().getFullYear()}</h2>
+              <p className="text-gray-700 mb-6">
+                {new Date().getFullYear()} yılında bankalar, yeni müşterilerine özel avantajlı kredi kampanyaları sunuyor. QNB Finansbank %0 faiz oranıyla 45.000 TL'ye varan, Akbank 35.000 TL'ye varan, ING Bank ise 30.000 TL'ye varan faizsiz kredi imkanı sağlıyor. CEPTETEB ve Enpara gibi dijital bankalar da yeni müşterilerine özel fırsatlar ve masrafsız bankacılık hizmetleri sunuyor.
+              </p>
+              <p className="text-gray-700">
+                Yeni müşteri kredilerinden yararlanmak için bankaların dijital kanallarını kullanabilir, hızlı ve kolay bir şekilde başvurunuzu tamamlayabilirsiniz. Başvuru öncesinde bankaların sunduğu kampanya koşullarını ve kredi limitlerini karşılaştırmanız, size en uygun seçeneği bulmanızda yardımcı olacaktır.
+              </p>
+            </div>
+            
+            <NewCustomerBenefits />
+            <NewCustomerEligibility />
+            <NewCustomerComparison banks={NEW_CUSTOMER_BANKS} />
+          </>
         }
       />
     </>
