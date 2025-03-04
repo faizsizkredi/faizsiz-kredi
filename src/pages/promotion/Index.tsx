@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const PromotionIndex = () => {
   const [currentTab] = useState("promotion");
@@ -12,6 +13,7 @@ const PromotionIndex = () => {
   const title = `Promosyonlu Kredi Veren Bankalar ${currentDate}`;
   const description = `${currentDate} ayına özel en yüksek promosyon ve hediye veren bankaların güncel kredi kampanyaları. Nakit para, telefon, altın ve tatil gibi hediyelerle kredi fırsatları!`;
   const keywords = "promosyonlu kredi, hediyeli kredi, nakit promosyon, kredi kampanyaları, bonus puan";
+  const canonicalUrl = getCanonicalUrl("promotion");
 
   return (
     <>
@@ -21,6 +23,7 @@ const PromotionIndex = () => {
         keywords={keywords}
         pageSlug="promosyonlu-kredi"
         pageType="other"
+        canonicalUrl={canonicalUrl}
       />
       <FilterContent
         title={title}

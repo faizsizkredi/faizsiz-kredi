@@ -24,7 +24,7 @@ export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
     case "home":
       return baseUrl;
     case "bank":
-      return `${baseUrl}/bank/${pageSlug || ''}`;
+      return `${baseUrl}/${pageSlug || ''}`;
     case "loan":
       return `${baseUrl}/${pageSlug || 'kredi'}`;
     case "retired":

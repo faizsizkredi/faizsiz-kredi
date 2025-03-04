@@ -12,7 +12,7 @@ interface PageMetaProps {
   author?: string;
   publishDate?: string;
   modifiedDate?: string;
-  canonicalUrl?: string; // Added this property
+  canonicalUrl?: string;
 }
 
 const DOMAIN = "https://faizsizkrediverenbankalar.com";

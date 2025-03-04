@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const ZeroInterestIndex = () => {
   const [currentTab] = useState("zeroInterest");
@@ -12,6 +13,7 @@ const ZeroInterestIndex = () => {
   const title = `Sıfır (0) Faizli Kredi Veren Bankalar ${currentDate}`;
   const description = `${currentDate} ayına özel faizsiz kredi kampanyaları ve %0 faiz oranlı krediler. En avantajlı faizsiz kredi fırsatları!`;
   const keywords = `sıfır faizli kredi, faizsiz kredi, 0 faiz kredi, kredi kampanyaları, ${currentDate}`;
+  const canonicalUrl = getCanonicalUrl("zero-interest");
 
   return (
     <>
@@ -21,6 +23,7 @@ const ZeroInterestIndex = () => {
         keywords={keywords}
         pageSlug="sifir-faizli-kredi"
         pageType="other"
+        canonicalUrl={canonicalUrl}
       />
       
       <FilterContent

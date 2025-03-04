@@ -13,6 +13,7 @@ import RiskyIntroduction from "@/components/risky/RiskyIntroduction";
 import CreditScoreImprovement from "@/components/risky/CreditScoreImprovement";
 import { RISKY_BANKS } from "@/data/riskyBanksData";
 import { RISKY_FAQ_ITEMS } from "@/data/riskyFaqData";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const RiskyIndex = () => {
   const [currentTab] = useState("risky");
@@ -20,6 +21,7 @@ const RiskyIndex = () => {
   const title = `Riskli Müşteriye Kredi Veren Bankalar ${currentDate} | Sicili Bozuklara Özel`;
   const description = `${currentDate} ayına özel riskli müşterilere, kredi notu düşük olanlara ve kara listedeki kişilere kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En uygun riskli müşteri kredisi fırsatları!`;
   const keywords = "riskli müşteri kredisi, kredi notu düşük, kara liste, sicili bozuk, ikinci şans, kredi başvurusu, düşük kredi notu, gecikmiş ödemeler, yüksek borçluluk";
+  const canonicalUrl = getCanonicalUrl("risky");
 
   return (
     <>
@@ -33,7 +35,7 @@ const RiskyIndex = () => {
         author="Finans Uzmanı"
         publishDate="2023-09-15"
         modifiedDate={new Date().toISOString().split('T')[0]}
-        canonicalUrl="https://faizsizkrediverenbankalar.com/riskli-musteriye-kredi"
+        canonicalUrl={canonicalUrl}
       />
       
       {/* Schema Markup for Rich Results */}

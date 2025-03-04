@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const BanksIndex = () => {
   const [currentTab] = useState("bank");
@@ -12,6 +13,7 @@ const BanksIndex = () => {
   const title = `Tüm Bankalar ve Kredi Fırsatları ${currentDate}`;
   const description = `${currentDate} ayında Türkiye'deki tüm bankaların güncel kredi faiz oranları, kampanyaları ve başvuru koşulları. En avantajlı kredi fırsatları!`;
   const keywords = "bankalar, kredi veren bankalar, kredi başvurusu, faiz oranları, kredi kampanyaları";
+  const canonicalUrl = getCanonicalUrl("bank");
 
   return (
     <>
@@ -21,6 +23,7 @@ const BanksIndex = () => {
         keywords={keywords}
         pageSlug="bankalar"
         pageType="other"
+        canonicalUrl={canonicalUrl}
       />
       <FilterContent
         title={title}
