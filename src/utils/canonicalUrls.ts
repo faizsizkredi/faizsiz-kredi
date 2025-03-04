@@ -47,3 +47,18 @@ export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
       return pageSlug ? `${baseUrl}/${pageSlug}` : baseUrl;
   }
 };
+
+/**
+ * Gets both the canonical URL and homepage URL for SEO purposes
+ * This function is used by BlogPost and KrediFaizHesaplama components
+ */
+export const getPageUrls = (pageSlug: string, pageType: string) => {
+  const baseUrl = "https://faizsizkrediverenbankalar.com";
+  const canonical = getCanonicalUrl(pageType, pageSlug);
+  const homepage = baseUrl;
+  
+  return {
+    canonical,
+    homepage
+  };
+};
