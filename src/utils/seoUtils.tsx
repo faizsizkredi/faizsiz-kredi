@@ -23,7 +23,7 @@ const DOMAIN = "https://faizsizkrediverenbankalar.com";
  * @param pageSlug The page's slug (without leading slash)
  * @returns The full canonical URL
  */
-export const getCanonicalUrl = (pageSlug: string): string => {
+export const generateCanonicalUrl = (pageSlug: string): string => {
   if (!pageSlug || pageSlug === "") {
     return DOMAIN;
   }
@@ -46,7 +46,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   canonicalUrl
 }) => {
   // Use provided canonicalUrl if available, otherwise generate from pageSlug
-  const finalCanonicalUrl = canonicalUrl || getCanonicalUrl(pageSlug);
+  const finalCanonicalUrl = canonicalUrl || generateCanonicalUrl(pageSlug);
   const homepageUrl = DOMAIN;
   
   return (
