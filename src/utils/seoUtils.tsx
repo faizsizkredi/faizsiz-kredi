@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 interface PageMetaProps {
   title: string;
