@@ -1,6 +1,6 @@
 
 import { getCurrentMonthYear } from "@/utils/dateUtils";
-import { PageMeta } from "@/utils/seoUtils";
+import { PageMeta, generateCanonicalUrl } from "@/utils/seoUtils";
 import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const HomeMeta = () => {
