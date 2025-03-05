@@ -34,11 +34,11 @@ export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
     case "affordable":
       return `${baseUrl}/en-uygun-kredi`;
     case "risky":
-      return `${baseUrl}/riskli-kredi`;
+      return `${baseUrl}/riskli-musteriye-kredi`;
     case "zero-interest":
       return `${baseUrl}/faizsiz-kredi`;
     case "new-customer":
-      return `${baseUrl}/yeni-musteri-kredisi`;
+      return `${baseUrl}/yeni-musteriye-kredi`;
     case "promotion":
       return `${baseUrl}/kredi-promosyonlari`;
     case "blog":
@@ -50,7 +50,7 @@ export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
 
 /**
  * Gets both the canonical URL and homepage URL for SEO purposes
- * This function is used by BlogPost and KrediFaizHesaplama components
+ * This function is used by components to ensure consistent SEO structure across the site
  */
 export const getPageUrls = (pageSlug: string, pageType: string) => {
   const baseUrl = "https://faizsizkrediverenbankalar.com";

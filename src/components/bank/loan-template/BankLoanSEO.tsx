@@ -1,7 +1,7 @@
 
 import { PageMeta } from "@/utils/seoUtils";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
-import { getCanonicalUrl } from "@/utils/canonicalUrls";
+import { getCanonicalUrl, getPageUrls } from "@/utils/canonicalUrls";
 
 interface BankLoanSEOProps {
   bankName: string;
@@ -20,7 +20,9 @@ const BankLoanSEO = ({ bankName, formattedAmount, pageSlug }: BankLoanSEOProps) 
   
   // Generate canonical URL for this page
   const bankSlug = bankName.toLowerCase().replace(/\s+/g, "-");
-  const canonicalUrl = getCanonicalUrl("bank", `${bankSlug}/${formattedAmount}-tl-faizsiz-kredi`);
+  const amountSlug = formattedAmount.replace(/\./g, '');
+  const pageUrl = `bank/${bankSlug}/${amountSlug}-tl-faizsiz-kredi`;
+  const { canonical, homepage } = getPageUrls(pageUrl, "bank");
   
   return (
     <PageMeta
@@ -29,7 +31,7 @@ const BankLoanSEO = ({ bankName, formattedAmount, pageSlug }: BankLoanSEOProps) 
       keywords={keywords}
       pageSlug={pageSlug}
       pageType="bank"
-      canonicalUrl={canonicalUrl}
+      canonicalUrl={canonical}
     />
   );
 };

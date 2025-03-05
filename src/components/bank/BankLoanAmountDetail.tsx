@@ -3,7 +3,7 @@ import BankCard from "@/components/BankCard";
 import { Bank } from "@/types/bank";
 import { Card } from "@/components/ui/card";
 import { PageMeta } from "@/utils/seoUtils";
-import { getCanonicalUrl } from "@/utils/canonicalUrls";
+import { getCanonicalUrl, getPageUrls } from "@/utils/canonicalUrls";
 
 interface BankLoanAmountDetailProps {
   bankName: string;
@@ -26,7 +26,7 @@ const BankLoanAmountDetail = ({
   const bankSlug = bankName.toLowerCase().replace(/\s+/g, '-');
   const amountSlug = amount.replace(/\./g, '');
   const pageSlug = `bank/${bankSlug}/${amountSlug}-tl-faizsiz-kredi`;
-  const canonicalUrl = getCanonicalUrl("bank", pageSlug);
+  const { canonical, homepage } = getPageUrls(pageSlug, "bank");
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -37,7 +37,7 @@ const BankLoanAmountDetail = ({
         pageSlug={pageSlug}
         pageType="bank"
         imageUrl="https://faizsizkrediverenbankalar.com/images/bank-loans.jpg"
-        canonicalUrl={canonicalUrl}
+        canonicalUrl={canonical}
       />
 
       <div className="container mx-auto px-4 py-8">

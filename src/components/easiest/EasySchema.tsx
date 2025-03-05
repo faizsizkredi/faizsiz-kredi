@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { getCanonicalUrl } from '@/utils/canonicalUrls';
 
 interface SchemaProps {
   currentDate: string;
@@ -13,6 +14,8 @@ interface SchemaProps {
 }
 
 const EasySchema: React.FC<SchemaProps> = ({ currentDate, banks }) => {
+  const canonicalUrl = getCanonicalUrl("easy");
+  
   // Ana sayfa şema verisi
   const pageSchema = {
     "@context": "https://schema.org",
@@ -20,7 +23,7 @@ const EasySchema: React.FC<SchemaProps> = ({ currentDate, banks }) => {
     "name": `En Kolay Kredi Veren Bankalar ${currentDate}`,
     "description": `${currentDate} ayına özel en kolay ve en hızlı kredi veren bankaların güncel faiz oranları ve başvuru koşulları. Minimum evrak ve hızlı onay ile kredi fırsatları!`,
     "category": "LOAN",
-    "url": "https://faizsizkrediverenbankalar.com/en-kolay-kredi",
+    "url": canonicalUrl,
     "provider": {
       "@type": "Organization",
       "name": "Faizsiz Kredi Veren Bankalar",
