@@ -21,7 +21,7 @@ const PromotionIndex = () => {
         title={title}
         description={description}
         keywords={keywords}
-        pageSlug="promosyonlu-kredi"
+        pageSlug="promosyonlu-krediler"
         pageType="other"
         canonicalUrl={canonicalUrl}
       />

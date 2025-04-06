@@ -4,7 +4,6 @@ import BankCard from "../BankCard";
 import FilterTabs from "../FilterTabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BankRatesTable from "../bank/BankRatesTable";
-import { PageMeta } from "@/utils/seoUtils";
 
 interface FilterContentProps {
   title: string;
@@ -31,18 +30,6 @@ const FilterContent = ({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageMeta
-        title={title}
-        description={description}
-        keywords=""
-        pageSlug=""
-        pageType="other"
-        author={author}
-        publishDate={createdAt}
-        modifiedDate={updatedAt}
-        imageUrl="https://faizsizkrediverenbankalar.com/images/kredi-karti.jpg"
-      />
-
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         <p className="text-gray-600 mb-8">{description}</p>

@@ -46,16 +46,13 @@ export const PageMeta: React.FC<PageMetaProps> = ({
 }) => {
   // Use provided canonicalUrl if available, otherwise generate from pageSlug
   const finalCanonicalUrl = canonicalUrl || generateCanonicalUrl(pageSlug);
-  const homepageUrl = DOMAIN;
   
   return (
-    <Helmet key={`page-meta-${pageSlug}`}>
+    <Helmet key={`page-meta-${pageSlug || "home"}`}>
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={finalCanonicalUrl} />
-      {/* Always include home page reference for SEO */}
-      <link rel="home" href={homepageUrl} />
       
       {/* Author and dates */}
       {author && <meta name="author" content={author} />}
@@ -80,11 +77,6 @@ export const PageMeta: React.FC<PageMetaProps> = ({
       
       {/* Locale */}
       <meta property="og:locale" content="tr_TR" />
-      
-      {/* Additional SEO meta tags */}
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     </Helmet>
   );
 };

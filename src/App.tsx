@@ -23,8 +23,8 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
         <TooltipProvider>
           <Router>
             <div className="min-h-screen flex flex-col bg-gray-50">
@@ -40,8 +40,8 @@ const App = () => {
             <Sonner />
           </Router>
         </TooltipProvider>
-      </QueryClientProvider>
-    </HelmetProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
   );
 };
 

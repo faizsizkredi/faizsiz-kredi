@@ -15,12 +15,11 @@ const SEO = ({ title, description, canonicalUrl, keywords }: SEOProps) => {
     : `${domain}${canonicalUrl.startsWith("/") ? canonicalUrl : `/${canonicalUrl}`}`;
   
   return (
-    <Helmet>
+    <Helmet key={`seo-${canonicalUrl}`}>
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={fullCanonicalUrl} />
-      <link rel="home" href={domain} />
     </Helmet>
   );
 };
