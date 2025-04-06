@@ -1,10 +1,10 @@
+
 import { ReactNode } from "react";
-import { Helmet } from "react-helmet";
 import BankCard from "../BankCard";
 import FilterTabs from "../FilterTabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BankRatesTable from "../bank/BankRatesTable";
-import { Card } from "../ui/card";
+import { PageMeta } from "@/utils/seoUtils";
 
 interface FilterContentProps {
   title: string;
@@ -31,18 +31,17 @@ const FilterContent = ({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="author" content={author} />
-        <meta property="article:published_time" content={createdAt} />
-        <meta property="article:modified_time" content={updatedAt} />
-        
-        {/* Hidden images for Google SEO */}
-        <meta property="og:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
-        <meta property="og:image:alt" content="Kredi Kartı" />
-        <meta name="twitter:image" content="https://yourwebsite.com/images/kredi-karti.jpg" />
-      </Helmet>
+      <PageMeta
+        title={title}
+        description={description}
+        keywords=""
+        pageSlug=""
+        pageType="other"
+        author={author}
+        publishDate={createdAt}
+        modifiedDate={updatedAt}
+        imageUrl="https://faizsizkrediverenbankalar.com/images/kredi-karti.jpg"
+      />
 
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-4">{title}</h1>

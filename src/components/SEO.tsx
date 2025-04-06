@@ -1,5 +1,5 @@
 
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title: string;
@@ -10,7 +10,9 @@ interface SEOProps {
 
 const SEO = ({ title, description, canonicalUrl, keywords }: SEOProps) => {
   const domain = "https://faizsizkrediverenbankalar.com";
-  const fullCanonicalUrl = `${domain}${canonicalUrl}`;
+  const fullCanonicalUrl = canonicalUrl.startsWith("http") 
+    ? canonicalUrl 
+    : `${domain}${canonicalUrl.startsWith("/") ? canonicalUrl : `/${canonicalUrl}`}`;
   
   return (
     <Helmet>

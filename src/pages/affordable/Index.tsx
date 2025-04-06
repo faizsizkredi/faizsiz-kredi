@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Bank } from "@/types/bank";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
 import { PageMeta } from "@/utils/seoUtils";
+import { getCanonicalUrl } from "@/utils/canonicalUrls";
 
 const AFFORDABLE_BANKS: Bank[] = [
   {
@@ -100,6 +101,7 @@ const AffordableIndex = () => {
   const title = `En Uygun Kredi Veren Bankalar ${currentDate}`;
   const description = `${currentDate} ayına özel en uygun faiz oranlarıyla kredi veren bankaların güncel faiz oranları ve başvuru koşulları. En düşük faizli kredi fırsatları!`;
   const keywords = "uygun kredi, düşük faizli kredi, ekonomik kredi, uygun faiz oranları, kredi karşılaştırma";
+  const canonicalUrl = getCanonicalUrl("affordable");
 
   return (
     <>
@@ -109,6 +111,7 @@ const AffordableIndex = () => {
         keywords={keywords}
         pageSlug="en-uygun-kredi"
         pageType="other"
+        canonicalUrl={canonicalUrl}
       />
       <FilterContent
         title={`En Uygun Kredi Veren Bankalar ${currentDate}`}

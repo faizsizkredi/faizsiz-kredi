@@ -1,4 +1,6 @@
 
+const BASE_URL = "https://faizsizkrediverenbankalar.com";
+
 /**
  * Generates bank page URLs for a given bank and amounts
  */
@@ -18,33 +20,31 @@ export const getBankPageUrls = (bankName: string, amounts: string[]) => {
  * Gets canonical URL for all page types
  */
 export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
-  const baseUrl = "https://faizsizkrediverenbankalar.com";
-  
   switch (pageType) {
     case "home":
-      return baseUrl;
+      return BASE_URL;
     case "bank":
-      return `${baseUrl}/${pageSlug || ''}`;
+      return `${BASE_URL}/${pageSlug || ''}`;
     case "loan":
-      return `${baseUrl}/${pageSlug || 'kredi'}`;
+      return `${BASE_URL}/${pageSlug || 'kredi'}`;
     case "retired":
-      return `${baseUrl}/emekliye-kredi`;
+      return `${BASE_URL}/emekliye-faizsiz-kredi`;
     case "easy":
-      return `${baseUrl}/en-kolay-kredi`;
+      return `${BASE_URL}/en-kolay-kredi`;
     case "affordable":
-      return `${baseUrl}/en-uygun-kredi`;
+      return `${BASE_URL}/en-uygun-kredi`;
     case "risky":
-      return `${baseUrl}/riskli-musteriye-kredi`;
+      return `${BASE_URL}/riskli-musteriye-kredi`;
     case "zero-interest":
-      return `${baseUrl}/faizsiz-kredi`;
+      return `${BASE_URL}/sifir-faizli-kredi`;
     case "new-customer":
-      return `${baseUrl}/yeni-musteriye-kredi`;
+      return `${BASE_URL}/yeni-musteriye-kredi`;
     case "promotion":
-      return `${baseUrl}/kredi-promosyonlari`;
+      return `${BASE_URL}/promosyonlu-krediler`;
     case "blog":
-      return `${baseUrl}/blog/${pageSlug || ''}`;
+      return `${BASE_URL}/blog/${pageSlug || ''}`;
     default:
-      return pageSlug ? `${baseUrl}/${pageSlug}` : baseUrl;
+      return pageSlug ? `${BASE_URL}/${pageSlug}` : BASE_URL;
   }
 };
 
@@ -53,9 +53,8 @@ export const getCanonicalUrl = (pageType: string, pageSlug?: string) => {
  * This function is used by components to ensure consistent SEO structure across the site
  */
 export const getPageUrls = (pageSlug: string, pageType: string) => {
-  const baseUrl = "https://faizsizkrediverenbankalar.com";
   const canonical = getCanonicalUrl(pageType, pageSlug);
-  const homepage = baseUrl;
+  const homepage = BASE_URL;
   
   return {
     canonical,

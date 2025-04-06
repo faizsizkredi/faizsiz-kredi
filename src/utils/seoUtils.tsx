@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 interface PageMetaProps {
   title: string;
@@ -49,7 +49,7 @@ export const PageMeta: React.FC<PageMetaProps> = ({
   const homepageUrl = DOMAIN;
   
   return (
-    <Helmet>
+    <Helmet key={`page-meta-${pageSlug}`}>
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
