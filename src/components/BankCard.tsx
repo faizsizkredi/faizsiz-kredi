@@ -1,14 +1,8 @@
-
 import { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import BankCardHeader from "./bank/BankCardHeader";
 import BankCardStats from "./bank/BankCardStats";
 import BankCardDetails from "./bank/BankCardDetails";
-import BankCardSchema from "./bank/BankCardSchema";
-import BankCardBadge from "./bank/BankCardBadge";
-import BankCardBackground from "./bank/BankCardBackground";
-import BankCardTrustIndicators from "./bank/BankCardTrustIndicators";
-import BankCardOverlay from "./bank/BankCardOverlay";
 
 interface BankCardProps {
   name: string;
@@ -43,81 +37,132 @@ const BankCard = ({
   applicationCount = "1000",
   trustBadges,
 }: BankCardProps) => {
+  // Calculate dynamic dates for price validity
+  const futureDate = new Date();
+  futureDate.setMonth(futureDate.getMonth() + 3);
+  
+  // Convert applicationCount to number for reviewCount
+  const reviewCount = parseInt(applicationCount.replace(/[^0-9]/g, ''), 10);
+  
+  // Enhanced JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": `${name} - ${specialOffer}`,
+    "description": `${amount} tutarında, ${term} vadeli, ${interestRate} faiz oranlı kredi fırsatı`,
+    "provider": {
+      "@type": "BankOrCreditUnion",
+      "name": name,
+      "image": {
+        "@type": "ImageObject",
+        "url": `https://faizsizkrediverenbankalar.com/images/banks/${name.toLowerCase()}.png`
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR"
+      }
+    },
+    "interestRate": interestRate,
+    "amount": {
+      "@type": "MonetaryAmount",
+      "currency": "TRY",
+      "value": amount.replace(/[^0-9]/g, '')
+    },
+    "term": term,
+    "dateModified": lastUpdate || new Date().toISOString(),
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": futureDate.toISOString().split('T')[0]
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": userRating.toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "itemReviewed": {
+        "@type": "FinancialProduct",
+        "name": specialOffer,
+        "provider": {
+          "@type": "BankOrCreditUnion",
+          "name": name
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Faizsiz Kredi Rehberi"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": userRating.toString(),
+      "reviewCount": reviewCount,
+      "ratingCount": reviewCount,
+      "bestRating": "5",
+      "worstRating": "1",
+      "itemReviewed": {
+        "@type": "FinancialProduct",
+        "name": specialOffer,
+        "provider": {
+          "@type": "BankOrCreditUnion",
+          "name": name
+        }
+      }
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "targetAudience",
+        "value": targetAudience
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "processingTime",
+        "value": processingTime
+      }
+    ]
+  };
+
   return (
     <>
-      <BankCardSchema
-        name={name}
-        specialOffer={specialOffer}
-        amount={amount}
-        term={term}
-        interestRate={interestRate}
-        lastUpdate={lastUpdate}
-        userRating={userRating}
-        applicationCount={applicationCount}
-        targetAudience={targetAudience}
-        processingTime={processingTime}
-      />
-      
-      <Card className="group relative mb-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-green-50/30 border-2 border-transparent hover:border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:scale-[1.01] hover:rotate-[0.2deg]">
-        <BankCardBackground interestRate={interestRate} />
-        <BankCardBadge />
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+      <Card className="mb-4 transition-all hover:shadow-lg">
+        <CardContent className="p-4 sm:p-6">
+          <article itemScope itemType="https://schema.org/FinancialProduct" className="space-y-4">
+            <BankCardHeader
+              name={name}
+              icon={icon}
+              specialOffer={specialOffer}
+              lastUpdate={lastUpdate}
+              userRating={userRating}
+              trustBadges={trustBadges}
+            />
 
-        <CardContent className="relative p-8 sm:p-10 space-y-8">
-          <article itemScope itemType="https://schema.org/FinancialProduct" className="relative z-10">
-            {/* Enhanced Header with Creative Design */}
-            <div className="relative">
-              <BankCardHeader
-                name={name}
-                icon={icon}
-                specialOffer={specialOffer}
-                lastUpdate={lastUpdate}
-                userRating={userRating}
-                trustBadges={trustBadges}
-              />
-            </div>
+            <BankCardStats
+              interestRate={interestRate}
+              term={term}
+              amount={amount}
+              monthlyPayment={monthlyPayment}
+              processingTime={processingTime}
+              targetAudience={targetAudience}
+              applicationCount={applicationCount}
+            />
 
-            {/* Advanced Key Metrics with Glass Morphism */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-50/80 to-blue-50/60 rounded-3xl backdrop-blur-sm"></div>
-              <div className="relative bg-white/40 backdrop-blur-md rounded-3xl p-6 border border-white/50 shadow-lg">
-                <BankCardStats
-                  interestRate={interestRate}
-                  term={term}
-                  amount={amount}
-                  monthlyPayment={monthlyPayment}
-                  processingTime={processingTime}
-                  targetAudience={targetAudience}
-                  applicationCount={applicationCount}
-                />
-              </div>
-            </div>
-
-            {/* Enhanced Detailed Information */}
-            <div className="space-y-6">
-              <BankCardDetails
-                amount={amount}
-                monthlyPayment={monthlyPayment}
-                interestRate={interestRate}
-                term={term}
-              />
-            </div>
-
-            {/* SEO Enhancement: Structured Content */}
-            <div className="hidden" itemScope itemType="https://schema.org/Offer">
-              <meta itemProp="price" content="0" />
-              <meta itemProp="priceCurrency" content="TRY" />
-              <meta itemProp="availability" content="https://schema.org/InStock" />
-              <div itemProp="seller" itemScope itemType="https://schema.org/BankOrCreditUnion">
-                <meta itemProp="name" content={name} />
-              </div>
-            </div>
-
-            {/* Enhanced Trust Indicators with Animation */}
-            <BankCardTrustIndicators lastUpdate={lastUpdate} />
+            <BankCardDetails
+              amount={amount}
+              monthlyPayment={monthlyPayment}
+              interestRate={interestRate}
+              term={term}
+            />
           </article>
         </CardContent>
-
-        <BankCardOverlay />
       </Card>
     </>
   );
