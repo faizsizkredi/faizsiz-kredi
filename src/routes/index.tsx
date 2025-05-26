@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 import Index from "../pages/Index";
 import Login from "../pages/Login";
@@ -90,6 +91,9 @@ const AppRoutes = () => {
       <Route path="/bank/akbank/25000-tl-faizsiz-kredi" element={<AkbankTwentyFiveThousandLoan />} />
       <Route path="/bank/akbank/50000-tl-faizsiz-kredi" element={<AkbankFiftyThousandLoan />} />
       <Route path="/bank/akbank/100000-tl-faizsiz-kredi" element={<AkbankHundredThousandLoan />} />
+      
+      {/* Türkiye İş Bankası Route - Fixed URL */}
+      <Route path="/bank/turkiye-is-bankasi" element={<BankDetail />} />
       
       {/* Generic Route */}
       <Route path="/bank/:bankSlug/:amount-tl-faizsiz-kredi" element={<BankDetail />} />

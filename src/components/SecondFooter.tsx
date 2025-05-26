@@ -3,9 +3,28 @@ import { Link } from "react-router-dom";
 import { BANK_DATA } from "@/data/bankData";
 
 const SecondFooter = () => {
+  const getBankSlug = (bankName: string) => {
+    return bankName
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/ı/g, 'i')
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c')
+      .replace(/İ/g, 'i')
+      .replace(/Ğ/g, 'g')
+      .replace(/Ü/g, 'u')
+      .replace(/Ş/g, 's')
+      .replace(/Ö/g, 'o')
+      .replace(/Ç/g, 'c')
+      .replace(/[^a-z0-9-]/g, '');
+  };
+
   const banks = BANK_DATA.map(bank => ({
     name: bank.name,
-    path: `/bank/${bank.name.toLowerCase().replace(/\s+/g, '').replace(/[^a-z]/g, '')}`
+    path: `/bank/${getBankSlug(bank.name)}`
   }));
 
   const loanTypes = [
@@ -16,14 +35,14 @@ const SecondFooter = () => {
   ];
 
   const loanAmounts = [
-    { name: "5.000 TL Kredi", path: "/bank/akbank/five-thousand-loan" },
-    { name: "7.500 TL Kredi", path: "/bank/akbank/seven-thousand-five-hundred-loan" },
-    { name: "10.000 TL Kredi", path: "/bank/akbank/ten-thousand-loan" },
-    { name: "15.000 TL Kredi", path: "/bank/akbank/fifteen-thousand-loan" },
-    { name: "20.000 TL Kredi", path: "/bank/akbank/twenty-thousand-loan" },
-    { name: "25.000 TL Kredi", path: "/bank/akbank/twenty-five-thousand-loan" },
-    { name: "50.000 TL Kredi", path: "/bank/akbank/fifty-thousand-loan" },
-    { name: "100.000 TL Kredi", path: "/bank/akbank/hundred-thousand-loan" }
+    { name: "5.000 TL Kredi", path: "/bank/akbank/5000-tl-faizsiz-kredi" },
+    { name: "7.500 TL Kredi", path: "/bank/akbank/7500-tl-faizsiz-kredi" },
+    { name: "10.000 TL Kredi", path: "/bank/akbank/10000-tl-faizsiz-kredi" },
+    { name: "15.000 TL Kredi", path: "/bank/akbank/15000-tl-faizsiz-kredi" },
+    { name: "20.000 TL Kredi", path: "/bank/akbank/20000-tl-faizsiz-kredi" },
+    { name: "25.000 TL Kredi", path: "/bank/akbank/25000-tl-faizsiz-kredi" },
+    { name: "50.000 TL Kredi", path: "/bank/akbank/50000-tl-faizsiz-kredi" },
+    { name: "100.000 TL Kredi", path: "/bank/akbank/100000-tl-faizsiz-kredi" }
   ];
 
   const utilityPages = [
@@ -95,4 +114,3 @@ const SecondFooter = () => {
 };
 
 export default SecondFooter;
-

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ReactNode } from "react";
 import BankCardRating from "./BankCardRating";
@@ -30,7 +31,14 @@ const BankCardHeader = ({
       .replace(/ü/g, 'u')
       .replace(/ş/g, 's')
       .replace(/ö/g, 'o')
-      .replace(/ç/g, 'c');
+      .replace(/ç/g, 'c')
+      .replace(/İ/g, 'i')
+      .replace(/Ğ/g, 'g')
+      .replace(/Ü/g, 'u')
+      .replace(/Ş/g, 's')
+      .replace(/Ö/g, 'o')
+      .replace(/Ç/g, 'c')
+      .replace(/[^a-z0-9-]/g, '');
   };
 
   const IconComponent = icon as React.ComponentType;

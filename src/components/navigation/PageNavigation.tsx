@@ -22,6 +22,8 @@ const PageNavigation = () => {
     "enpara": "Enpara",
     "vakifbank": "VakıfBank",
     "ziraat": "Ziraat Bankası",
+    "turkiye-is-bankasi": "Türkiye İş Bankası",
+    "denizbank": "DenizBank",
     "blog": "Blog",
     "mevduat": "Mevduat",
     "banks": "Banka Listesi",
