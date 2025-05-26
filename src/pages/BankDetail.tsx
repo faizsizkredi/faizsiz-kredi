@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -20,9 +19,28 @@ const BankDetail = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
   
-  const bankName = bankSlug?.split('-').map(word => 
-    word.charAt(0).toUpperCase() + word.slice(1)
-  ).join(' ');
+  // Bank name mapping for proper Turkish character handling
+  const getBankNameFromSlug = (slug: string): string => {
+    const bankNameMap: { [key: string]: string } = {
+      'akbank': 'Akbank',
+      'garanti-bbva': 'Garanti BBVA',
+      'qnb': 'QNB Finansbank',
+      'enpara': 'Enpara.com',
+      'vakifbank': 'VakıfBank',
+      'ziraat-bankasi': 'Ziraat Bankası',
+      'turkiye-is-bankasi': 'Türkiye İş Bankası',
+      'denizbank': 'DenizBank',
+      'on-dijital': 'ON Dijital',
+      'cepteteb': 'CEPTETEB',
+      'albaraka-turk': 'Albaraka Türk'
+    };
+    
+    return bankNameMap[slug] || slug?.split('-').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ') || '';
+  };
+
+  const bankName = getBankNameFromSlug(bankSlug || '');
 
   const currentYear = new Date().getFullYear();
   const createdAt = "2024-01-01";
