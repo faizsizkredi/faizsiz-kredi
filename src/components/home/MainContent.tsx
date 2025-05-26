@@ -1,16 +1,7 @@
-
 import BankRatesTable from "@/components/bank/BankRatesTable";
 import { getCurrentMonthYear } from "@/utils/dateUtils";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
-
 interface MainContentProps {
   currentRates: Array<{
     name: string;
@@ -28,13 +19,13 @@ interface MainContentProps {
     requirements: string;
   }>;
 }
-
-const MainContent = ({ currentRates, extendedRates }: MainContentProps) => {
+const MainContent = ({
+  currentRates,
+  extendedRates
+}: MainContentProps) => {
   const currentDate = getCurrentMonthYear();
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <div className="mt-12 prose max-w-none">
+  return <div className="mt-12 prose max-w-none">
       <h2 id="faiz-oranlari" className="text-3xl font-bold mb-6">Faizsiz Kredi Veren Bankalar ve Güncel Faiz Oranları {currentYear}</h2>
       
       <div className="mb-8">
@@ -63,16 +54,14 @@ const MainContent = ({ currentRates, extendedRates }: MainContentProps) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {extendedRates.map((rate, index) => (
-              <TableRow key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+            {extendedRates.map((rate, index) => <TableRow key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                 <TableCell className="font-medium">{rate.bank}</TableCell>
                 <TableCell>{rate.product}</TableCell>
                 <TableCell>%{rate.rate}</TableCell>
                 <TableCell>{rate.term}</TableCell>
                 <TableCell>{rate.maxAmount}</TableCell>
                 <TableCell>{rate.requirements}</TableCell>
-              </TableRow>
-            ))}
+              </TableRow>)}
           </TableBody>
         </Table>
       </div>
@@ -90,26 +79,8 @@ const MainContent = ({ currentRates, extendedRates }: MainContentProps) => {
         <li className="mb-2"><strong>Çalışma Durumu:</strong> SGK kayıtlı çalışan olmak</li>
       </ul>
 
-      <h3 id="avantajlar" className="text-2xl font-semibold mb-4">Faizsiz Kredi Avantajları</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
-          <h4 className="text-lg font-semibold mb-3">Maliyet Avantajı</h4>
-          <ul className="list-disc pl-6 mb-4 text-gray-700">
-            <li>Faiz ödemesi olmaması</li>
-            <li>Masrafsız kredi kullanım imkanı</li>
-            <li>Düşük KKDF ve BSMV oranları</li>
-          </ul>
-        </div>
-        
-        <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
-          <h4 className="text-lg font-semibold mb-3">Uygulama Kolaylığı</h4>
-          <ul className="list-disc pl-6 mb-4 text-gray-700">
-            <li>Hızlı başvuru ve onay süreci</li>
-            <li>Online başvuru kolaylığı</li>
-            <li>Esnek ödeme seçenekleri</li>
-          </ul>
-        </div>
-      </div>
+      
+      
 
       <h3 id="belgeler" className="text-2xl font-semibold mb-4">Faizsiz Kredi İçin Gerekli Belgeler {currentYear}</h3>
       <p className="text-gray-700 mb-4">
@@ -153,8 +124,6 @@ const MainContent = ({ currentRates, extendedRates }: MainContentProps) => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MainContent;
